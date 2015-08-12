@@ -39,7 +39,7 @@
 				}
 			},
 			{
-				"opciones" :[4,1,5,5],
+				"opciones" :[5,5],
 
 				"variables" : {
 					"title" : "Resolución",
@@ -66,8 +66,8 @@
 				"opciones" :[0],
 
 				"variables" : {
-					"title" : "Grasias",
-					"content" : "Con S"
+					"title" : "Gracias",
+					"content" : ""
 				}
 			}
 

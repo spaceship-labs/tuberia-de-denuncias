@@ -7,6 +7,8 @@
  * # tiposDenuncia
  * Service in the tuberiaPrototypeApp.
  */
+var list;
+
 angular.module('tuberiaPrototypeApp')
   .service('tiposDenuncia', function ($http,$q) {
     
@@ -14,6 +16,7 @@ angular.module('tuberiaPrototypeApp')
         var deferred = $q.defer();
         $http.get('tipos-denuncia.json').then(function(res){
             deferred.resolve(res.data);
+            list = res.data;
         });
         return deferred.promise;
     };
