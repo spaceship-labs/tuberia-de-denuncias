@@ -1,0 +1,21 @@
+<md-sidenav layout-fill class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+	<md-toolbar class="md-theme-indigo">
+		<h1 class="md-toolbar-tools">Historial</h1>
+	</md-toolbar>
+	<md-list>
+      <md-list-item class="md-3-line" ng-repeat="item in acciones">
+        <img ng-src="" class="md-avatar" alt="" />
+        <div class="md-list-item-text">
+          <h3>Hola</h3>
+          <h4>ke</h4>
+          <p>ase</p>
+        </div>
+      	<md-divider ></md-divider>
+      </md-list-item>
+    </md-list>
+</md-sidenav>
+
+<wizard-step 
+  options='tiposDenuncia[tipoDenuncia].estados[currentState].variables' 
+  layout-fill
+></wizard-step>
