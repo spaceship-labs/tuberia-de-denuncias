@@ -3,12 +3,10 @@
 		<h1 class="md-toolbar-tools">Historial</h1>
 	</md-toolbar>
 	<md-list>
-      <md-list-item class="md-3-line" ng-repeat="item in acciones">
-        <img ng-src="" class="md-avatar" alt="" />
+      <md-list-item class="md-3-line" ng-repeat="state in tiposDenuncia.history()">
         <div class="md-list-item-text">
-          <h3>Hola</h3>
-          <h4>ke</h4>
-          <p>ase</p>
+          <h3 ng-bind='state.number'></h3>
+          <h4 ng-bind='state.variables.title'></h4>
         </div>
       	<md-divider ></md-divider>
       </md-list-item>
@@ -16,6 +14,6 @@
 </md-sidenav>
 
 <wizard-step 
-  options='tiposDenuncia[tipoDenuncia].estados[currentState].variables' 
+  options='tiposDenuncia.currentState().variables' 
   layout-fill
 ></wizard-step>

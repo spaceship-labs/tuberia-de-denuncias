@@ -20,11 +20,12 @@ angular.module('tuberiaPrototypeApp')
     };
   });
 
-controller = function($scope){
-	$scope.userChoice = function(key){
-    $scope.$emit('userChoice',key);
-  }
-  $scope.formSubmit = function(method,key){
-    $scope.$emit('userChoice',key); 
-  }
+controller = function($scope,tiposDenuncia){
+	$scope.userChoice = function(option){
+    tiposDenuncia.changeState(option);
+  };
+
+  $scope.formSubmit = function(method,option){
+    tiposDenuncia.changeState(option);
+  };
 };

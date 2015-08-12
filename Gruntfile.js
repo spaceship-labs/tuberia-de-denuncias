@@ -64,7 +64,7 @@ module.exports = function (grunt) {
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
-      }
+      },
     },
 
     // The actual grunt server settings
@@ -400,6 +400,18 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    //BaseHREF
+    processhtml: {
+      options: {
+      //
+      },
+      build: {
+        files: {
+         'dist/index.html':['index.html']
+        }
+      }
     }
   });
 
@@ -443,8 +455,8 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
     'cssmin',
+    'processhtml:build',
     'uglify',
     'filerev',
     'usemin',

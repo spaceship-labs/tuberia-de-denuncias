@@ -10,11 +10,8 @@
 angular.module('tuberiaPrototypeApp')
   .controller('MainCtrl', function ($scope,$mdSidenav,tiposDenuncia) {
 
-  	$scope.toposDenuncia = tiposDenuncia;
-  	tiposDenuncia.getList().then(function(tipos){
-  		$scope.tiposDenuncia = 	tipos;
-  	}); 	
-
+  	$scope.tiposDenuncia = tiposDenuncia;
+  	
   	$scope.acciones = [1,2,3];
 	
 	$scope.toggleSidebar = function() {
