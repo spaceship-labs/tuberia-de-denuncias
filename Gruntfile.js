@@ -330,7 +330,7 @@ module.exports = function (grunt) {
     },
 
     // ng-annotate tries to make the code safe for minification automatically
-    // by using the Angular long form for dependency injection.
+    // by using the Angular long form for dependency iprocesshtmlnjection.
     ngAnnotate: {
       dist: {
         files: [{
@@ -405,12 +405,17 @@ module.exports = function (grunt) {
     //BaseHREF
     processhtml: {
       options: {
-      //
+        commentMarker : "process"
       },
-      build: {
-        files: {
-         'dist/index.html':['index.html']
-        }
+      dist: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= yeoman.dist %>',
+            src: ['index.html', 'index.html'],
+            dest: '<%= yeoman.dist %>'
+          }
+        ]
       }
     }
   });
@@ -447,7 +452,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'wiredep',
+    'wiredep',    
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
@@ -456,9 +461,9 @@ module.exports = function (grunt) {
     'ngAnnotate',
     'copy:dist',
     'cssmin',
-    'processhtml:build',
     'uglify',
     'filerev',
+    'processhtml',
     'usemin',
     'htmlmin'
   ]);
