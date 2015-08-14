@@ -6,26 +6,22 @@
  * @description
  * # wizardStep
  */
-var controller; 
-
 angular.module('tuberiaPrototypeApp')
-  .directive('wizardStep', function () {
+  .directive('wizardStep', function() {
     return {
       templateUrl: 'views/wizard-step.html',
       restrict: 'E',
-      controller: controller,
-      scope : {
-      	options : '='
+      scope: {
+        options: '='
+      },
+      controller: function($scope, tiposDenuncia) {
+        $scope.userChoice = function(option) {
+          tiposDenuncia.changeState(option);
+        };
+
+        $scope.formSubmit = function(method, option) {
+          tiposDenuncia.changeState(option);
+        };
       }
     };
   });
-
-controller = function($scope,tiposDenuncia){
-	$scope.userChoice = function(option){
-    tiposDenuncia.changeState(option);
-  };
-
-  $scope.formSubmit = function(method,option){
-    tiposDenuncia.changeState(option);
-  };
-};

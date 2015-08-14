@@ -17,7 +17,7 @@
 				"variables" : {
 					"title" : "Realizar tu reporte en la línea de atención telefónica",
 					"content" : "Debes llamar al 01 800 222 2676, en horario de 8 am a 8:30 pm, y estar listo para proporcionar por lo menos los siguientes datos, además de otros que el asesor te pueda pedir:",
-					"actions" : ["se comunicó","no se comunicó ","resuelto","no continuar"]	
+					"actions" : ["se comunicó","no se comunicó ","resuelto","no continuar"]
 				}
 			},
 			{
@@ -26,7 +26,7 @@
 				"variables" : {
 					"title" : "Canalización al seguimiento especializado",
 					"content" : "El área especializada de la Secretaría de Educación al que haya sido canalizada tu caso debe comunicarse contigo vía correo electrónico. Cuando lo hagan, deben informarte  sobre el número de teléfono de esa área, al cual podrás llamar para aportar nueva información  o dar seguimiento a tu caso.",
-					"actions" : ["se comunicó","no se comunicó ","resuelto","no continuar"]	
+					"actions" : ["se comunicó","no se comunicó ","resuelto","no continuar"]
 				}
 			},
 			{
@@ -35,7 +35,7 @@
 				"variables" : {
 					"title" : "Atención especializada",
 					"content" : "El área especializada de seguimiento debe realizar una investigación y valoración de tu caso. A partir de ella, se determinarán medidas correctivas para lidar con el caso de acoso  escolar. Estas medidas pueden ser charlas, firmar compromisos para corregir conductas, o  aplicar sanciones.",
-					"actions" : ["se comunicó","no se comunicó ","resuelto","no continuar"]	
+					"actions" : ["se comunicó","no se comunicó ","resuelto","no continuar"]
 				}
 			},
 			{
@@ -44,7 +44,7 @@
 				"variables" : {
 					"title" : "Resolución",
 					"content" : "El área especializada debe llevar a cabo las medidas correctivas propuestas para lidar con el caso.",
-					"actions" : ["si","no continuar"]	
+					"actions" : ["si","no continuar"]
 				}
 			},
 			{

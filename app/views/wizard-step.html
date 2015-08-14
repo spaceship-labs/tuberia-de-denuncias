@@ -1,20 +1,17 @@
 <md-content class='md-padding'>
-	<md-card>
+  <md-card>
     <md-card-content>
       <h2 class="md-title" ng-bind='options.title'></h2>
       <p ng-bind='options.content'></p>
-
       <md-input-container ng-repeat='field in options.form.fields'>
         <label ng-bind='field.label'></label>
-        <input type='text' ng-if='field.type == "text"'/>
+        <input type='text' ng-if='field.type == "text"' />
         <textarea ng-if='field.type == "textarea"'></textarea>
       </md-input-container>
-
     </md-card-content>
     <div class="md-actions" layout="row" layout-align="end center">
       <md-button ng-if='options.actions' ng-repeat='(key,action) in options.actions' ng-click='userChoice(key)' ng-bind='action' aria-label='action'></md-button>
       <md-button ng-if='options.form' ng-click='formSubmit(options.form.method,0)' aria-label='enviar'>Enviar</md-button>
     </div>
   </md-card>
-
 </md-content>
