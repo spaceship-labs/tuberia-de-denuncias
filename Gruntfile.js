@@ -243,7 +243,7 @@ module.exports = function(grunt) {
         assetsDirs: [
           '<%= yeoman.dist %>',
           '<%= yeoman.dist %>/images',
-          '<%= yeoman.dist %>/styles'
+          '<%= yeoman.dist %>/styles',
         ],
         patterns: {
           js: [
@@ -364,6 +364,7 @@ module.exports = function(grunt) {
             '.htaccess',
             '*.html',
             '*.json',
+            'content/*.md',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
