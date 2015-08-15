@@ -16,10 +16,11 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMaterial'
+    'ngMaterial',
+    'btford.markdown'
   ])
   .config(function ($routeProvider,$locationProvider) {
-    
+
     $locationProvider.html5Mode(true);
 
     $routeProvider

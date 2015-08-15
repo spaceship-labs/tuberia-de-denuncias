@@ -1,8 +1,7 @@
 <md-content class='md-padding'>
   <md-card>
     <md-card-content>
-      <h2 class="md-title" ng-bind='options.title'></h2>
-      <p ng-bind='options.content'></p>
+      <btf-markdown ng-include='"content/"+options.content' ></btf-markdown>
       <md-input-container ng-repeat='field in options.form.fields'>
         <label ng-bind='field.label'></label>
         <input type='text' ng-if='field.type == "text"' />
