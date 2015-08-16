@@ -7,18 +7,19 @@
  * # tiposDenuncia
  * Service in the tuberiaPrototypeApp.
  */
-var list;
+var list = [];
 var stateHistory = [];
 var state = 0;
 var dType = 0;
 
 angular.module('tuberiaPrototypeApp')
-  .service('tiposDenuncia', function() {
+  .service('tiposDenuncia', function($http) {
 
     this.getList = function() {
-      list = window._tiposDenuncia_;
-      registerHistory();
-      return list;
+      $http.get('tipos-denuncia.json').then(function(res) {
+        list = res.data;
+        registerHistory();
+      });
     };
 
     this.changeState = function(option) {
@@ -27,7 +28,7 @@ angular.module('tuberiaPrototypeApp')
     };
 
     this.currentState = function() {
-      return list[dType].estados[state];
+      return list.length ? list[dType].estados[state] : false;
     };
 
     this.history = function() {
