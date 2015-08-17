@@ -13,13 +13,16 @@ var state = 0;
 var dType = 0;
 
 angular.module('tuberiaPrototypeApp')
-  .service('tiposDenuncia', function($http) {
+  .service('tiposDenuncia', function($http, $q) {
 
     this.getList = function() {
+      var deferred = $q.defer();
       $http.get('tipos-denuncia.json').then(function(res) {
         list = res.data;
         registerHistory();
+        deferred.resolve(list);
       });
+      return deferred.promise;
     };
 
     this.changeState = function(option) {

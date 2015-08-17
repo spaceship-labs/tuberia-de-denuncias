@@ -18,16 +18,22 @@ module.exports = function(config) {
     frameworks: [
       "mocha",
       "chai",
+      "fixture"
     ],
 
     // Code coverage report
     reporters: ['progress', 'coverage'],
     preprocessors: {
-      'app/scripts/**/*.js': ['coverage']
+      'app/scripts/**/*.js': ['coverage'],
+       '**/*.json'   : ['json_fixtures']
     },
     coverageReporter: {
       type: 'lcov',
       dir: 'coverage'
+    },
+    //Fixtures
+    jsonFixturesPreprocessor: {
+      variableName: '__json__'
     },
 
     // list of files / patterns to load in the browser
@@ -47,7 +53,8 @@ module.exports = function(config) {
       // endbower
       "app/scripts/**/*.js",
       "test/mock/**/*.js",
-      "test/spec/**/*.js"
+      "test/spec/**/*.js",
+      "test/fixtures/**/*.json"
     ],
 
     // list of files / patterns to exclude
@@ -74,7 +81,9 @@ module.exports = function(config) {
       "karma-phantomjs-launcher",
       'karma-mocha',
       'karma-chai',
-      'karma-coverage'
+      'karma-coverage',
+      'karma-fixture',
+      'karma-json-fixtures-preprocessor'
     ],
 
     // Continuous Integration mode
