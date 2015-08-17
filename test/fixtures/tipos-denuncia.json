@@ -1,85 +1,238 @@
-[
-  {
-    "handle": "bullying",
-    "titulo": "Acoso escolar (bullying)",
-    "estados": [{
-        "opciones": [1, 0, 5, 5],
-        "variables": {
+{
+  "sys": {
+    "type": "Array"
+  },
+  "total": 2,
+  "skip": 0,
+  "limit": 100,
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "zji58geajpv6"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "1CQ8zB04qAuISUQwSEWUmA"
+          }
+        },
+        "id": "2X9XDrSUJay04OSM2KMKqQ",
+        "revision": 1,
+        "createdAt": "2015-08-17T18:16:19.780Z",
+        "updatedAt": "2015-08-17T18:16:19.780Z",
+        "locale": "es-MX"
+      },
+      "fields": {
+        "slug": "acoso-df",
+        "title": "Acoso escolar",
+        "states": [
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4JFIJAlkcgWYkW4SQAwuo2"
+            }
+          },
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "221C74mCmwW4o2668AmC0k"
+            }
+          }
+        ],
+        "machine": [
+          [
+            2,
+            1,
+            6,
+            6
+          ],
+          [
+            3,
+            1,
+            6,
+            6
+          ],
+          [
+            4,
+            2,
+            6,
+            6
+          ],
+          [
+            5,
+            2,
+            6,
+            6
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "fields": {
+        "slug": "acoso-iztapalapa",
+        "title": "Acoso escolar Iztapalapa",
+        "states": [
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4JFIJAlkcgWYkW4SQAwuo2"
+            }
+          },
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "221C74mCmwW4o2668AmC0k"
+            }
+          }
+        ],
+        "machine": [
+          [
+            2,
+            1,
+            6,
+            6
+          ],
+          [
+            3,
+            1,
+            6,
+            6
+          ],
+          [
+            4,
+            2,
+            6,
+            6
+          ],
+          [
+            5,
+            2,
+            6,
+            6
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7
+          ]
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "zji58geajpv6"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "1CQ8zB04qAuISUQwSEWUmA"
+          }
+        },
+        "id": "QkLB331rwaoge2CKsiqGO",
+        "revision": 1,
+        "createdAt": "2015-08-17T18:35:06.385Z",
+        "updatedAt": "2015-08-17T18:35:06.385Z",
+        "locale": "es-MX"
+      }
+    }
+  ],
+  "includes": {
+    "Entry": [
+      {
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "zji58geajpv6"
+            }
+          },
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "WnEaEO4oScgCISqywyuOs"
+            }
+          },
+          "id": "4JFIJAlkcgWYkW4SQAwuo2",
+          "revision": 2,
+          "createdAt": "2015-08-17T18:12:45.802Z",
+          "updatedAt": "2015-08-17T19:13:14.823Z",
+          "locale": "es-MX"
+        },
+        "fields": {
+          "slug": "director",
           "title": "Acercarte con el director",
-          "content": "acercate-con-el-director.md",
-          "actions": ["Sí, ya lo hice", "No, no lo he hecho", "Ya se ha resuelto la situación", "He decidido no continuar con el reporte"]
+          "content": "## Acercarte con el director\n\nLa primera acción en un caso de acoso escolar o bullying siempre debe ser acercarte con el director del plantel. Él o ella es quien mejor conoce la escuela, a los maestros y alumnos, y quien podrá darle una solución más rápida al problema. \n\nSi ya te has acercado con el director, dialogado con él, pero aun así no se ha solucionado la situación de acoso escolar o bullying, entonces debes proceder a levantar un reporte o denuncia.\n\n**Plazo:** El director debe buscar una solución a la situación en los siguientes ??? después de que te hayas reunido con él o ella.",
+          "options": [
+            "Sí, ya lo hice",
+            "No, no lo he hecho",
+            "Ya se ha resuelto la situación",
+            "He decidido no continuar con el reporte"
+          ]
         }
       },
-
       {
-        "opciones": [2, 0, 5, 5],
-        "variables": {
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "zji58geajpv6"
+            }
+          },
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "WnEaEO4oScgCISqywyuOs"
+            }
+          },
+          "id": "221C74mCmwW4o2668AmC0k",
+          "revision": 2,
+          "createdAt": "2015-08-17T18:14:47.919Z",
+          "updatedAt": "2015-08-17T19:13:30.172Z",
+          "locale": "es-MX"
+        },
+        "fields": {
+          "slug": "telefono-df-acoso-entre-alumnos",
           "title": "Realizar tu reporte en la línea de atención telefónica",
-          "content": "realizar-reporte-telefonico.md",
-          "actions": ["se comunicó", "no se comunicó ", "resuelto", "no continuar"]
+          "content": "## Realizar tu reporte en la línea de atención telefónica\n\nDebes llamar al 01 800 222 2676, en horario de 8 am a 8:30 pm, y estar listo para proporcionar por lo menos los siguientes datos, además de otros que el asesor te pueda pedir:\n\n- Nombre del padre o tutor del menor\n- Teléfono de contacto\n- Clave de centro de trabajo de la escuela\n- Nombre, grupo, grado y turno del alumno agredido\n- Nombre, apodo, grupo, grado y turno del alumno agresor\n- Tiempo, lugar y forma en la que ha sucedido el acoso\n\nCon estos datos los asesores generan el reporte y te deben proporcionar un **número de folio**. Con este número, tú podrás dar seguimiento a tu denuncia más adelante.\n\n**Plazo:** Tu denuncia debe ser ingresada y tu debes recibir tu número de folio inmediatamente al momento de llamar.",
+          "options": [
+            "Ya realicé mi denuncia y se me informó mi número de folio",
+            "No pude realizar mi denuncia",
+            "Ya se ha resuelto la situación",
+            "He decidido no continuar con el reporte"
+          ]
         }
-      }, {
-        "opciones": [3, 1, 5, 5],
-
-        "variables": {
-          "title": "Canalización al seguimiento especializado",
-          "content": "canalizacion.md",
-          "actions": ["se comunicó", "no se comunicó ", "resuelto", "no continuar"]
-        }
-      }, {
-        "opciones": [4, 1, 5, 5],
-
-        "variables": {
-          "title": "Atención especializada",
-          "content": "atencion-especializada.md",
-          "actions": ["se comunicó", "no se comunicó ", "resuelto", "no continuar"]
-        }
-      }, {
-        "opciones": [5, 5],
-
-        "variables": {
-          "title": "Resolución",
-          "content": "resolucion.md",
-          "actions": ["si", "no continuar"]
-        }
-      }, {
-        "opciones": [6],
-
-        "variables": {
-          "title": "Encuesta de salida",
-          "content": "encuesta-salida.md",
-          "form": {
-            "method": "/api/encuesta",
-            "fields": [{
-              "label": "nombre",
-              "handle": "name",
-              "type": "text"
-            }, {
-              "label": "comentario",
-              "handle": "comment",
-              "type": "textarea"
-            }]
-          }
-        }
-      }, {
-        "opciones": [0],
-
-        "variables": {
-          "title": "Gracias",
-          "content": ""
-        }
-      }
-
-
-    ]
-  },
-  {
-    "handle": "inscripcion",
-    "titulo": "Inscripción",
-    "estados": [
-      {
-        "paso": "director"
       }
     ]
   }
-]
+}

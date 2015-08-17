@@ -13,12 +13,12 @@ var state = 0;
 var dType = 0;
 
 angular.module('tuberiaPrototypeApp')
-  .service('tiposDenuncia', function($http, $q) {
+  .service('tiposDenuncia', function($http, $q, contentful) {
 
     this.getList = function() {
       var deferred = $q.defer();
-      $http.get('tipos-denuncia.json').then(function(res) {
-        list = res.data;
+      contentful.entries('content_type=1CQ8zB04qAuISUQwSEWUmA').then(function(res){
+        list = res.data.items;
         registerHistory();
         deferred.resolve(list);
       });
@@ -26,20 +26,24 @@ angular.module('tuberiaPrototypeApp')
     };
 
     this.changeState = function(option) {
-      state = list[dType].estados[state].opciones[option];
+      state = list[dType].fields.machine[state][option]-1;
       registerHistory();
     };
 
     this.currentState = function() {
-      return list.length ? list[dType].estados[state] : false;
+      return list.length ? list[dType].fields.states[state].fields : false;
     };
 
     this.history = function() {
       return stateHistory;
     };
 
+    this.list = function() {
+      return list;
+    };
+
     var registerHistory = function() {
-      stateHistory.push(angular.copy(list[dType].estados[state]));
+      stateHistory.push(angular.copy(list[dType].fields.states[state].fields));
       stateHistory[stateHistory.length - 1].number = stateHistory.length;
     };
 

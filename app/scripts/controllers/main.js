@@ -12,12 +12,5 @@ angular.module('tuberiaPrototypeApp')
 
     $scope.tiposDenuncia = tiposDenuncia;
 
-    $scope.toggleSidebar = function() {
-      $mdSidenav('left').open();
-    };
-
-    $scope.closeSidebar = function() {
-      $mdSidenav('left').close();
-    };
 
   });

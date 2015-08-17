@@ -1,19 +1,14 @@
-<md-sidenav layout-fill class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-	<md-toolbar class="md-theme-indigo">
-		<h1 class="md-toolbar-tools">Historial</h1>
-	</md-toolbar>
-	<md-list>
-      <md-list-item class="md-3-line" ng-repeat="state in tiposDenuncia.history()">
-        <div class="md-list-item-text">
-          <h3 ng-bind='state.number'></h3>
-          <h4 ng-bind='state.variables.title'></h4>
-        </div>
-      	<md-divider ></md-divider>
-      </md-list-item>
-    </md-list>
-</md-sidenav>
-
-<wizard-step 
-  options='tiposDenuncia.currentState().variables' 
-  layout-fill
-></wizard-step>
+<md-content class='md-padding'>
+  <h2>Tuberia de denuncias</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a sem leo. Phasellus lobortis sem nec vestibulum blandit. Proin porttitor varius sagittis. Nam venenatis eu eros quis bibendum.</p>
+  <p>Cras semper elementum maximus. Nam venenatis pulvinar dui, elementum pretium odio. Vestibulum sodales gravida mauris a accumsan. Aenean fin.</p>
+  <md-input-container>
+    <label>Tipo de denuncia</label>
+    <md-select ng-model="denunciaType" aria-label='tipo de denuncia'>
+      <md-option ng-repeat="type in tiposDenuncia.list()" value="{{type.fields.slug}}">{{type.fields.title}}</md-option>
+    </md-select>
+  </md-input-container>
+  <div class="md-actions" layout="row" layout-align="end center">
+    <md-button ng-if='denunciaType' ng-href='caso/{{denunciaType}}' aria-label='enviar'>Crear denuncia</md-button>
+  </div>
+</md-content>
