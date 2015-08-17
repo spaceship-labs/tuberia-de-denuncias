@@ -34,7 +34,7 @@ describe('Service: tiposDenuncia', function() {
 
     it('should load tipos-denuncia', function(done) {
       this.tiposJSON = fixture.load('tipos-denuncia.json');
-      $httpBackend.expectGET('https://cdn.contentful.com:443/spaces/zji58geajpv6/entries?access_token=9117c7fd6ba20257f93f05aeb7fff17f2b0a4a58f8a00f7afe8af0569a55debe&content_type=1CQ8zB04qAuISUQwSEWUmA')
+      $httpBackend.expectGET('https://cdn.contentful.com:443/spaces/msnkbvgxrvah/entries?access_token=c3e13974fb72003886ab1f9151a883721f523e16f8143d95e92313ff1dd2c66e&content_type=1CQ8zB04qAuISUQwSEWUmA')
         .respond(this.tiposJSON);
       $httpBackend.flush();
       done();
