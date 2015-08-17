@@ -39,7 +39,7 @@ angular
   })
   .config(function(contentfulProvider) {
     contentfulProvider.setOptions({
-      space: 'zji58geajpv6',
-      accessToken: '9117c7fd6ba20257f93f05aeb7fff17f2b0a4a58f8a00f7afe8af0569a55debe'
+      space: 'msnkbvgxrvah',
+      accessToken: 'c3e13974fb72003886ab1f9151a883721f523e16f8143d95e92313ff1dd2c66e'
     });
   });
