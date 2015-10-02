@@ -1,0 +1,352 @@
+/*
+Theme Name: Tuberia-de-denuncias
+Theme URI: http://Tuberia-de-denuncias.com/
+Author: Tuberia-de-denuncias
+Author URI: http://tuberia-de-denuncias.com/
+Description: Plantilla para Tuberia-de-denuncias
+Version: 1.0
+Text Domain: Tuberia-de-denuncias
+*/
+
+html{min-width: 320px;}
+.ng-cloak{display: none!important;}
+body{font-family: 'Roboto',sans-serif;}
+a{text-decoration:none;}
+strong{font-weight: 700}
+a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
+.clear{clear: both}
+.nopadding{padding: 0!important}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+*:focus{
+    outline:0; /*removes the dotted border*/
+}
+
+.absolute-link{
+  height: 100%;
+  left: 0;
+  position: absolute !important;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.transition-all{
+  -webkit-transition: all .4s;
+  -moz-transition: all .4s;
+  -o-transition: all .4s;
+  -ms-transition: all .4s;
+  transition: all .4s;
+}
+
+/*---------------/
+  #CONTAINERS
+/*---------------*/
+.container{
+  padding: 40px 20px;
+  position: relative;
+}
+.container-no-padding{padding: 0;}
+
+.container h1,
+.container h2,
+.container h3,
+.container h4,
+.container p{
+  /*color:#666666;*/
+  margin: 0;
+}
+
+.container-xxlg{
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.container-xlg{
+  margin: 0 auto;
+  max-width: 1000px;
+}
+.container-lg{
+  margin: 0 auto;
+  max-width: 766px;
+}
+.container-md{
+  margin: 0 auto;
+  max-width: 670px;
+}
+.container-smd{
+  margin: 0 auto;
+  max-width: 560px;
+}
+.container-sm{
+  margin: 0 auto;
+  max-width: 460px;
+}
+.container-xsm{
+  margin: 0 auto;
+  max-width: 320px;
+}
+.container-mini{
+  margin: 0 auto;
+  max-width: 264px;
+}
+
+.center-content{
+  text-align: center
+}
+
+.container-alt{
+  background: #3E3E3E;
+  color: #fff;
+}
+
+.container-alt-2{
+  background: #FAFAFA;
+}
+
+.container-normal{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/*-------------/
+  #ACTION-BTN
+/*------------*/
+
+.action.btn-wrap{
+  padding-top: 10px;
+}
+.action-btn-wrap{
+  margin-top: 20px;
+}
+
+.action-btn-wrap-center{
+  margin: 20px auto 0;
+}
+
+.action-btn{
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 30px;
+  text-align: center;
+  font-weight: 500;
+  -webkit-transition: all .4s;
+  -moz-transition: all .4s;
+  -o-transition: all .4s;
+  -ms-transition: all .4s;
+  transition: all .4s;
+}
+
+.action-btn:hover{
+  background:  #fff;
+  color: #666666;
+}
+
+.action-btn-alt{
+  border: 1px solid #00CBD6;
+  color: #00CBD6;
+}
+.action-btn-alt:hover{
+  background:  #00CBD6;
+  color: #fff;
+}
+
+/*--------------/
+  #HEADER
+/*-------------*/
+.toolbar-head{
+  background: #fff;
+  min-height: 72px;
+}
+.toolbar-head .logo{
+  color: #14B782;
+  font-size: 24px;
+  font-weight: 300;
+}
+.toolbar-head nav{
+  min-height: 80px;
+}
+.toolbar-head nav > ul{margin: 0;}
+.toolbar-head nav > ul > li{
+  display: inline-block;
+  margin: 0;
+  color: #14B782;
+  font-size: 16px;
+  padding: 10px;
+}
+.toolbar-head nav > ul > li span{
+  margin-top: 10px;
+  display: block;
+}
+.toolbar-head .conoce-item span{
+  color: #EA078A;
+}
+.toolbar-head .reporta-item span{
+  color: #F6911B;
+}
+.toolbar-head .sigue-item span{
+  color: #14ABE4;
+}
+.toolbar-head .califica-item span{
+  color: #4AB67A;
+}
+.toolbar-head .menu-item{
+  overflow: hidden;
+  position: relative;
+  min-height: 80px;
+  text-align: center;
+  padding-top: 25px;
+}
+.toolbar-head .menu-item span{
+  position: relative;
+  z-index: 2;
+  font-weight: 700;
+}
+.toolbar-head .menu-item:before{
+  content:'';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: #EA078A;
+  -webkit-transform: translateY(-85%);
+  -moz-transform: translateY(-85%);
+  transform: translateY(-85%);
+  -webkit-transition: all .4s;
+  -moz-transition: all .4s;
+  -o-transition: all .4s;
+  -ms-transition: all .4s;
+  transition: all .4s;
+}
+
+.toolbar-head .conoce-item:before{background:#EA078A}
+.toolbar-head .reporta-item:before{background:#F6911B}
+.toolbar-head .sigue-item:before{background:#14ABE4}
+.toolbar-head .califica-item:before{background:#4AB67A}
+
+
+
+.toolbar-head .menu-item:hover:before{
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  transform: translateY(0%);
+}
+
+.toolbar-head .menu-item:hover span{color: #fff;}
+.toolbar-head .menu-item .absolute-link{z-index: 9;}
+
+.toolbar-head .login-wrap .action-btn{
+  border:2px solid #14B782;
+  color: #14B782;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 6px;
+}
+.toolbar-head .login-wrap .action-btn:hover{
+  background: #14B782;
+  color: #fff;
+}
+
+/*-----------/
+  #TITLE-SECTION
+/*----------*/
+.title-section{
+  background: #0FA778;
+  color: #fff;
+}
+.title-section h2{
+  font-weight: 100;
+  font-size: 28px;
+}
+
+/*-----------/
+  #ACTION-BAR
+/*----------*/
+.action-bar{background: #14ABE4;}
+.action-bar-inner{color: #fff}
+.action-bar h2{margin-bottom: 20px;}
+.action-bar .action-item{
+  padding: 10px 0 20px;
+}
+.action-bar .action-item + .action-item{ border-top: 3px solid #fff;}
+.action-bar .action-item p{font-size: 14px;}
+.action-bar .action-item-desc{margin-top:12px;}
+.action-bar .action-item .alert{
+  border:  1px solid #fff;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/*-----------/
+  #MAIN-CONTENT
+/*----------*/
+.main-content .intro h1{
+  color: #1BCA93;
+  font-size: 42px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.main-content .intro h3{
+  font-size: 36px;
+  font-weight: 100;
+}
+.main-content .intro p{line-height: 1.4}
+
+
+.school-info{margin: 20px 0;}
+.school-info .school-info-item{
+  border: 2px solid #1BCA93;
+  color: #1BCA93;
+  padding: 14px 20px;
+}
+.school-info .school-info-item + .school-info-item{border-left: 0}
+
+/*-------------/
+  #REPORT-SECTION
+/*------------*/
+.report-section{
+  color: #14ABE4;
+}
+.report-section h4{
+  font-size: 20px;
+  max-width: 90%;
+  margin: 12px auto;
+}
+
+.report-section-btns{margin: 20px 0;}
+.report-section-btns p{margin: 20px 0;}
+.report-section-btns .action-btn{
+  border: 0;
+  background: #14ABE4;
+  margin: 0 4px;
+  font-size: 14px;
+  -webkit-transition: all .4s;
+  -moz-transition: all .4s;
+  -o-transition: all .4s;
+  -ms-transition: all .4s;
+  transition: all .4s;
+}
+.report-section-btns .action-btn:hover{
+  background: #1BCA93;
+  color: #fff;
+}
+
+/*--------------/
+  #FOOTER
+/*-------------*/
+.footer{background: #1E1E1E;}
+.footer .social-icons a{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #17C48E;
+}
+
+.footer .social-icons a:hover{
+  background: #17C48E;
+}

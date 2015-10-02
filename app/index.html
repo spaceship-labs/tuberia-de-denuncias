@@ -18,10 +18,42 @@
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body ng-app="tuberiaPrototypeApp" ng-controller='MainCtrl'>
-  <md-content ng-view layout='row' flex layout-fill></md-content>
+
+  <div id="wrap">
+    <div id="main" class="clearfix">
+      <div id="topBackRepeat" layout='row' flex layout-fill>
+
+        <!--<ng-include src="'views/menu-mobile.html'"></ng-include>-->
+
+        <div layout="column" flex>
+
+          <ng-include src="'views/header.html'"></ng-include>
+          <md-content ng-view ng-cloak autoscroll="true">
+          </md-content>
+
+        </div>
+      </div><!-- END topBackRepeat -->
+    </div><!-- END main -->
+  </div><!-- END wrap -->
+  <div class="clear"></div>
+
+  <!--FOOTER-->
+  <div id="footer" class="footer">
+    <div class="container container-sm center-content">
+      <p class="social-icons">
+        <a class="transition-all" href="#"></a>
+        <a class="transition-all" href="#"></a>
+        <a class="transition-all" href="#"></a>
+      </p>
+    </div>
+  </div>
+  <!--END FOOTER-->
+
   <!-- build:js(.) scripts/vendor.js -->
   <!-- bower:js -->
   <script src="bower_components/angular/angular.js"></script>
