@@ -2,84 +2,35 @@
 
   <div class="title-section container center-content">
     <div class="container-md">
-      <h2>Te proporcionamos los pasos necesarios para resolver tu caso de <span>Bullying</span></h2>
+      <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus labore, deleniti.</h2>
+      <div class="report-select" layout="row" layout-align="center center">
+        <div ng-repeat="type in tiposDenuncia.list()" class="report-select-item">
+          <p><a ng-href="caso/{{type.fields.slug}}"><i class="icon-bullyng"></i></a></p>
+          <p><a ng-href="caso/{{type.fields.slug}}"><strong ng-bind="type.fields.title"></strong></a></p>
+        </div>
+      </div>
+      <!--<div class="report-form">
+        <form action="#">
+          <textarea name="" id=""  rows="6" placeholder="Deja aqui tu denuncia de bullying"></textarea>
+          <div layout="row" layout-sm="column" layout-align="space-between center">
+            <div flex="33" flex-sm="100" class="input-wrapper">
+              <input type="text" placeholder="Nombre">
+            </div>
+            <div flex="33" flex-sm="100" class="input-wrapper">
+              <input type="text" placeholder="Correo electrónico">
+            </div>
+            <div flex="33" flex-sm="100" class="input-wrapper">
+              <select name="" id="">
+                <option value="">¿Quien eres?</option>
+              </select>
+            </div>
+          </div>
+          <div class="action-btn-wrap action-btn-wrap-center">
+            <button class="action-btn" value="Enviar">Enviar</button>
+          </div>
+        </form>
+      </div>-->
+
     </div>
   </div>
 
-  <section layout="row">
-    <!--ACTION BAR-->
-    <section class="action-bar" flex="25">
-      <div class="action-bar-inner container center-content">
-        <h2>Tus acciones</h2>
-
-        <div class="action-item">
-          <p><strong>Acercarte con el director</strong></p>
-          <p>22 marzo 2015</p>
-          <p class="action-item-desc">Te acercaste con el director y "No, no lo he resuleto".</p>
-        </div>
-
-        <div class="action-item">
-          <p><strong>Realizar tu reporte en la línea de atención telefónica</strong></p>
-          <p>22 marzo 2015</p>
-          <div class="alert">
-            <p>El plazo para que esta denuncia se canalizada se cumplio el 12/09/2015</p>
-          </div>
-          <p class="action-item-desc">Ya se ha resuelto la situación</p>
-        </div>
-
-
-      </div>
-    </section>
-    <!--END ACTION BAR-->
-
-    <section class="main-content" flex="75">
-      <div class="main-content-inner container container-md">
-        <div class="intro center-content">
-          <h3>Paso 1</h3>
-          <h1>Acercate con el director</h1>
-          <p>La primera acción en un caso de acoso escolar o bullying siempre debe ser <strong>acercarte con el director del plantel.</strong> Él o ella es quien mejor conoce la escuela, a los maestros y alumnos, y quien <strong>podrá darle una solución más rápida al problema.</strong></p>
-        </div>
-        <div class="school-info" layout="row">
-          <div class="school-info-item" flex="50">
-            <p><strong>Octavio Paz Lozano</strong></p>
-            <p>Nivel primaria</p>
-          </div>
-          <div class="school-info-item" flex="50">
-            <p><strong>Director:</strong></p>
-            <p><strong>José Manuel Pérez Lopéz</strong></p>
-            <p>Nivel primaria</p>
-          </div>
-        </div>
-        <div class="report-section center-content">
-          <p>Si ya te has acercado con el director diálogado con él, pero aun asi no se ha solucionado la situación de acoso escolar o bullying, entonces debes proceder a levantar un reporte o denuncia.</p>
-          <h4>Si ya te has acercado con el director de tu plantel, cuentanos que sucedio:</h4>
-          <div class="report-section-btns">
-            <p>
-              <a href="#" class="action-btn">Si, ya lo hice</a>
-              <a href="#" class="action-btn">No, no lo he hecho</a>
-            </p>
-            <p>
-              <a href="#" class="action-btn">Ya se ha resuelto la situación</a>
-              <a href="#" class="action-btn">He decidido no continuar con el reporte</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </section>
-
-  <!--<h2>Tuberia de denuncias</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a sem leo. Phasellus lobortis sem nec vestibulum blandit. Proin porttitor varius sagittis. Nam venenatis eu eros quis bibendum.</p>
-  <p>Cras semper elementum maximus. Nam venenatis pulvinar dui, elementum pretium odio. Vestibulum sodales gravida mauris a accumsan. Aenean fin.</p>
-  <md-input-container>
-    <label>Tipo de denuncia</label>
-    <md-select ng-model="denunciaType" aria-label='tipo de denuncia'>
-      <md-option ng-repeat="type in tiposDenuncia.list()" value="{{type.fields.slug}}">{{type.fields.title}}</md-option>
-    </md-select>
-  </md-input-container>
-  <div class="md-actions" layout="row" layout-align="end center">
-    <md-button ng-if='denunciaType' ng-href='caso/{{denunciaType}}' aria-label='enviar'>Crear denuncia</md-button>
-  </div>-->
-
-</md-content>

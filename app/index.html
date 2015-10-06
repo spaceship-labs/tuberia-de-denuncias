@@ -12,10 +12,12 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+  <link rel='stylesheet' href='bower_components/angular-material/angular-material.css' />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/icomoon.css">
+  <link rel="stylesheet" href="styles/stickyFooter.css">
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
@@ -28,7 +30,7 @@
     <div id="main" class="clearfix">
       <div id="topBackRepeat" layout='row' flex layout-fill>
 
-        <!--<ng-include src="'views/menu-mobile.html'"></ng-include>-->
+        <ng-include src="'views/partials/menu-mobile.html'"></ng-include>
 
         <div layout="column" flex>
 
@@ -44,12 +46,18 @@
 
   <!--FOOTER-->
   <div id="footer" class="footer">
-    <div class="container container-sm center-content">
-      <p class="social-icons">
-        <a class="transition-all" href="#"></a>
-        <a class="transition-all" href="#"></a>
-        <a class="transition-all" href="#"></a>
-      </p>
+    <div ng-if="!onCaso" class="footer-msg center-content container container-md">
+      <img src="/images/logo_mejora.png" alt="">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus nulla magnam laudantium assumenda aliquam voluptatem doloribus, autem expedita optio, odio porro quos quasi consequatur necessitatibus cumque deleniti ipsum. Minus, dignissimos.</p>
+    </div>
+    <div class="footer-bar">
+      <div class="container container-sm center-content">
+        <p class="social-icons">
+          <a class="transition-all" href="#"><i class="icon-face"></i></a>
+          <a class="transition-all" href="#"><i class="icon-tweet"></i></a>
+          <a class="transition-all" href="#"><i class="icon-insta"></i></a>
+        </p>
+      </div>
     </div>
   </div>
   <!--END FOOTER-->

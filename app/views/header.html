@@ -1,9 +1,9 @@
 <md-toolbar class='toolbar-head md-tall'>
   <div class="md-toolbar-tools container container-xlg nopadding" layout-wrap layout-align="space-between center" layout='row' layout-sm="column">
 
-      <!--<div id="button-menu-mobile" ng-click="toggleSidebar()" flex="10" flex-gt-md="30">
+      <div id="button-menu-mobile" ng-click="toggleSidebar()" flex="10" flex-gt-md="30">
         <hr><hr><hr>
-      </div>-->
+      </div>
 
       <a href="/" class='logo' flex='30' flex-sm='50' >
         <h1><strong>Tuberia</strong> de denuncias</h1>
@@ -14,18 +14,22 @@
           <ul layout="row">
             <li flex="25" class="menu-item conoce-item">
               <a href="#" class="absolute-link"></a>
+              <p><i class="icon-tuberia"></i></p>
               <span>CONOCE</span>
             </li>
             <li flex="25" class="menu-item reporta-item">
               <a href="#" class="absolute-link"></a>
+              <p><i class="icon-reporta"></i></p>
               <span>REPORTA</span>
             </li>
             <li flex="25" class="menu-item sigue-item">
               <a href="#" class="absolute-link"></a>
+              <p><i class="icon-sigue"></i></p>
               <span>SIGUE</span>
             </li>
             <li flex="25" class="menu-item califica-item">
               <a href="#" class="absolute-link"></a>
+              <p><i class="icon-califica"></i></p>
               <span>CALIFICA</span>
             </li>
           </ul>
@@ -33,7 +37,14 @@
       </div>
 
       <div class="login-wrap">
-        <a href="#" class="action-btn">Iniciar sesión</a>
+        <a ng-click="toggleLogin = !toggleLogin" href="" class="action-btn">Iniciar sesión</a>
+        <div ng-if="toggleLogin" class="login-modal center-content">
+          <p>Ingresa tu mail para recuperar tus reportes</p>
+          <form action="#">
+            <input type="text" placeholder="Correo electrónico">
+            <input type="submit" class="action-btn" value="ACCEDER">
+          </form>
+        </div>
       </div>
 
   </div>
