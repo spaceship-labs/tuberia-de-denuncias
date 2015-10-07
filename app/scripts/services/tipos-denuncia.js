@@ -31,6 +31,10 @@ angular.module('tuberiaPrototypeApp')
     };
 
     this.currentState = function() {
+      if(list.length){
+        //Adding step number
+        list[dType].fields.states[state].fields.stepNumber = state+1;
+      }
       return list.length ? list[dType].fields.states[state].fields : false;
     };
 

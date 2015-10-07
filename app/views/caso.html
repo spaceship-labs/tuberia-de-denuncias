@@ -17,7 +17,7 @@
              <strong ng-bind="state.title"></strong>
            </p>
           <p>{{currDate}}</p>
-          <p class="action-item-desc">Te acercaste con el director y "No, no lo he resuleto".</p>
+          <!--<p class="action-item-desc">Te acercaste con el director y "No, no lo he resuleto".</p>-->
         </div>
         <!--<div class="action-item">
           <p><strong>Acercarte con el director</strong></p>
@@ -42,10 +42,11 @@
     <section class="main-content" flex="75" flex-sm="100">
       <div class="main-content-inner container container-md">
         <div class="intro center-content">
-          <h3>Paso <span class="num-wrap"><span>1</span></span></h3>
+          <h3>Paso <span class="num-wrap"><span ng-bind="state.stepNumber"></span></span></h3>
           <div btf-markdown='state.content'></div>
         </div>
-        <div class="school-info" layout="row" layout-sm="column">
+
+        <div ng-if="state.showSchool" class="school-info" layout="row" layout-sm="column">
           <div class="school-info-item" flex="50" flex-sm="100">
             <div class="school-info-item-inner" layout="row" layout-align="center center">
               <div flex><i class="icon-escuela"></i></div>
@@ -66,13 +67,16 @@
             </div>
           </div>
         </div>
-        <div class="report-section center-content" ng-if='state.options'>
+
+        <div ng-if="state.showSchool" class="report-section center-content" ng-if='state.options'>
           <p >Si ya te has acercado con el director diálogado con él, pero aun asi no se ha solucionado la situación de acoso escolar o bullying, entonces debes proceder a levantar un reporte o denuncia.</p>
           <h4>Si ya te has acercado con el director de tu plantel, cuentanos que sucedio:</h4>
-          <div class="report-section-btns">
-            <a href="" ng-repeat='(key,action) in state.options' ng-click='userChoice(key)' ng-bind="action" class="action-btn"></a>
-          </div>
         </div>
+
+        <div class="report-section-btns center-content">
+          <a href="" ng-repeat='(key,action) in state.options' ng-click='userChoice(key)' ng-bind="action" class="action-btn"></a>
+        </div>
+
         <div class="report-section center-content" ng-if='state.form'>
           <md-input-container ng-repeat='field in state.form.fields'>
             <label ng-bind='field.label'></label>
