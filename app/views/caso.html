@@ -11,12 +11,12 @@
       <div class="action-bar-inner container center-content">
         <h2>Tus acciones</h2>
 
-        <div class="action-item" ng-repeat="state in tiposDenuncia.history()">
+        <div class="action-item" ng-repeat="state in caso.tiposDenuncia.getHistory()">
           <p>
             <strong ng-bind="state.number"></strong>
              <strong ng-bind="state.title"></strong>
            </p>
-          <p>{{currDate}}</p>
+          <p>{{::caso.currDate}}</p>
           <!--<p class="action-item-desc">Te acercaste con el director y "No, no lo he resuleto".</p>-->
         </div>
         <!--<div class="action-item">
@@ -42,17 +42,17 @@
     <section class="main-content" flex="75" flex-sm="100">
       <div class="main-content-inner container container-md">
         <div class="intro center-content">
-          <h3>Paso <span class="num-wrap"><span ng-bind="state.stepNumber"></span></span></h3>
-          <div btf-markdown='state.content'></div>
+          <h3>Paso <span class="num-wrap"><span ng-bind="caso.state.stepNumber"></span></span></h3>
+          <div btf-markdown='caso.state.content'></div>
         </div>
 
-        <div ng-if="state.showSchool" class="school-info" layout="row" layout-sm="column">
+        <div ng-if="caso.state.showSchool && caso.school" class="school-info" layout="row" layout-sm="column">
           <div class="school-info-item" flex="50" flex-sm="100">
             <div class="school-info-item-inner" layout="row" layout-align="center center">
               <div flex><i class="icon-escuela"></i></div>
               <div flex="80">
-                <p><strong>Octavio Paz Lozano</strong></p>
-                <p>Nivel primaria</p>
+                <p><strong>{{::caso.school.nombre}}</strong></p>
+                <p>Nivel {{::caso.school.nom_nivel}}</p>
               </div>
             </div>
           </div>
@@ -62,29 +62,29 @@
               <div flex="80">
                 <p><strong>Director:</strong></p>
                 <p><strong>José Manuel Pérez Lopéz</strong></p>
-                <p>Nivel primaria</p>
+                <p>Nivel {{::caso.school.nom_nivel}}</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div ng-if="state.showSchool" class="report-section center-content" ng-if='state.options'>
+        <div ng-if="caso.state.showSchool" class="report-section center-content" ng-if='caso.state.options'>
           <p >Si ya te has acercado con el director diálogado con él, pero aun asi no se ha solucionado la situación de acoso escolar o bullying, entonces debes proceder a levantar un reporte o denuncia.</p>
           <h4>Si ya te has acercado con el director de tu plantel, cuentanos que sucedio:</h4>
         </div>
 
         <div class="report-section-btns center-content">
-          <a href="" ng-repeat='(key,action) in state.options' ng-click='userChoice(key)' ng-bind="action" class="action-btn"></a>
+          <a href="" ng-repeat='(key,action) in caso.state.options' ng-click='caso.userChoice(key)' ng-bind="action" class="action-btn"></a>
         </div>
 
-        <div class="report-section center-content" ng-if='state.form'>
-          <md-input-container ng-repeat='field in state.form.fields'>
+        <div class="report-section center-content" ng-if='caso.state.form'>
+          <md-input-container ng-repeat='field in caso.state.form.fields'>
             <label ng-bind='field.label'></label>
             <input type='text' ng-if='field.type == "text"' />
             <textarea ng-if='field.type == "textarea"'></textarea>
           </md-input-container>
           <p class="report-section-btns">
-            <a href="" ng-click='formSubmit(state.form.method,0)' class="action-btn">Enviar</a>
+            <a href="" ng-click='formSubmit(caso.state.form.method,0)' class="action-btn">Enviar</a>
           </p>
         </div>
       </div>
@@ -106,10 +106,10 @@
     <h1 class="md-toolbar-tools">Historial</h1>
   </md-toolbar>
   <md-list>
-      <md-list-item class="md-3-line" ng-repeat="state in tiposDenuncia.history()">
+      <md-list-item class="md-3-line" ng-repeat="caso.state in caso.tiposDenuncia.history()">
         <div class="md-list-item-text">
-          <h3 ng-bind='state.number'></h3>
-          <h4 ng-bind='state.title'></h4>
+          <h3 ng-bind='caso.state.number'></h3>
+          <h4 ng-bind='caso.state.title'></h4>
         </div>
         <md-divider ></md-divider>
       </md-list-item>
@@ -118,16 +118,16 @@
 <md-content class='md-padding' layout-fill>
   <md-card>
     <md-card-content>
-      <div btf-markdown='state.content' ></div>
-      <md-input-container ng-repeat='field in state.form.fields'>
+      <div btf-markdown='caso.state.content' ></div>
+      <md-input-container ng-repeat='field in caso.state.form.fields'>
         <label ng-bind='field.label'></label>
         <input type='text' ng-if='field.type == "text"' />
         <textarea ng-if='field.type == "textarea"'></textarea>
       </md-input-container>
     </md-card-content>
     <div class="md-actions" layout="row" layout-wrap layout-align="end center">
-      <md-button ng-if='state.options' ng-repeat='(key,action) in state.options' ng-click='userChoice(key)' ng-bind='action' aria-label='action'></md-button>
-      <md-button ng-if='state.form' ng-click='formSubmit(state.form.method,0)' aria-label='enviar'>Enviar</md-button>
+      <md-button ng-if='caso.state.options' ng-repeat='(key,action) in caso.state.options' ng-click='userChoice(key)' ng-bind='action' aria-label='action'></md-button>
+      <md-button ng-if='caso.state.form' ng-click='formSubmit(caso.state.form.method,0)' aria-label='enviar'>Enviar</md-button>
     </div>
   </md-card>
 </md-content>

@@ -50,6 +50,7 @@ module.exports = function(config) {
       'bower_components/showdown/src/showdown.js',
       'bower_components/angular-markdown-directive/markdown.js',
       'bower_components/angular-contentful/dist/angular-contentful.js',
+      'bower_components/angular-cookies/angular-cookies.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

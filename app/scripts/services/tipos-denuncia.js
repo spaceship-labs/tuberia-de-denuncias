@@ -7,50 +7,60 @@
  * # tiposDenuncia
  * Service in the tuberiaPrototypeApp.
  */
-var list = [];
-var stateHistory = [];
-var state = 0;
-var dType = 0;
+ (function(){
 
-angular.module('tuberiaPrototypeApp')
-  .service('tiposDenuncia', function($http, $q, contentful) {
+  var list = [];
+  var stateHistory = [];
+  var state = 0;
+  var dType = 0;
 
-    this.getList = function() {
-      var deferred = $q.defer();
-      contentful.entries('content_type=1CQ8zB04qAuISUQwSEWUmA').then(function(res){
-        list = res.data.items;
-        registerHistory();
-        deferred.resolve(list);
-      });
-      return deferred.promise;
-    };
+  angular.module('tuberiaPrototypeApp')
+    .service('tiposDenuncia', function($http, $q, contentful){
+      this.getList = getList;
+      this.changeState = changeState;
+      this.getCurrentState = getCurrentState;
+      this.getHistory = getHistory;
+      this.registerHistory = registerHistory;
+      this.getCurrentList = getCurrentList;
 
-    this.changeState = function(option) {
-      state = list[dType].fields.machine[state][option]-1;
-      registerHistory();
-    };
+      this.getList();
 
-    this.currentState = function() {
-      if(list.length){
-        //Adding step number
-        list[dType].fields.states[state].fields.stepNumber = state+1;
+      function getList() {
+        var deferred = $q.defer();
+        contentful.entries('content_type=1CQ8zB04qAuISUQwSEWUmA').then(function(res){
+          list = res.data.items;
+          registerHistory();
+          deferred.resolve(list);
+        });
+        return deferred.promise;
       }
-      return list.length ? list[dType].fields.states[state].fields : false;
-    };
 
-    this.history = function() {
-      return stateHistory;
-    };
+      function changeState(option) {
+        state = list[dType].fields.machine[state][option]-1;
+        registerHistory();
+      }
 
-    this.list = function() {
-      return list;
-    };
+      function getCurrentState() {
+        if(list.length){
+          //Adding step number
+          list[dType].fields.states[state].fields.stepNumber = state+1;
+        }
+        return list.length ? list[dType].fields.states[state].fields : false;
+      }
 
-    var registerHistory = function() {
-      stateHistory.push(angular.copy(list[dType].fields.states[state].fields));
-      stateHistory[stateHistory.length - 1].number = stateHistory.length;
-    };
+      function getHistory() {
+        return stateHistory;
+      }
 
-    this.getList();
+      function getCurrentList(){
+        return list;
+      }
 
-  });
+      function registerHistory() {
+        stateHistory.push(angular.copy(list[dType].fields.states[state].fields));
+        stateHistory[stateHistory.length - 1].number = stateHistory.length;
+      }
+
+    });
+
+})();

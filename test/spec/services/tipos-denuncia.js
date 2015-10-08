@@ -28,7 +28,7 @@ describe('Service: tiposDenuncia', function() {
   describe('currentState', function() {
 
     it('should return false when list is not set', function() {
-      var state = tiposDenuncia.currentState();
+      var state = tiposDenuncia.getCurrentState();
       state.should.exist.and.equal(false);
     });
 
@@ -41,7 +41,7 @@ describe('Service: tiposDenuncia', function() {
     });
 
     it('should return the current state', function() {
-      var state = tiposDenuncia.currentState();
+      var state = tiposDenuncia.getCurrentState();
       state.should.exist.and.be.an('object');
     });
 
@@ -51,7 +51,7 @@ describe('Service: tiposDenuncia', function() {
   describe('changeState', function() {
     it('should advance to the next step and add one to the history', function() {
       tiposDenuncia.changeState(0);
-      var state = tiposDenuncia.currentState();
+      var state = tiposDenuncia.getCurrentState();
       state.should.exist.and.be.an.object;
     });
   });
@@ -59,14 +59,14 @@ describe('Service: tiposDenuncia', function() {
 
   describe('history', function() {
     it('should have set two items in the history', function() {
-      var history = tiposDenuncia.history();
+      var history = tiposDenuncia.getHistory();
       history.should.exist.and.be.an('array').and.have.length(2);
     });
   });
 
   describe('list',function(){
     it('should return a list',function(){
-      var list = tiposDenuncia.list();
+      var list = tiposDenuncia.getCurrentList();
       list.should.exist.and.be.an('array').and.have.length(2);
     });
   });

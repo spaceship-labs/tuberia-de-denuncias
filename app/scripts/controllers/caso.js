@@ -7,27 +7,40 @@
  * # CasoCtrl
  * Controller of the tuberiaPrototypeApp
  */
-angular.module('tuberiaPrototypeApp')
-  .controller('CasoCtrl', function($scope,$filter) {
-    $scope.setDate = function(){
-      var date = new Date();
-      var dateStr = $filter('date')(date,'dd/MM/yyyy');
-      $scope.currDate = dateStr;
-    };
+angular.module('tuberiaPrototypeApp').controller('CasoCtrl', CasoCtrl);
+CasoCtrl.$inject = ['$scope','$filter','schoolsService'];
 
-    $scope.$watch(
-      function() {
-        return $scope.tiposDenuncia.currentState();
-      },
-      function(newVal) {
-        $scope.state = newVal;
-      }
-    );
+function CasoCtrl($scope,$filter,schoolsService){
+  var ctrl = this;
+  ctrl.init = init;
+  ctrl.setDate = setDate;
+  ctrl.userChoice = userChoice;
+  ctrl.tiposDenuncia = $scope.tiposDenuncia;
 
-    $scope.userChoice = function(choice){
-      $scope.tiposDenuncia.changeState(choice);
-    };
+  ctrl.init();
 
-    $scope.setDate();
+  function init(){
+    ctrl.school = schoolsService.getUserSchool();
+    ctrl.setDate();
+  }
 
-  });
+  function setDate(){
+    var date = new Date();
+    var dateStr = $filter('date')(date,'dd/MM/yyyy');
+    ctrl.currDate = dateStr;
+  }
+
+  function userChoice(choice){
+    $scope.tiposDenuncia.changeState(choice);
+  }
+
+  $scope.$watch(
+    function() {
+      return $scope.tiposDenuncia.getCurrentState();
+    },
+    function(newVal) {
+      ctrl.state = newVal;
+    }
+  );
+
+}
