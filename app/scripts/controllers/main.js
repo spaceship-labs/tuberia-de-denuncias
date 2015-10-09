@@ -7,25 +7,30 @@
  * # MainCtrl
  * Controller of the tuberiaPrototypeApp
  */
-function MainCtrl($scope, $mdSidenav, $location, tiposDenuncia){
-  $scope.tiposDenuncia = tiposDenuncia;
-  $scope.$on('$locationChangeStart', function() {
-    var path = $location.path();
-    if(path.indexOf('/caso/') >= 0){
-      $scope.onCaso = true;
-    }else{
-      $scope.onCaso = false;
-    }
-  });
+(function(){
 
-  $scope.toggleSidebar = function() {
-    $mdSidenav('left').open();
-  };
+  function MainCtrl($scope, $mdSidenav, $location, tiposDenuncia, schoolsService){
+    $scope.tiposDenuncia = tiposDenuncia;
+    $scope.schoolsService = schoolsService;
+    $scope.$on('$locationChangeStart', function() {
+      var path = $location.path();
+      if(path.indexOf('/caso/') >= 0){
+        $scope.onCaso = true;
+      }else{
+        $scope.onCaso = false;
+      }
+    });
 
-  $scope.closeSidebar = function() {
-    $mdSidenav('left').close();
-  };
-}
+    $scope.toggleSidebar = function() {
+      $mdSidenav('left').open();
+    };
 
-MainCtrl.$inject = ['$scope','$mdSidenav','$location','tiposDenuncia'];
-angular.module('tuberiaPrototypeApp').controller('MainCtrl', MainCtrl);
+    $scope.closeSidebar = function() {
+      $mdSidenav('left').close();
+    };
+  }
+
+  MainCtrl.$inject = ['$scope','$mdSidenav','$location','tiposDenuncia'];
+  angular.module('tuberiaPrototypeApp').controller('MainCtrl', MainCtrl);
+
+})();
