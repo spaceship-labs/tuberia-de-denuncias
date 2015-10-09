@@ -200,8 +200,9 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   #HEADER
 /*-------------*/
 .toolbar-head{
-  background: #fff;
-  min-height: 72px!important;
+  background: #fff!important;
+  min-height: 80px!important;
+  max-height: none!important;
   height: auto!important;
 }
 .toolbar-head .logo{

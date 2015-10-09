@@ -10,7 +10,7 @@
             <!--<input type="text" placeholder="Busca una escuela">-->
             <md-autocomplete
                 md-search-text-change=""
-                md-selected-item="home.selectedItem"
+                md-selected-item="home.selectedSchool"
                 md-selected-item-change="home.selectedSchoolChange(school)"
                 md-search-text="home.searchTerm"
                 md-items="school in home.getSchools(home.searchTerm)"
@@ -28,8 +28,10 @@
           </div>
         </form>
       </div>
-      <div ng-if="home.selectedItem" class="report-select" layout="row" layout-align="center center">
-        <div ng-repeat="type in home.tiposDenuncia.getCurrentList()" class="report-select-item">
+      <div ng-if="home.selectedSchool" class="report-select" layout="row" layout-align="center center">
+        <div
+          ng-repeat="type in home.tiposDenuncia.getCurrentList() | denunciaFilter:home.selectedSchool.control track by $index"
+          class="report-select-item">
           <p><a ng-href="caso/{{type.fields.slug}}"><i class="icon-bullyng"></i></a></p>
           <p><a ng-href="caso/{{type.fields.slug}}"><strong ng-bind="type.fields.title"></strong></a></p>
         </div>

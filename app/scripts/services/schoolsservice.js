@@ -11,14 +11,14 @@
 
   angular
     .module('tuberiaPrototypeApp')
-    .service('schoolsService', function($http, $cookies){
-      var cookieSchoolName = 'tuberiadedenuncias.user.school';
+    .service('schoolsService', function($http){
+      //user vars
+      var userSchool = {};
+      //var cookieSchoolName = 'tuberiadedenuncias.user.school';
+
       this.getSchools = getSchools;
       this.setUserSchool = setUserSchool;
       this.getUserSchool = getUserSchool;
-
-      //user vars
-      var userSchool = {};
 
       function getSchools(name){
         return $http({
