@@ -11,9 +11,5 @@ describe('Filter: denunciaFilter', function () {
     denunciaFilter = $filter('denunciaFilter');
   }));
 
-  it('should return the input prefixed with "denunciaFilter filter:"', function () {
-    var text = 'angularjs';
-    expect(denunciaFilter(text)).toBe('denunciaFilter filter: ' + text);
-  });
 
 });
