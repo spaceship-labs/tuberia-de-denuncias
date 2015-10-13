@@ -309,6 +309,9 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   color: #fff!important;
 }
 
+.md-virtual-repeat-container.md-autocomplete-suggestions-container{
+  max-height: 200px!important;
+}
 .md-autocomplete-suggestions li{
   line-height: 1.2;
   height: auto;
@@ -318,18 +321,6 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
 .md-autocomplete-suggestions li + li{
   border-top:1px solid #D1D1D1;
 }
-
-/*.school-search .input-field input[type="text"]{
-  background: #fff;
-  border: 2px solid #fff;
-  display: block;
-  font-size: 14px;
-  padding: 9px;
-  width: 100%;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
-  box-sizing:border-box;
-}*/
 .school-search .input-field button{
   background: none;
   border: 0;
@@ -339,7 +330,23 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   right: 6px;
   top: 6px;
 }
-.school-search .button-bordered{font-size: 14px;padding: 5px 4px;text-align: center;}
+.school-search .button-bordered{
+  font-size: 14px;
+  padding: 5px 4px;
+  text-align: center;
+}
+
+/*------------/
+  #SCHOOL-SEARCH-ALT
+/*-----------*/
+.school-search-alt{}
+.school-search-alt .input-field input,
+.school-search-alt .input-field label{
+  color: #14ABE4!important;
+}
+.school-search-alt md-input-container .md-input{
+  border-color:#14ABE4!important;
+}
 
 
 /*---------------/
@@ -418,6 +425,10 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   font-weight: 400;
   margin-bottom: 20px;
 }
+.main-content .intro h2{
+  margin: 0 auto 20px;
+  max-width: 400px;
+}
 .main-content .intro h3{
   font-size: 24px;
   margin: 10px 0;
@@ -446,7 +457,11 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   -moz-transform:translateY(-50%);
   transform:translateY(-50%);
 }
-.main-content .intro p{line-height: 1.4}
+.main-content .intro p{
+  color: #4F4F4F;
+  font-weight: 300;
+  line-height: 1.4;
+}
 .main-content .intro ul{text-align: left;}
 
 
@@ -538,6 +553,31 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   color: #0FA778;
 }
 
+/*-----------/
+  #SCHOOLS-LIST
+/*----------*/
+.schools-list{}
+.school-item{
+  border: 1px solid #14ABE4;
+  color: #14ABE4;
+  position: relative;
+  padding: 8px 16px;
+  margin-bottom: 6px;
+}
+.school-item i{
+  vertical-align: middle;
+  font-size: 38px;
+}
+.school-item-close{
+  color: #14ABE4;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.school-item .school-location{font-size: 12px;}
 
 /*--------------/
   #FOOTER

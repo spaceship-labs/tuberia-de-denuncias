@@ -36,6 +36,11 @@
           controller: 'CasoCtrl',
           controllerAs: 'caso'
         })
+        .when('/conoce', {
+          templateUrl: 'views/conoce.html',
+          controller: 'ConoceCtrl',
+          controllerAs: 'conoce'
+        })
         .otherwise({
           redirectTo: '/'
         });

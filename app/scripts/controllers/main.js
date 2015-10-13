@@ -14,10 +14,10 @@
     $scope.schoolsService = schoolsService;
     $scope.$on('$locationChangeStart', function() {
       var path = $location.path();
-      if(path.indexOf('/caso/') >= 0){
-        $scope.onCaso = true;
+      if(path.indexOf('/caso/') >= 0 || path.indexOf('/conoce') >= 0){
+        $scope.sidebarOn = true;
       }else{
-        $scope.onCaso = false;
+        $scope.sidebarOn = false;
       }
     });
 
