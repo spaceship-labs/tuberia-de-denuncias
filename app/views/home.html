@@ -33,31 +33,9 @@
           ng-repeat="type in home.tiposDenuncia.getCurrentList() | denunciaFilter:home.selectedSchool.control track by $index"
           class="report-select-item">
           <p><a ng-href="caso/{{type.fields.slug}}"><i class="icon-bullyng"></i></a></p>
-          <p><a ng-href="caso/{{type.fields.slug}}"><strong ng-bind="type.fields.title"></strong></a></p>
+          <p><a class="report-select-item-btn" ng-href="caso/{{type.fields.slug}}"><strong ng-bind="type.fields.title"></strong></a></p>
         </div>
       </div>
-
-      <!--<div class="report-form">
-        <form action="#">
-          <textarea name="" id=""  rows="6" placeholder="Deja aqui tu denuncia de bullying"></textarea>
-          <div layout="row" layout-sm="column" layout-align="space-between center">
-            <div flex="33" flex-sm="100" class="input-wrapper">
-              <input type="text" placeholder="Nombre">
-            </div>
-            <div flex="33" flex-sm="100" class="input-wrapper">
-              <input type="text" placeholder="Correo electrónico">
-            </div>
-            <div flex="33" flex-sm="100" class="input-wrapper">
-              <select name="" id="">
-                <option value="">¿Quien eres?</option>
-              </select>
-            </div>
-          </div>
-          <div class="action-btn-wrap action-btn-wrap-center">
-            <button class="action-btn" value="Enviar">Enviar</button>
-          </div>
-        </form>
-      </div>-->
 
     </div>
   </div>

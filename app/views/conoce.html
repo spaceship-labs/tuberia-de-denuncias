@@ -2,6 +2,26 @@
   <div class="title-section container center-content">
     <div class="container-md">
       <h2>Selecciona el tipo de problematica del que quieras revisar información</h2>
+      <div class="report-select" class="container-sm" layout="row" layout-align="space-between center">
+        <div
+          flex="30"
+          class="report-select-item">
+          <p><a ng-href="#"><i class="icon-bullyng"></i></a></p>
+          <p><a class="report-select-item-btn" ng-href="#"><strong>BULLYING</strong></a></p>
+        </div>
+        <div
+          flex="30"
+          class="report-select-item">
+          <p><a ng-href="#"><i class="icon-escuela"></i></a></p>
+          <p><a class="report-select-item-btn" ng-href="#"><strong>INFRAESTRUCTURA</strong></a></p>
+        </div>
+        <div
+          flex="30"
+          class="report-select-item">
+          <p><a ng-href="#"><i class="icon-maestro"></i></a></p>
+          <p><a class="report-select-item-btn" ng-href="#"><strong>INFRAESTRUCTURA</strong></a></p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -35,6 +55,7 @@
       <div class="main-content-inner container container-md">
 
         <div class="intro center-content">
+          <div class="wrapper-icon"><h2><i class="icon-edificio"></i></h2></div>
           <h2>Denuncia Infraestructura</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum doloremque error consequatur, quam reiciendis recusandae saepe asperiores beatae fugit minus sequi dolor officiis! Totam at porro ab nemo error facere!</p>
           <p class="report-section-btns">
@@ -46,6 +67,7 @@
 
           <form class="school-search school-search-alt" id="simple_search">
             <div class="input-field">
+
               <md-autocomplete
                   md-search-text-change=""
                   md-selected-item="conoce.selectedSchool"
