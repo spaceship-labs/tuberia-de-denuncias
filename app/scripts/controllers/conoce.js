@@ -10,10 +10,44 @@
 function ConoceCtrl($scope,schoolsService){
   var ctrl = this;
   ctrl.getSchools = getSchools;
-  ctrl.schools = [];
-  ctrl.addSchool = addSchool;
-  ctrl.removeSchool = removeSchool;
+  ctrl.setSelectedSchool = setSelectedSchool;
+  ctrl.removeSelectedSchool = removeSelectedSchool;
   ctrl.searchText = '';
+  ctrl.tiposDenuncia = $scope.tiposDenuncia;
+  ctrl.tiposDenunciaList = [];
+  ctrl.indexTipoDenuncia = 0;
+  ctrl.selectedTipoDenuncia = {};
+  ctrl.getTiposDenuncia = getTiposDenuncia;
+  ctrl.setSelectedTipoDenuncia = setSelectedTipoDenuncia;
+  ctrl.icons = {
+    'acoso-df':'bullyng',
+    'acoso-df-privada':'bullyng',
+    'infraestructura':'edificio',
+    'inasistencia-de-profesores': 'maestro',
+    'cobro-de-cuotas':'director'
+  };
+
+  function getTiposDenuncia(){
+    ctrl.tiposDenuncia.getList()
+      .then(function(data){
+        var dtypes = [];
+        var resList = data.filter(function(dtype){
+          if(dtypes.indexOf(dtype.fields.label) <= 0){
+            dtypes.push(dtype.fields.label);
+            return true;
+          }else{
+            return false;
+          }
+        });
+        ctrl.tiposDenunciaList = resList;
+        ctrl.selectedTipoDenuncia = ctrl.tiposDenunciaList[ctrl.indexTipoDenuncia];
+      });
+  }
+
+  function setSelectedTipoDenuncia(index){
+    ctrl.indexTipoDenuncia = index;
+    ctrl.selectedTipoDenuncia = ctrl.tiposDenunciaList[ctrl.indexTipoDenuncia];
+  }
 
   function getSchools(name) {
     return schoolsService.getSchools(name)
@@ -22,16 +56,18 @@ function ConoceCtrl($scope,schoolsService){
       });
   }
 
-  function addSchool(school){
+  function setSelectedSchool(school){
     if(school){
-      ctrl.schools.push(school);
-      ctrl.searchTerm = '';
-      ctrl.selectedSchool = null;
+      ctrl.selectedSchool = school;
+      schoolsService.setUserSchool(school);
     }
   }
-  function removeSchool(list,schoolIndex){
-    list.splice(schoolIndex, 1);
+  function removeSelectedSchool(){
+    ctrl.selectedSchool = {};
   }
+
+  ctrl.getTiposDenuncia();
+
 }
 
 ConoceCtrl.$inject = ['$scope','schoolsService'];

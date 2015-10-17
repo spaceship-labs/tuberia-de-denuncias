@@ -133,9 +133,6 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   padding: 6px 30px;
   text-align: center;
   font-weight: 500;
-  -webkit-transition: all .4s;
-  -moz-transition: all .4s;
-  -ms-transition: all .4s;
   transition: all .4s;
 }
 
@@ -336,6 +333,9 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
 .md-autocomplete-suggestions li + li{
   border-top:1px solid #D1D1D1;
 }
+md-input-container .md-input{
+  border-color:#fff;
+}
 .school-search .input-field button{
   background: none;
   border: 0;
@@ -378,8 +378,6 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   /*border: 2px solid #14B782;*/
   padding: 10px 20px;
   margin-top: 20px;
-  -webkit-transform: translateX(-20%);
-  -moz-transform: translateX(-20%);
   transform: translateX(-20%);
 }
 .login-modal p{font-size: 14px;}
@@ -411,6 +409,20 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   font-weight: 100;
   font-size: 28px;
 }
+.title-section h2:after{
+  content: '';
+  background: #fff;
+  display: block;
+  height: 2px;
+  margin: 20px auto 0;
+  width: 80px;
+}
+.title-section p{
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+  margin-top: 20px;
+}
 
 /*-----------/
   #ACTION-BAR
@@ -430,6 +442,27 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   margin: 10px 0;
 }
 
+/*----------/
+  #HOME
+/*---------*/
+.features{margin-top: 40px;}
+.feature{
+  padding: 10px;
+}
+.feature-inner{
+  border: 2px solid #fff;
+  padding: 20px 10px 30px;
+  position: relative;
+  height: 100%;
+}
+.feature-inner h4 a,
+.feature-inner p a{color: #fff;}
+.feature-inner i{
+  font-size: 24px;
+}
+.feature-inner p{font-size: 14px;}
+
+
 /*-----------/
   #MAIN-CONTENT
 /*----------*/
@@ -441,6 +474,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   margin-bottom: 20px;
 }
 .main-content .intro h2{
+  font-size: 37px;
   margin: 0 auto 20px;
   max-width: 400px;
 }
@@ -472,8 +506,6 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   top: 50%;
   color: #fff;
   font-weight: 700;
-  -webkit-transform:translateY(-50%);
-  -moz-transform:translateY(-50%);
   transform:translateY(-50%);
 }
 .main-content .intro p{
@@ -483,6 +515,20 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
 }
 .main-content .intro ul{text-align: left;}
 
+.main-content-description{
+  margin-top: 20px;
+  color: #8C8C8C;
+}
+.main-content-description li,
+.main-content-description p{
+  line-height: 1.6;
+}
+.main-content-description h2{
+  color: #1AC992;
+  font-size: 20px;
+  margin: 20px 0;
+}
+.main-content-description a{color: #1AC992}
 
 .school-info{margin: 20px 0;}
 .school-info .school-info-item{
@@ -505,7 +551,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   margin: 12px auto;
 }
 
-.report-section-btns{margin: 20px 0;}
+.report-section-btns{margin: 20px 0!important;}
 .report-section-btns p{margin: 20px 0;}
 .report-section-btns .action-btn{
   border: 0;
@@ -544,14 +590,18 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   border: 2px solid #fff;
   display: block;
   margin-top: 10px;
-  -webkit-transition: all .4s;
-  -moz-transition: all .4s;
-  -ms-transition: all .4s;
   transition: all .4s;
 }
+.report-select-item-btn-on,
 .report-select-item-btn:hover{
-  background: #fff;
-  color: #0FA778;
+  background: #fff!important;
+  color: #0FA778!important;
+}
+
+.report-select-conoce .report-select-item{margin: 20px 10px;}
+.report-select-conoce .report-select-item-btn{
+  font-size: 13px;
+  padding: 4px;
 }
 
 /*------------/
@@ -594,6 +644,11 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   color: #0FA778;
 }
 
+/*-------------/
+  #CONOCE
+/*------------*/
+.content-conoce .main-content .intro p{color: #8C8C8C}
+
 /*-----------/
   #SCHOOLS-LIST
 /*----------*/
@@ -614,8 +669,6 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   position: absolute;
   top: 50%;
   right: 10px;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 .school-item .school-location{font-size: 12px;}
@@ -625,6 +678,18 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
 /*-------------*/
 .footer{
   height: auto!important;
+}
+.footer-msg p{
+  text-align: left;
+  font-size: 14px;
+}
+.footer-msg .alert-icon{
+  border-right: 2px solid #9A9A9A;
+  margin-right: 20px;
+}
+.footer-msg .alert-icon i{
+  color: #9A9A9A;
+  font-size: 40px;
 }
 .footer-msg img{
   margin-bottom: 10px;
@@ -654,8 +719,6 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   right: 0;
   top: 50%;
   margin: 0 auto;
-  -webkit-transform:translateY(-50%);
-  -moz-transform:translateY(-50%);
   transform:translateY(-50%);
 }
 
@@ -674,8 +737,6 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   .toolbar-head .menu-wrapper{ display: none;}
   .toolbar-head .login-wrap{position: static;}
   .toolbar-head .login-modal{
-    -webkit-transform:none!important;
-    -moz-transform:none!important;
     transform:none!important;
   }
   #button-menu-mobile{ display: block;}

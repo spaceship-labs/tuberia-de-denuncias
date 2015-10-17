@@ -1,25 +1,27 @@
-<md-content>
+<md-content class="content-conoce">
   <div class="title-section container center-content">
     <div class="container-md">
       <h2>Selecciona el tipo de problematica del que quieras revisar información</h2>
-      <div class="report-select" class="container-sm" layout="row" layout-align="space-between center">
+    </div>
+    <div class="container-xlg">
+      <div class="report-select report-select-conoce" class="container-sm" layout="row" layout-align="space-between center">
         <div
-          flex="30"
+          ng-repeat="tipo in conoce.tiposDenunciaList  track by $index"
+          flex
           class="report-select-item">
-          <p><a ng-href="#"><i class="icon-bullyng"></i></a></p>
-          <p><a class="report-select-item-btn" ng-href="#"><strong>BULLYING</strong></a></p>
-        </div>
-        <div
-          flex="30"
-          class="report-select-item">
-          <p><a ng-href="#"><i class="icon-escuela"></i></a></p>
-          <p><a class="report-select-item-btn" ng-href="#"><strong>INFRAESTRUCTURA</strong></a></p>
-        </div>
-        <div
-          flex="30"
-          class="report-select-item">
-          <p><a ng-href="#"><i class="icon-maestro"></i></a></p>
-          <p><a class="report-select-item-btn" ng-href="#"><strong>INFRAESTRUCTURA</strong></a></p>
+          <p>
+            <a ng-if="!conoce.icons[tipo.fields.slug]" href='' ng-click="conoce.setSelectedTipoDenuncia($index)">
+              <i class="icon-escuela"></i>
+            </a>
+            <a ng-if="conoce.icons[tipo.fields.slug]" href='' ng-click="conoce.setSelectedTipoDenuncia($index)">
+              <i class="icon-{{ conoce.icons[tipo.fields.slug] }}"></i>
+            </a>
+          </p>
+          <p>
+            <a class="report-select-item-btn" ng-class="{'report-select-item-btn-on': $index == conoce.indexTipoDenuncia}" href='' ng-click="conoce.setSelectedTipoDenuncia($index)">
+              <strong>{{tipo.fields.label}}</strong>
+            </a>
+          </p>
         </div>
       </div>
     </div>
@@ -55,11 +57,13 @@
       <div class="main-content-inner container container-md">
 
         <div class="intro center-content">
-          <div class="wrapper-icon"><h2><i class="icon-edificio"></i></h2></div>
-          <h2>Denuncia Infraestructura</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum doloremque error consequatur, quam reiciendis recusandae saepe asperiores beatae fugit minus sequi dolor officiis! Totam at porro ab nemo error facere!</p>
+          <div class="wrapper-icon">
+            <h2 ng-if="!conoce.icons[conoce.selectedTipoDenuncia.fields.slug]"><i class="icon-edificio"></i></h2>
+            <h2 ng-if="conoce.icons[conoce.selectedTipoDenuncia.fields.slug]"><i class="icon-{{conoce.icons[conoce.selectedTipoDenuncia.fields.slug]}}"></i></h2>
+          </div>
+          <div btf-markdown='conoce.selectedTipoDenuncia.fields.introduction'></div>
           <p class="report-section-btns">
-            <a href="#" class="action-btn">Realizar reporte</a>
+            <a ng-href="/caso/{{conoce.selectedTipoDenuncia.fields.slug}}" class="action-btn">Realizar reporte</a>
           </p>
         </div>
 
@@ -71,7 +75,6 @@
               <md-autocomplete
                   md-search-text-change=""
                   md-selected-item="conoce.selectedSchool"
-                  md-selected-item-change="conoce.addSchool(conoce.selectedSchool)"
                   md-search-text="conoce.searchTerm"
                   md-items="school in conoce.getSchools(conoce.searchTerm)"
                   md-item-text="school.nombre + ' (' +  school.nom_nivel + ')'"
@@ -89,19 +92,21 @@
           </form>
 
           <div class="schools-list">
-            <div ng-repeat="school in conoce.schools track by $index" class="school-item" layout="row">
+            <div ng-if="conoce.selectedSchool" class="school-item" layout="row">
               <div flex="20">
                 <i class="icon-escuela"></i>
               </div>
               <div flex>
-                <p><strong>{{school.nombre}} | {{school.nom_nivel}}</strong></p>
-                <p class="school-location">{{school.nom_localidad}}, {{school.nom_entidad}}</p>
+                <p><strong>{{conoce.selectedSchool.nombre}} | {{conoce.selectedSchool.nom_nivel}}</strong></p>
+                <p class="school-location">{{conoce.selectedSchool.nom_localidad}}, {{conoce.selectedSchool.nom_entidad}}</p>
               </div>
               <a ng-click="conoce.removeSchool(conoce.schools,$index)" href="" class="school-item-close">x</a>
             </div>
           </div>
 
         </div>
+
+        <div class="main-content-description" btf-markdown='conoce.selectedTipoDenuncia.fields.description'></div>
 
       </div>
 

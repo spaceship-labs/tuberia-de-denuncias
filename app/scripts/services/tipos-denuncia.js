@@ -57,8 +57,10 @@
       }
 
       function registerHistory() {
-        stateHistory.push(angular.copy(list[dType].fields.states[state].fields));
-        stateHistory[stateHistory.length - 1].number = stateHistory.length;
+        if(list[dType].fields.states){
+          stateHistory.push(angular.copy(list[dType].fields.states[state].fields));
+          stateHistory[stateHistory.length - 1].number = stateHistory.length;
+        }
       }
 
     });
