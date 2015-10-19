@@ -27,7 +27,7 @@
     function init(){
       ctrl.school = schoolsService.getUserSchool();
       ctrl.setDate();
-      ctrl.tiposDenuncia.resetHistory();
+      ctrl.tiposDenuncia.resetData();
       ctrl.getTiposDenuncia();
     }
 

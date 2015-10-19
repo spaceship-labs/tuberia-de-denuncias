@@ -17,10 +17,6 @@ angular.module('tuberiaPrototypeApp')
           return item.fields.parameters.control === control;
         }
         return true;
-        /*if(item.fields.parameters.control && item.fields.parameters.control === control){
-          return true;
-        }else if(items.fields.parameters.control)
-        return ;*/
       }
 
       var filtered = items.filter(itemControl);

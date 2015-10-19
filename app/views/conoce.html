@@ -6,20 +6,20 @@
     <div class="container-xlg">
       <div class="report-select report-select-conoce" class="container-sm" layout="row" layout-align="space-between center" layout-wrap>
         <div
-          ng-repeat="tipo in conoce.tiposDenunciaList  track by $index"
+          ng-repeat="tipo in conoce.categories  track by $index"
           flex
           flex-sm="40"
           class="report-select-item">
           <p>
-            <a ng-if="!conoce.icons[tipo.fields.slug]" href='' ng-click="conoce.setSelectedTipoDenuncia($index)">
+            <a ng-if="!conoce.icons[tipo.fields.slug]" href='' ng-click="conoce.setSelectedCategory($index)">
               <i class="icon-escuela"></i>
             </a>
-            <a ng-if="conoce.icons[tipo.fields.slug]" href='' ng-click="conoce.setSelectedTipoDenuncia($index)">
+            <a ng-if="conoce.icons[tipo.fields.slug]" href='' ng-click="conoce.setSelectedCategory($index)">
               <i class="icon-{{ conoce.icons[tipo.fields.slug] }}"></i>
             </a>
           </p>
           <p>
-            <a class="report-select-item-btn" ng-class="{'report-select-item-btn-on': $index == conoce.indexTipoDenuncia}" href='' ng-click="conoce.setSelectedTipoDenuncia($index)">
+            <a class="report-select-item-btn" ng-class="{'report-select-item-btn-on': $index == conoce.indexCategory}" href='' ng-click="conoce.setSelectedCategory($index)">
               <strong>{{tipo.fields.label}}</strong>
             </a>
           </p>
@@ -59,13 +59,20 @@
 
         <div class="intro center-content">
           <div class="wrapper-icon">
-            <h2 ng-if="!conoce.icons[conoce.selectedTipoDenuncia.fields.slug]"><i class="icon-edificio"></i></h2>
-            <h2 ng-if="conoce.icons[conoce.selectedTipoDenuncia.fields.slug]"><i class="icon-{{conoce.icons[conoce.selectedTipoDenuncia.fields.slug]}}"></i></h2>
+            <h2 ng-if="!conoce.icons[conoce.selectedCategory.fields.slug]"><i class="icon-edificio"></i></h2>
+            <h2 ng-if="conoce.icons[conoce.selectedCategory.fields.slug]"><i class="icon-{{conoce.icons[conoce.selectedCategory.fields.slug]}}"></i></h2>
           </div>
-          <div btf-markdown='conoce.selectedTipoDenuncia.fields.introduction'></div>
+          <div btf-markdown='conoce.selectedCategory.fields.introduction'></div>
+
           <p ng-if="conoce.selectedSchool" class="report-section-btns">
-            <a ng-href="/caso/{{conoce.selectedTipoDenuncia.fields.slug}}" class="action-btn">Realizar reporte</a>
+            <a
+              ng-repeat="dType in conoce.selectedCategory.fields.denuncias | denunciaFilter:conoce.selectedSchool.control track by $index"
+              ng-href="/caso/{{dType.fields.slug}}"
+              class="action-btn">
+              Realizar reporte
+            </a>
           </p>
+
         </div>
 
         <div class="container-sm">
@@ -76,6 +83,7 @@
               <md-autocomplete
                   md-search-text-change=""
                   md-selected-item="conoce.selectedSchool"
+                  md-selected-item-change="conoce.setSelectedSchool()"
                   md-search-text="conoce.searchTerm"
                   md-items="school in conoce.getSchools(conoce.searchTerm)"
                   md-item-text="school.nombre + ' (' +  school.nom_nivel + ')'"
@@ -107,7 +115,7 @@
 
         </div>
 
-        <div class="main-content-description" btf-markdown='conoce.selectedTipoDenuncia.fields.description'></div>
+        <div class="main-content-description" btf-markdown='conoce.selectedCategory.fields.description'></div>
 
       </div>
 

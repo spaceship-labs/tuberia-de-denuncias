@@ -14,33 +14,25 @@ function ConoceCtrl($scope,schoolsService){
   ctrl.removeSelectedSchool = removeSelectedSchool;
   ctrl.searchText = '';
   ctrl.tiposDenuncia = $scope.tiposDenuncia;
-  ctrl.tiposDenunciaList = [];
-  ctrl.indexTipoDenuncia = 0;
-  ctrl.selectedTipoDenuncia = {};
-  ctrl.getTiposDenuncia = getTiposDenuncia;
-  ctrl.setSelectedTipoDenuncia = setSelectedTipoDenuncia;
+  ctrl.categories = [];
+  ctrl.indexCategory = 0;
+  ctrl.selectedCategory = {};
+  ctrl.getCategories = getCategories;
+  ctrl.setSelectedCategory = setSelectedCategory;
   ctrl.icons = $scope.icons;
+  ctrl.init = init;
 
-  function getTiposDenuncia(){
-    ctrl.tiposDenuncia.getList()
+  function getCategories(){
+    ctrl.tiposDenuncia.getCategories()
       .then(function(data){
-        var dtypes = [];
-        var resList = data.filter(function(dtype){
-          if(dtypes.indexOf(dtype.fields.label) <= 0){
-            dtypes.push(dtype.fields.label);
-            return true;
-          }else{
-            return false;
-          }
-        });
-        ctrl.tiposDenunciaList = resList;
-        ctrl.selectedTipoDenuncia = ctrl.tiposDenunciaList[ctrl.indexTipoDenuncia];
+        ctrl.categories = data;
+        ctrl.selectedCategory = ctrl.categories[ctrl.indexCategory];
       });
   }
 
-  function setSelectedTipoDenuncia(index){
-    ctrl.indexTipoDenuncia = index;
-    ctrl.selectedTipoDenuncia = ctrl.tiposDenunciaList[ctrl.indexTipoDenuncia];
+  function setSelectedCategory(index){
+    ctrl.indexCategory = index;
+    ctrl.selectedCategory = ctrl.categories[ctrl.indexCategory];
   }
 
   function getSchools(name) {
@@ -50,18 +42,20 @@ function ConoceCtrl($scope,schoolsService){
       });
   }
 
-
-  function setSelectedSchool(school){
-    if(school){
-      ctrl.selectedSchool = school;
-      schoolsService.setUserSchool(school);
+  function setSelectedSchool(){
+    if(ctrl.selectedSchool){
+      schoolsService.setUserSchool(ctrl.selectedSchool);
     }
   }
   function removeSelectedSchool(){
     ctrl.selectedSchool = {};
   }
 
-  ctrl.getTiposDenuncia();
+  function init(){
+    ctrl.getCategories();
+  }
+
+  ctrl.init();
 
 }
 
