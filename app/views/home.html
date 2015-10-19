@@ -5,22 +5,22 @@
       <h2>TuberiaDeDenuncias es una plataforma de apoyo para solución de problemáticas cotidianas de las escuelas.</h2>
       <p>Te permite realizar un reporte de alguna denuncia que quieras presentar ante las autoridades educativas, brindándote la información necesaria y asistiendote durante todo el proceso con estas tres herramientas:</p>
 
-      <div layout="row" class="features">
-        <div flex="33" class="feature">
+      <div layout="row" layout-sm="column" class="features">
+        <div flex="33" flex-sm="100" class="feature">
           <div class="feature-inner">
             <p><a href="/conoce"><i class="icon-tuberia"></i></a></p>
             <h4><a href="/conoce">Conoce</a></h4>
             <p>Reúne toda la información que debes saber antes de presentar una denuncia</p>
           </div>
         </div>
-        <div flex="33" class="feature">
+        <div flex="33" flex-sm="100" class="feature">
           <div class="feature-inner">
             <p><i class="icon-reporta"></i></p>
             <h4>Reporta</h4>
             <p>Te acompaña paso a paso por el proceso de resolver tu denuncia</p>
           </div>
         </div>
-        <div flex="33" class="feature">
+        <div flex="33" flex-sm="100" class="feature">
           <div class="feature-inner">
             <p><i class="icon-califica"></i></p>
             <h4>Califica</h4>
@@ -53,15 +53,24 @@
           </div>
         </form>
       </div>
-      <div ng-if="home.selectedSchool" class="report-select" layout="row" layout-align="center center">
-        <div
-          ng-repeat="type in home.tiposDenuncia.getCurrentList() | denunciaFilter:home.selectedSchool.control track by $index"
-          class="report-select-item">
-          <p><a ng-href="/caso/{{type.fields.slug}}"><i class="icon-bullyng"></i></a></p>
-          <p><a class="report-select-item-btn" ng-href="caso/{{type.fields.slug}}"><strong ng-bind="type.fields.title"></strong></a></p>
-        </div>
-      </div>
-
     </div>
+
+    <div ng-if="home.selectedSchool" class="container-xlg report-select" layout="row" layout-align="space-between center">
+      <div
+        ng-repeat="type in home.tiposDenunciaList | denunciaFilter:home.selectedSchool.control track by $index"
+        flex
+        class="report-select-item">
+        <p>
+          <a ng-if="!home.icons[type.fields.slug]" ng-href="caso/{{type.fields.slug}}">
+            <i class="icon-escuela"></i>
+          </a>
+          <a ng-if="home.icons[type.fields.slug]" ng-href="caso/{{type.fields.slug}}">
+            <i class="icon-{{ home.icons[type.fields.slug] }}"></i>
+          </a>
+        </p>
+        <p><a class="report-select-item-btn" ng-href="caso/{{type.fields.slug}}"><strong ng-bind="type.fields.label"></strong></a></p>
+      </div>
+    </div>
+
   </div>
 

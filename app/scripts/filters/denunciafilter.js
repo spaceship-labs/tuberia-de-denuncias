@@ -13,7 +13,14 @@ angular.module('tuberiaPrototypeApp')
     return function (items, control) {
 
       function itemControl(item){
-        return item.fields.parameters.control === control;
+        if(item.fields.parameters && item.fields.parameters.control){
+          return item.fields.parameters.control === control;
+        }
+        return true;
+        /*if(item.fields.parameters.control && item.fields.parameters.control === control){
+          return true;
+        }else if(items.fields.parameters.control)
+        return ;*/
       }
 
       var filtered = items.filter(itemControl);

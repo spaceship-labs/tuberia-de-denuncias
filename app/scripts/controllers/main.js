@@ -12,6 +12,13 @@
   function MainCtrl($scope, $mdSidenav, $location, tiposDenuncia, schoolsService){
     $scope.tiposDenuncia = tiposDenuncia;
     $scope.schoolsService = schoolsService;
+    $scope.icons = {
+      'acoso-df':'bullyng',
+      'acoso-df-privada':'bullyng',
+      'infraestructura':'edificio',
+      'inasistencia-de-profesores': 'maestro',
+      'cobro-de-cuotas':'director'
+    };
     $scope.$on('$locationChangeStart', function() {
       var path = $location.path();
       if(path.indexOf('/caso/') >= 0 || path.indexOf('/conoce') >= 0){

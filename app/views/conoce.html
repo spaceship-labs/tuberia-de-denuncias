@@ -4,10 +4,11 @@
       <h2>Selecciona el tipo de problematica del que quieras revisar información</h2>
     </div>
     <div class="container-xlg">
-      <div class="report-select report-select-conoce" class="container-sm" layout="row" layout-align="space-between center">
+      <div class="report-select report-select-conoce" class="container-sm" layout="row" layout-align="space-between center" layout-wrap>
         <div
           ng-repeat="tipo in conoce.tiposDenunciaList  track by $index"
           flex
+          flex-sm="40"
           class="report-select-item">
           <p>
             <a ng-if="!conoce.icons[tipo.fields.slug]" href='' ng-click="conoce.setSelectedTipoDenuncia($index)">
@@ -62,7 +63,7 @@
             <h2 ng-if="conoce.icons[conoce.selectedTipoDenuncia.fields.slug]"><i class="icon-{{conoce.icons[conoce.selectedTipoDenuncia.fields.slug]}}"></i></h2>
           </div>
           <div btf-markdown='conoce.selectedTipoDenuncia.fields.introduction'></div>
-          <p class="report-section-btns">
+          <p ng-if="conoce.selectedSchool" class="report-section-btns">
             <a ng-href="/caso/{{conoce.selectedTipoDenuncia.fields.slug}}" class="action-btn">Realizar reporte</a>
           </p>
         </div>

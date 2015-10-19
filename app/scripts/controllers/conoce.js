@@ -19,13 +19,7 @@ function ConoceCtrl($scope,schoolsService){
   ctrl.selectedTipoDenuncia = {};
   ctrl.getTiposDenuncia = getTiposDenuncia;
   ctrl.setSelectedTipoDenuncia = setSelectedTipoDenuncia;
-  ctrl.icons = {
-    'acoso-df':'bullyng',
-    'acoso-df-privada':'bullyng',
-    'infraestructura':'edificio',
-    'inasistencia-de-profesores': 'maestro',
-    'cobro-de-cuotas':'director'
-  };
+  ctrl.icons = $scope.icons;
 
   function getTiposDenuncia(){
     ctrl.tiposDenuncia.getList()
@@ -55,6 +49,7 @@ function ConoceCtrl($scope,schoolsService){
         return data;
       });
   }
+
 
   function setSelectedSchool(school){
     if(school){

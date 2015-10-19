@@ -20,15 +20,18 @@
       this.changeState = changeState;
       this.getCurrentState = getCurrentState;
       this.getHistory = getHistory;
+      this.resetHistory = resetHistory;
       this.registerHistory = registerHistory;
       this.getCurrentList = getCurrentList;
+      this.setDtype = setDtype;
 
-      this.getList();
+      //this.getList();
 
       function getList() {
         var deferred = $q.defer();
         contentful.entries('content_type=1CQ8zB04qAuISUQwSEWUmA').then(function(res){
           list = res.data.items;
+          console.log(list);
           registerHistory();
           deferred.resolve(list);
         });
@@ -36,7 +39,9 @@
       }
 
       function changeState(option) {
+        console.log(list[dType].fields);
         state = list[dType].fields.machine[state][option]-1;
+        console.log(state);
         registerHistory();
       }
 
@@ -52,15 +57,24 @@
         return stateHistory;
       }
 
+      function resetHistory(){
+        stateHistory = [];
+      }
+
       function getCurrentList(){
         return list;
       }
 
       function registerHistory() {
         if(list[dType].fields.states){
+          console.log('registro historia');
           stateHistory.push(angular.copy(list[dType].fields.states[state].fields));
           stateHistory[stateHistory.length - 1].number = stateHistory.length;
         }
+      }
+
+      function setDtype(d){
+        dType = d;
       }
 
     });
