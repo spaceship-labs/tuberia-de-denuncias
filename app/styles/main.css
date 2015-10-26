@@ -104,6 +104,8 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   color: #fff;
 }
 
+.container-rel{position: relative;}
+
 .container-alt-2{
   background: #FAFAFA;
 }
@@ -301,17 +303,27 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   #MAIL-SIGNUP
 /*-----------*/
 .sigue-item:hover .mail-signup-modal{display: block;}
+.mail-signup-modal-active{display: block}
 .mail-signup-modal{
-  display: none;
   background: #14ABE4;
   color: #fff;
+  left: 0;
+  margin: 0 auto;
+  max-width: 300px;
   padding: 20px;
-  text-align: center;
   position: absolute;
-  top: 100%;
-  left: -50%;
+  right: 0;
+  text-align: center;
+  top: 50%;
   z-index: 9;
 }
+.toolbar-head .mail-signup-modal{
+  top: 100%;
+  left: -50%;
+  right: auto;
+  display: none;
+}
+.mail-signup-modal label,
 .mail-signup-modal input{color: #fff;}
 .mail-signup-modal md-input-container{
   color: #fff;
@@ -321,7 +333,11 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
 /*-----------/
   #SCHOOL-SEARCH
 /*-----------*/
-.school-search{margin-top: 10px;padding: 10px 0}
+.school-search{
+  margin-top: 10px;
+  padding: 10px 0;
+  position: relative;
+}
 .school-search .input-field{
   color: #fff;
   position: relative;

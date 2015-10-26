@@ -60,7 +60,8 @@
           <p ng-if="conoce.selectedSchool" class="report-section-btns">
             <a
               ng-repeat="dType in conoce.selectedCategory.fields.denuncias | denunciaFilter:conoce.selectedSchool.control track by $index"
-              ng-href="/caso/{{dType.fields.slug}}"
+              href=""
+              ng-click="conoce.startReport( '/caso/' + dType.fields.slug)"
               class="action-btn">
               Realizar reporte
             </a>
@@ -68,7 +69,7 @@
 
         </div>
 
-        <div class="container-sm">
+        <div class="container-sm container-rel">
 
           <form class="school-search school-search-alt" id="simple_search">
             <div class="input-field">
@@ -91,6 +92,7 @@
                 </md-not-found>
               </md-autocomplete>
             </div>
+
           </form>
 
           <div class="schools-list">
@@ -105,6 +107,8 @@
               <a ng-click="conoce.removeSchool(conoce.schools,$index)" href="" class="school-item-close">x</a>
             </div>
           </div>
+
+          <mail-sign-in ng-show="conoce.toggleMailSignIn"></mail-sign-in>
 
         </div>
 

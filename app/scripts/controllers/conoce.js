@@ -7,7 +7,7 @@
  * # ConoceCtrl
  * Controller of the tuberiaPrototypeApp
  */
-function ConoceCtrl($scope,schoolsService){
+function ConoceCtrl($scope ,$location, schoolsService){
   var ctrl = this;
   ctrl.getSchools = getSchools;
   ctrl.setSelectedSchool = setSelectedSchool;
@@ -20,6 +20,8 @@ function ConoceCtrl($scope,schoolsService){
   ctrl.getCategories = getCategories;
   ctrl.setSelectedCategory = setSelectedCategory;
   ctrl.icons = $scope.icons;
+  ctrl.startReport = startReport;
+  ctrl.toggleMailSignIn = false;
   ctrl.init = init;
 
   function getCategories(){
@@ -55,10 +57,16 @@ function ConoceCtrl($scope,schoolsService){
     ctrl.getCategories();
   }
 
+  function startReport(url){
+    console.log(url);
+    ctrl.toggleMailSignIn = true;
+    //$location.path(url);
+  }
+
   ctrl.init();
 
 }
 
-ConoceCtrl.$inject = ['$scope','schoolsService'];
+ConoceCtrl.$inject = ['$scope', '$location','schoolsService'];
 angular.module('tuberiaPrototypeApp')
   .controller('ConoceCtrl',ConoceCtrl);
