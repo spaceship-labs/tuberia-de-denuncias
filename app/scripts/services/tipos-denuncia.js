@@ -79,10 +79,13 @@
 
       function registerHistory() {
         //if(list[dType].fields.states){
+          var date = new Date();
+          list[dType].fields.states[state].fields.date  = date;
           stateHistory.push(angular.copy(list[dType].fields.states[state].fields));
           stateHistory[stateHistory.length - 1].number = stateHistory.length;
         //}
       }
+
 
       function setDtype(d){
         dType = d;

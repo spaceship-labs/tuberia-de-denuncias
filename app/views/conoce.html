@@ -34,19 +34,12 @@
       <div class="action-bar-inner container container-mini center-content">
         <h2>Secciones de la denuncia</h2>
 
-        <div class="action-item">
-          <p><strong>Acercarte con el director</strong></p>
-          <p>22 marzo 2015</p>
-          <p class="action-item-desc">Te acercaste con el director y "No, no lo he resuleto".</p>
-        </div>
-
-        <div class="action-item">
-          <p><strong>Realizar tu reporte en la línea de atención telefónica</strong></p>
-          <p>22 marzo 2015</p>
-          <div class="alert">
-            <p>El plazo para que esta denuncia se canalizada se cumplio el 12/09/2015</p>
-          </div>
-          <p class="action-item-desc">Ya se ha resuelto la situación</p>
+        <div class="action-item" ng-repeat="state in conoce.tiposDenuncia.getHistory()">
+          <p>
+            <strong ng-bind="state.number"></strong>
+             <strong ng-bind="state.title"></strong>
+           </p>
+          <p>{{::state.date | date:'dd/MM/yyyy'}}</p>
         </div>
 
 
