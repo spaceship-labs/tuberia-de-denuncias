@@ -9,19 +9,21 @@
  */
 function ConoceCtrl($scope ,$location, schoolsService){
   var ctrl = this;
-  ctrl.getSchools = getSchools;
-  ctrl.setSelectedSchool = setSelectedSchool;
-  ctrl.removeSelectedSchool = removeSelectedSchool;
   ctrl.searchText = '';
-  ctrl.tiposDenuncia = $scope.tiposDenuncia;
   ctrl.categories = [];
   ctrl.indexCategory = 0;
   ctrl.selectedCategory = {};
+  ctrl.tiposDenuncia = $scope.tiposDenuncia;
+  ctrl.icons = $scope.icons;
+  ctrl.toggleMailSignIn = false;
+  ctrl.params = {};
+
+  ctrl.getSchools = getSchools;
+  ctrl.setSelectedSchool = setSelectedSchool;
+  ctrl.removeSelectedSchool = removeSelectedSchool;
   ctrl.getCategories = getCategories;
   ctrl.setSelectedCategory = setSelectedCategory;
-  ctrl.icons = $scope.icons;
   ctrl.startReport = startReport;
-  ctrl.toggleMailSignIn = false;
   ctrl.init = init;
 
   function getCategories(){
@@ -57,16 +59,18 @@ function ConoceCtrl($scope ,$location, schoolsService){
     ctrl.getCategories();
   }
 
-  function startReport(url){
-    console.log(url);
+  function startReport(dType){
     ctrl.toggleMailSignIn = true;
-    //$location.path(url);
+    ctrl.params.startDate = new Date();
+    ctrl.params.dType = dType;
+    ctrl.params.cct = ctrl.selectedSchool.cct;
   }
+
 
   ctrl.init();
 
 }
 
-ConoceCtrl.$inject = ['$scope', '$location','schoolsService'];
+ConoceCtrl.$inject = ['$scope', '$location','schoolsService', 'denunciaService'];
 angular.module('tuberiaPrototypeApp')
   .controller('ConoceCtrl',ConoceCtrl);

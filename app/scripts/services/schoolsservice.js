@@ -17,6 +17,9 @@
       //var cookieSchoolName = 'tuberiadedenuncias.user.school';
 
       this.getSchools = getSchools;
+      this.getSchool = getSchool;
+
+      //TODO: verificar relevancia
       this.setUserSchool = setUserSchool;
       this.getUserSchool = getUserSchool;
 
@@ -40,6 +43,30 @@
         }
 
         function getSchoolsFailed(err){
+          console.log(err);
+        }
+      }
+
+      function getSchool(cct){
+        return $http({
+          method: 'GET',
+          url: 'http://mte.spaceshiplabs.com/api/escuelas',
+          params: {
+            ccts: cct,
+            solr: true
+          }
+        })
+        .then(getSchoolComplete)
+        .catch(getSchoolFailed);
+
+        function getSchoolComplete(res){
+          if (res.data && res.data.escuelas) {
+            return res.data.escuelas;
+          }
+          return [];
+        }
+
+        function getSchoolFailed(err){
           console.log(err);
         }
       }

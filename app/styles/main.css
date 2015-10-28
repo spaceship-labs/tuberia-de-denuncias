@@ -329,6 +329,14 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   color: #fff;
   text-align: left;
 }
+.mail-signup-modal .action-btn{
+  background: transparent;
+}
+.mail-signup-modal .action-btn:hover{
+  background: #fff;
+  color: #14ABE4;
+}
+
 
 /*-----------/
   #SCHOOL-SEARCH

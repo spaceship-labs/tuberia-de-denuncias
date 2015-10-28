@@ -1,11 +1,21 @@
 <div class="mail-signup-modal">
-  <form action="#">
-    <p>Escribe tu e-mail para seguir con tu denuncia</p>
-     <md-input-container>
-        <label>E-mail</label>
-        <input required type="email" name="clientEmail" ng-model="project.clientEmail"
-               minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
-      </md-input-container>
-      <a href="#" class="action-btn">Enviar</a>
+  <form ng-submit="submitForm()">
+    <p ng-if="!create">Escribe tu e-mail para seguir con tu denuncia</p>
+    <p ng-if="create">Escribe tu e-mail para iniciar tu denuncia</p>
+
+    <section ng-if="!loading">
+       <md-input-container>
+          <label>E-mail</label>
+          <input required type="email" name="userEmail" ng-model="params.email"
+                 minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+        </md-input-container>
+        <input type="submit" class="action-btn" value="Enviar">
+    </section>
+
+    <section layout="row" layout-align="center center" ng-if="loading">
+      <md-progress-circular class="md-accent" md-mode="indeterminate" md-diameter="50px"></md-progress-circular>
+    </section>
+
+      <p ng-if="showError">Hubo un error, intentalo de nuevo</p>
   </form>
 </div>
