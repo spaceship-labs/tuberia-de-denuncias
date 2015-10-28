@@ -23,11 +23,11 @@
               <span>REPORTA</span>
             </li>
             <li flex="25" class="menu-item sigue-item">
-              <a href="#" class="absolute-link"></a>
+              <a ng-click="toggleConoce()" href="" class="absolute-link"></a>
               <p><i class="icon-sigue"></i></p>
               <span>SIGUE</span>
 
-              <mail-sign-in header-modal="true"></mail-sign-in>
+              <mail-sign-in ng-show="toggleMailSignInHeader" header-modal="true"></mail-sign-in>
 
             </li>
             <li flex="25" class="menu-item califica-item">

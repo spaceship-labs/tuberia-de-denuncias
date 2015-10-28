@@ -31,7 +31,7 @@
           controller: 'HomeCtrl',
           controllerAs: 'home'
         })
-        .when('/caso/:type', {
+        .when('/caso/:token', {
           templateUrl: 'views/caso.html',
           controller: 'CasoCtrl',
           controllerAs: 'caso'

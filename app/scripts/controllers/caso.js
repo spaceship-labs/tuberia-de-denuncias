@@ -10,61 +10,31 @@
 (function(){
 
   angular.module('tuberiaPrototypeApp').controller('CasoCtrl', CasoCtrl);
-  CasoCtrl.$inject = ['$scope','$filter','$routeParams','schoolsService', 'denunciaService', 'userService'];
+  CasoCtrl.$inject = ['$scope','$filter','$routeParams','schoolsService', 'denunciaService'];
 
-  function CasoCtrl($scope,$filter,$routeParams,schoolsService, denunciaService, userService){
+  function CasoCtrl($scope,$filter,$routeParams,schoolsService, denunciaService){
     var ctrl = this;
 
     ctrl.tiposDenuncia = $scope.tiposDenuncia;
     ctrl.tiposDenunciaList = [];
     ctrl.school = {};
+    ctrl.token = null;
+    ctrl.dType = null;
 
     ctrl.init = init;
-    ctrl.setDate = setDate;
     ctrl.userChoice = userChoice;
-    ctrl.getCurrentTypeIndex = getCurrentTypeIndex;
-    ctrl.getTiposDenuncia = getTiposDenuncia;
     ctrl.getDenuncia = getDenuncia;
     ctrl.getUserSchool = getUserSchool;
+    ctrl.getTipoDenuncia = getTipoDenuncia;
 
     ctrl.init();
 
     function init(){
-      //ctrl.school = schoolsService.getUserSchool();
-      ctrl.setDate();
+      ctrl.token = $routeParams.token;
       ctrl.tiposDenuncia.resetData();
-      ctrl.getTiposDenuncia();
       ctrl.getDenuncia();
     }
 
-    function getTiposDenuncia(){
-      ctrl.tiposDenuncia.getList()
-        .then(function(list){
-          var typeIndex = 0;
-          ctrl.tiposDenunciaList = list;
-          typeIndex = getCurrentTypeIndex(list);
-          ctrl.tiposDenuncia.setDtype(typeIndex);
-        });
-    }
-
-    function getCurrentTypeIndex(types){
-      var currentTypeSlug = $routeParams.type;
-      var index = 0;
-      for (var i=0; i<types.length; i++) {
-        if ( types[i].fields.slug === currentTypeSlug ) {
-          index = i;
-          break;
-        }
-      }
-      return index;
-
-    }
-
-    function setDate(){
-      var date = new Date();
-      var dateStr = $filter('date')(date,'dd/MM/yyyy');
-      ctrl.currDate = dateStr;
-    }
 
     function userChoice(choice){
       $scope.tiposDenuncia.changeState(choice);
@@ -78,16 +48,23 @@
       });
     }
 
+    function getTipoDenuncia(dTypeId){
+      ctrl.tiposDenuncia.getDenunciaType(dTypeId).then(function(dType){
+        ctrl.dType = dType;
+      });
+    }
+
     function getDenuncia(){
-      var token = userService.getToken() || 'eacbdcf80264f9a8405ede2c0f9037e7';
+      var token = ctrl.token;
       denunciaService.getDenuncia(token).then(function(res){
         ctrl.getUserSchool(res.data.cct);
+        ctrl.getTipoDenuncia(res.data.dTypeId);
       });
     }
 
     $scope.$watch(
       function() {
-        return $scope.tiposDenuncia.getCurrentState();
+        return ctrl.tiposDenuncia.getCurrentState();
       },
       function(newVal) {
         ctrl.state = newVal;

@@ -61,7 +61,7 @@
             <a
               ng-repeat="dType in conoce.selectedCategory.fields.denuncias | denunciaFilter:conoce.selectedSchool.control track by $index"
               href=""
-              ng-click="conoce.startReport(dType.fields.slug)"
+              ng-click="conoce.startReport(dType)"
               class="action-btn">
               Realizar reporte
             </a>

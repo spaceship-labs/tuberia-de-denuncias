@@ -302,7 +302,8 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
 /*------------/
   #MAIL-SIGNUP
 /*-----------*/
-.sigue-item:hover .mail-signup-modal{display: block;}
+/*
+.sigue-item:hover .mail-signup-modal{display: block;}*/
 .mail-signup-modal-active{display: block}
 .mail-signup-modal{
   background: #14ABE4;
@@ -321,7 +322,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
   top: 100%;
   left: -50%;
   right: auto;
-  display: none;
+  /*display: none;*/
 }
 .mail-signup-modal label,
 .mail-signup-modal input{color: #fff;}
@@ -335,6 +336,11 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
 .mail-signup-modal .action-btn:hover{
   background: #fff;
   color: #14ABE4;
+}
+.mail-signup-modal .alert-msg{
+  font-size: 12px;
+  display: block;
+  margin-top: 20px;
 }
 
 

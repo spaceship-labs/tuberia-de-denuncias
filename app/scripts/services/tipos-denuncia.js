@@ -12,7 +12,7 @@
   var list = [];
   var stateHistory = [];
   var state = 0;
-  var dType = 0;
+  var denunciaType = null;
 
   angular.module('tuberiaPrototypeApp')
     .service('tiposDenuncia', function($http, $q, contentful){
@@ -24,9 +24,9 @@
       this.resetData = resetData;
       this.registerHistory = registerHistory;
       this.getCurrentList = getCurrentList;
-      this.setDtype = setDtype;
+      this.getDenunciaType = getDenunciaType;
 
-      this.getList();
+      //this.getList();
 
       function getCategories() {
         var deferred = $q.defer();
@@ -41,22 +41,34 @@
         var deferred = $q.defer();
         contentful.entries('content_type=1CQ8zB04qAuISUQwSEWUmA').then(function(res){
           list = res.data.items;
-          registerHistory();
           deferred.resolve(list);
         });
         return deferred.promise;
       }
 
+      function getDenunciaType(dTypeId){
+        var deferred = $q.defer();
+        contentful.entries('sys.id='+dTypeId).then(function(res){
+          if(res.data.items.length > 0){
+            deferred.resolve(res.data.items[0]);
+            denunciaType = res.data.items[0];
+            registerHistory();
+          }
+        });
+        return deferred.promise;
+      }
+
       function changeState(option) {
-        state = list[dType].fields.machine[state][option]-1;
+        state = denunciaType.fields.machine[state][option]-1;
         registerHistory();
       }
 
       function getCurrentState() {
-        if(list.length){
+        if(denunciaType){
           //Adding step number
-          list[dType].fields.states[state].fields.stepNumber = state+1;
-          return list.length ? list[dType].fields.states[state].fields : false;
+          denunciaType.fields.states[state].fields.stepNumber = state+1;
+
+          return denunciaType ? denunciaType.fields.states[state].fields : false;
         }else{
           return false;
         }
@@ -69,7 +81,7 @@
 
       function resetData(){
         stateHistory = [];
-        dType = 0;
+        denunciaType = null;
         state = 0;
       }
 
@@ -79,18 +91,14 @@
 
       function registerHistory() {
         //if(list[dType].fields.states){
-          var date = new Date();
-          list[dType].fields.states[state].fields.date  = date;
-          stateHistory.push(angular.copy(list[dType].fields.states[state].fields));
-          stateHistory[stateHistory.length - 1].number = stateHistory.length;
-          //console.log(stateHistory);
-        //}
+        //Adding date
+        var date = new Date();
+        denunciaType.fields.states[state].fields.date  = date;
+
+        stateHistory.push(angular.copy(denunciaType.fields.states[state].fields));
+        stateHistory[stateHistory.length - 1].number = stateHistory.length;
       }
 
-
-      function setDtype(d){
-        dType = d;
-      }
 
     });
 

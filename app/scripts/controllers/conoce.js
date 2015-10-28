@@ -62,7 +62,8 @@ function ConoceCtrl($scope ,$location, schoolsService){
   function startReport(dType){
     ctrl.toggleMailSignIn = true;
     ctrl.params.startDate = new Date();
-    ctrl.params.dType = dType;
+    ctrl.params.dTypeSlug = dType.fields.slug;
+    ctrl.params.dTypeId = dType.sys.id;
     ctrl.params.cct = ctrl.selectedSchool.cct;
   }
 

@@ -19,14 +19,31 @@ angular.module('tuberiaPrototypeApp')
       restrict: 'EA',
       link: function(scope){
 
-        /*scope.submitMailSignIn = function(url){
-          ctrl.toggleMailSignIn = true;
-          $location.path(url);
-        }*/
+        scope.user = {
+          email: ''
+        };
 
-        scope.createDenuncia = function(data, callback){
+        scope.createDenuncia = function(data){
           denunciaService.createDenuncia(data).then(function(res){
-            callback(res);
+            if(res.data.success){
+              userService.setToken(res.data.token);
+              $location.path('/caso/'+res.data.token);
+            }else{
+              scope.showError = true;
+            }
+            scope.loading = false;
+          });
+        };
+
+        scope.exportDenuncias = function(email){
+          denunciaService.exportDenuncias(email).then(function(res){
+            if(res.data.success){
+              scope.showExportMsg = true;
+              scope.totalDenuncias = res.data.total;
+            }else{
+              scope.showError = true;
+            }
+            scope.loading = false;
           });
         };
 
@@ -35,21 +52,12 @@ angular.module('tuberiaPrototypeApp')
           scope.showError = false;
 
           if(scope.create){
-            scope.createDenuncia(scope.params,function(res){
-              console.log(res);
-
-              if(res.data.success){
-                userService.setToken(res.data.token);
-                $location.path('/caso/'+res.data.dType);
-              }else{
-                scope.showError = true;
-              }
-              scope.loading = false;
-            });
-
-          }else{
-            scope.loading = false;
-            scope.showError = true;
+            scope.params.email = scope.user.email;
+            scope.createDenuncia(scope.params);
+          }
+          else{
+            console.log('exportando');
+            scope.exportDenuncias(scope.user.email);
           }
         };
 

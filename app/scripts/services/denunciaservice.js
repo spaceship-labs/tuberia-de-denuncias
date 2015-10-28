@@ -16,6 +16,7 @@
 
       this.getDenuncia = getDenuncia;
       this.createDenuncia = createDenuncia;
+      this.exportDenuncias = exportDenuncias;
 
       function getDenuncia(token){
         //console.log(token);
@@ -62,6 +63,32 @@
         }
 
         function createDenunciaFailed(err){
+          console.log(err);
+          return false;
+        }
+      }
+
+      function exportDenuncias(email){
+        var action = 'export_denuncias';
+        var data = {
+          email: email
+        };
+
+        return $http({
+          method: 'POST',
+          url: baseUrl + action,
+          params: {
+            data: data
+          }
+        })
+        .then(exportComplete)
+        .catch(exportFailed);
+
+        function exportComplete(res){
+          return res;
+        }
+
+        function exportFailed(err){
           console.log(err);
           return false;
         }
