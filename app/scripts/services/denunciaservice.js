@@ -18,7 +18,7 @@
       this.createDenuncia = createDenuncia;
 
       function getDenuncia(token){
-        console.log(token);
+        //console.log(token);
         var action = 'read_denuncia';
         var data = {
           token: token

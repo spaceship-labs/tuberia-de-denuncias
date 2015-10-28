@@ -64,6 +64,8 @@
     </div>
 
     <div ng-if="home.selectedSchool" class="container-xlg report-select" layout="row" layout-align="space-between center">
+
+      <!--Tipos de denuncia-->
       <div
         ng-repeat="type in home.tiposDenunciaList | denunciaFilter:home.selectedSchool.control track by $index"
         flex
@@ -76,8 +78,16 @@
             <i class="icon-{{ home.icons[type.fields.slug] }}"></i>
           </a>
         </p>
-        <p><a class="report-select-item-btn" ng-href="caso/{{type.fields.slug}}"><strong ng-bind="type.fields.label"></strong></a></p>
+        <p>
+          <a class="report-select-item-btn" href="" ng-click="home.startReport(type.fields.slug)">
+            <strong ng-bind="type.fields.label"></strong>
+          </a>
+        </p>
       </div>
+      <!--End tipos de denuncia-->
+
+      <mail-sign-in ng-show="home.toggleMailSignIn" create="true" params="home.params"></mail-sign-in>
+
     </div>
 
   </div>

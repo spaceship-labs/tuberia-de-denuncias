@@ -11,13 +11,18 @@
 
   function HomeCtrl($scope,$http,schoolsService){
     var ctrl = this;
+
+    ctrl.toggleMailSignIn = false;
+    ctrl.params = {};
+    ctrl.tiposDenuncia = $scope.tiposDenuncia;
+    ctrl.tiposDenunciaList = [];
+    ctrl.icons = $scope.icons;
+
     ctrl.schoolsService = schoolsService;
     ctrl.getSchools = getSchools;
     ctrl.selectedSchoolChange = selectedSchoolChange;
-    ctrl.tiposDenuncia = $scope.tiposDenuncia;
-    ctrl.tiposDenunciaList = [];
     ctrl.getTiposDenuncia = getTiposDenuncia;
-    ctrl.icons = $scope.icons;
+    ctrl.startReport = startReport;
     ctrl.init = init;
 
     function getTiposDenuncia(){
@@ -36,6 +41,13 @@
 
     function selectedSchoolChange(school){
       ctrl.schoolsService.setUserSchool(school);
+    }
+
+    function startReport(dType){
+      ctrl.toggleMailSignIn = true;
+      ctrl.params.startDate = new Date();
+      ctrl.params.dType = dType;
+      ctrl.params.cct = ctrl.selectedSchool.cct;
     }
 
     function init(){
