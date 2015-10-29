@@ -13,9 +13,11 @@
   var stateHistory = [];
   var state = 0;
   var denunciaType = null;
+  var _denuncia = null;
+  var restoredHistory = false;
 
   angular.module('tuberiaPrototypeApp')
-    .service('tiposDenuncia', function($http, $q, contentful){
+    .service('tiposDenuncia', function($http, $q, contentful, denunciaService){
       this.getList = getList;
       this.getCategories = getCategories;
       this.changeState = changeState;
@@ -25,6 +27,7 @@
       this.registerHistory = registerHistory;
       this.getCurrentList = getCurrentList;
       this.getDenunciaType = getDenunciaType;
+      this.restoreHistory = restoreHistory;
 
       //this.getList();
 
@@ -46,13 +49,23 @@
         return deferred.promise;
       }
 
-      function getDenunciaType(dTypeId){
+      function getDenunciaType(dTypeId, denuncia){
         var deferred = $q.defer();
         contentful.entries('sys.id='+dTypeId).then(function(res){
           if(res.data.items.length > 0){
-            deferred.resolve(res.data.items[0]);
             denunciaType = res.data.items[0];
-            registerHistory();
+
+            if(denuncia){
+              _denuncia = denuncia;
+              if(denuncia.history){
+                restoreHistory();
+                if(!restoredHistory){
+                  registerHistory(denuncia);
+                }
+              }
+            }
+
+            deferred.resolve(res.data.items[0]);
           }
         });
         return deferred.promise;
@@ -60,7 +73,7 @@
 
       function changeState(option) {
         state = denunciaType.fields.machine[state][option]-1;
-        registerHistory();
+        registerHistory(_denuncia);
       }
 
       function getCurrentState() {
@@ -82,6 +95,7 @@
       function resetData(){
         stateHistory = [];
         denunciaType = null;
+        _denuncia = null;
         state = 0;
       }
 
@@ -89,14 +103,53 @@
         return list;
       }
 
-      function registerHistory() {
-        //if(list[dType].fields.states){
+      function restoreHistory(history){
+        if(history && history.length > 0){
+          restoredHistory = true;
+          var index;
+          stateHistory = [];
+
+          for(var i=0;i<history.length;i++){
+            var historyItem = history[i];
+            index = historyItem.index;
+            var stateItem = angular.copy( denunciaType.fields.states[index].fields );
+            stateItem.number = historyItem.number;
+            stateItem.date = historyItem.date;
+            stateHistory.push(stateItem);
+          }
+
+          state = index;
+        }else{
+          state = 0;
+          stateHistory = [];
+        }
+      }
+
+
+      function registerHistory(denuncia) {
+
         //Adding date
         var date = new Date();
         denunciaType.fields.states[state].fields.date  = date;
 
         stateHistory.push(angular.copy(denunciaType.fields.states[state].fields));
         stateHistory[stateHistory.length - 1].number = stateHistory.length;
+
+        //Para guardar datos escenciales en la BD
+        var history = stateHistory.map(function(itemState){
+          var itemHistory = {
+            index: (itemState.number - 1),
+            number: itemState.number,
+            date: itemState.date
+          };
+          return itemHistory;
+        });
+
+        if(denuncia){
+          denuncia.history = history;
+          denunciaService.updateDenuncia(denuncia);
+        }
+
       }
 
 

@@ -16,10 +16,35 @@
 
       this.getDenuncia = getDenuncia;
       this.createDenuncia = createDenuncia;
+      this.updateDenuncia = updateDenuncia;
       this.exportDenuncias = exportDenuncias;
+
+      function createDenuncia(data){
+        var action = 'create_denuncia';
+
+        return $http({
+          method: 'POST',
+          url: baseUrl + action,
+          params: {
+            data: data
+          }
+        })
+        .then(createDenunciaComplete)
+        .catch(createDenunciaFailed);
+
+        function createDenunciaComplete(res){
+          return res;
+        }
+
+        function createDenunciaFailed(err){
+          console.log(err);
+          return false;
+        }
+      }
 
       function getDenuncia(token){
         //console.log(token);
+
         var action = 'read_denuncia';
         var data = {
           token: token
@@ -45,25 +70,32 @@
         }
       }
 
-      function createDenuncia(data){
-        var action = 'create_denuncia';
+      function updateDenuncia(data){
+        //console.log(token);
+        var action = 'update_denuncia';
 
-        return $http({
-          method: 'POST',
-          url: baseUrl + action,
-          params: {
-            data: data
-          }
-        })
-        .then(createDenunciaComplete)
-        .catch(createDenunciaFailed);
-
-        function createDenunciaComplete(res){
+        function updateDenunciaComplete(res){
+          //console.log(res);
           return res;
         }
 
-        function createDenunciaFailed(err){
+        function updateDenunciaFailed(err){
           console.log(err);
+          return false;
+        }
+
+        if(data.token){
+          return $http({
+            method: 'POST',
+            url: baseUrl + action,
+            params: {
+              data: data
+            }
+          })
+          .then(updateDenunciaComplete)
+          .catch(updateDenunciaFailed);
+
+        }else{
           return false;
         }
       }

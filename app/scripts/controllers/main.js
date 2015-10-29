@@ -24,10 +24,7 @@
     $scope.$on('$locationChangeStart', function() {
       var path = $location.path();
 
-      console.log('location change');
-
       $scope.toggleMailSignInHeader = false;
-      console.log($scope.toggleMailSignInHeader);
 
       if(path.indexOf('/caso/') >= 0 || path.indexOf('/conoce') >= 0){
         $scope.sidebarOn = true;

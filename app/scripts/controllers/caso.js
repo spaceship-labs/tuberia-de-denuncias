@@ -48,17 +48,18 @@
       });
     }
 
-    function getTipoDenuncia(dTypeId){
-      ctrl.tiposDenuncia.getDenunciaType(dTypeId).then(function(dType){
+    function getTipoDenuncia(dTypeId, denuncia){
+      ctrl.tiposDenuncia.getDenunciaType(dTypeId, denuncia).then(function(dType){
         ctrl.dType = dType;
       });
     }
+
 
     function getDenuncia(){
       var token = ctrl.token;
       denunciaService.getDenuncia(token).then(function(res){
         ctrl.getUserSchool(res.data.cct);
-        ctrl.getTipoDenuncia(res.data.dTypeId);
+        ctrl.getTipoDenuncia(res.data.dTypeId, res.data);
       });
     }
 
