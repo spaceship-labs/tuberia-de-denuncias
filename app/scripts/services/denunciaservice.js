@@ -74,15 +74,15 @@
         //console.log(token);
         var action = 'update_denuncia';
 
-        function updateDenunciaComplete(res){
-          //console.log(res);
+        var updateDenunciaComplete = function(res){
+          console.log(res);
           return res;
-        }
+        };
 
-        function updateDenunciaFailed(err){
+        var updateDenunciaFailed = function(err){
           console.log(err);
           return false;
-        }
+        };
 
         if(data.token){
           return $http({
