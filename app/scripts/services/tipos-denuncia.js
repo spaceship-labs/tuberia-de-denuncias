@@ -54,10 +54,12 @@
         contentful.entries('sys.id='+dTypeId).then(function(res){
           if(res.data.items.length > 0){
             denunciaType = res.data.items[0];
-            _denuncia = denuncia;
-            restoreHistory(denuncia.history);
-            if(!restoredHistory){
-              registerHistory(denuncia);
+            if(denuncia){
+              _denuncia = denuncia;
+              restoreHistory(denuncia.history);
+              if(!restoredHistory){
+                registerHistory(denuncia);
+              }
             }
             deferred.resolve(res.data.items[0]);
           }
@@ -98,9 +100,7 @@
       }
 
       function restoreHistory(history){
-        console.log('restoreHistory');
         if(history && history.length > 0){
-          console.log(history);
           restoredHistory = true;
           var index;
           stateHistory = [];
@@ -113,21 +113,16 @@
             stateItem.date = historyItem.date;
             stateHistory.push(stateItem);
           }
-          console.log('despues del restore, quedo:');
-          console.log(stateHistory);
 
           state = index;
         }else{
           state = 0;
           stateHistory = [];
         }
-        console.log(state);
       }
 
 
       function registerHistory(denuncia) {
-        console.log('registerHistory');
-
         //Adding date
         var date = new Date();
         denunciaType.fields.states[state].fields.date  = date;
@@ -145,9 +140,10 @@
           return itemHistory;
         });
 
-        denuncia.history = history;
-
-        denunciaService.updateDenuncia(denuncia);
+        if(denuncia){
+          denuncia.history = history;
+          denunciaService.updateDenuncia(denuncia);
+        }
 
       }
 

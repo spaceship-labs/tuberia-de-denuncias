@@ -75,7 +75,6 @@
         var action = 'update_denuncia';
 
         var updateDenunciaComplete = function(res){
-          console.log(res);
           return res;
         };
 
