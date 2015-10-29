@@ -1,0 +1,530 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "total": 1,
+  "skip": 0,
+  "limit": 100,
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "msnkbvgxrvah"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "1CQ8zB04qAuISUQwSEWUmA"
+          }
+        },
+        "id": "3JFuLY15te0mam6KeUu6kC",
+        "revision": 9,
+        "createdAt": "2015-10-16T21:32:39.925Z",
+        "updatedAt": "2015-10-19T20:06:42.633Z",
+        "locale": "es-MX"
+      },
+      "fields": {
+        "slug": "infraestructura",
+        "title": "Infraestructura",
+        "introduction": "# PROBLEMAS  DE INFRAESTRUCTURA ESCOLAR\nLa infraestructura escolar es uno de los componentes del sistema educativo nacional. Se refiere a las __condiciones físicas en las que se encuentra cada plantel__ (edificios, jardines, sanitarios, salones, inmobiliario) y los __servicios básicos__ (electricidad, agua, alcantarillado y teléfono) con los que debe contar. \n\nLa presencia de espacios de apoyo a la comunidad educativa como bibliotecas, laboratorios de ciencias y salas de cómputo también es parte de la infraestructura escolar.",
+        "description": "## Tipos de mantenimiento a la infraestructura escolar\n\n- __Mantenimiento preventivo:__ son las acciones que deben realizarse de manera periódicamente  en los edificios, instalaciones y mobiliario de los centros educativos para evitar deterioros o accidentes y así alargar su vida útil.\n- __Mantenimiento correctivo:__ trabajos que se deben llevar a cabo de forma inmediata para reparar daños ocasionados por el desgaste, por accidentes o por el uso inadecuado. Se clasifican dependiendo el monto económico con el que se cuente o el personal que se requiera para su atención. \n  - __Mantenimiento menor:__ son las acciones que no requieren de una inversión económica cuantiosa ni personas especializadas en el problema.\n  - __Mantenimiento mayor:__ son reparaciones que demandan un gasto económico mayor y que debe ser realizado por personas especialmente capacitadas.\n\n## ¿Quiénes son los responsables de la Infraestructura educativa?\n\n- __Instituto Nacional de la Infraestructura Física Educativa (INIFED):__ organismo encargado de vigilar la calidad y construcción de infraestructura, además de la prevención y atención de daños ocasionados por desastres naturales, tecnológicos o humanos en las diferentes escuelas del país. \n  - Artículo 7. La infraestructura física educativa del país deberá cumplir requisitos de calidad, seguridad, funcionalidad, oportunidad, equidad, sustentabilidad, pertinencia y oferta suficiente de agua potable para consumo humano, de acuerdo con la política educativa determinada por el Estado [...]\n- __Consejo Técnico Escolar (CTE):__ detecta y atiende las necesidades que tienen los alumnos derivadas de las carencias de infraestructura y/o inmobiliario, gestionando y haciendo las peticiones a las instancias correspondientes. \n\n## Marco legal\nEstos son algunos de los recursos que regulan y vigilan esta problemática. \n- __Ley General de Educación__\n- __Ley General de la Infraestructura Física Educativa:__ tiene como objetivo reglamentar y atender las disposiciones para la construcción, equipamiento y mantenimiento de inmuebles e instalaciones destinados al servicio educativo en todo el país. \n\n## Programas para fortalecer la intervención del mejoramiento de infraestructura escolar\n- Programa “Mejores Escuelas” (INIFED)\n- Programa “Mejores Espacios Educativos“ (SEP)\n- Programa “Escuelas de Calidad” (PEC)\n- Programa “Escuelas Dignas”\n- Programa de la Reforma Educativa para Abatir el Rezago Educativo\n- Infraestructura educativa en el CONAFE \n\n## Cifras:\n- Un estudio elaborado por la UNESCO con los datos de SERCE reveló que las condiciones físicas de las escuelas influyen considerablemente en el desempeño del estudiante y puede contribuir a la reducción de la brecha de aprendizaje asociada con la desigualdad social.\n- Datos del SERCE (Segundo Estudio Regional Comparativo y Explicativo) arrojaron que cerca del 40% de las escuelas de educación básica en Latinoamérica no tienen biblioteca; 88% no tienen laboratorios de ciencias; 63% no cuentan con espacios de reuniones u oficinas para los docentes; 73% no tienen comedor; 65% no poseen salas de computadores; y 35% no cuentan con ningún espacio para deportes. \n- Además, 21% de las escuelas no tienen acceso a agua potable; 40% no tienen desagüe; 53% no tienen línea telefónica; 32% tienen insuficiencias en el número de baños; y 11% no tiene acceso alguno a electricidad.\n\n## *Fuentes*\n- La infraestructura educativa para el bienestar y el desarrollo de las competencias en los niños. [http://publicaciones.inee.edu.mx/buscadorPub/P1/D/232/P1D232_08E08.pdf](http://publicaciones.inee.edu.mx/buscadorPub/P1/D/232/P1D232_08E08.pdf) \n- Infraestructura escolar y aprendizajes en la Educación Básica Latinoamericana: Un análisis a partir del SERCE. Mayo 2011. [http://idbdocs.iadb.org/wsdocs/getDocument.aspx?DOCNUM=36201660](http://idbdocs.iadb.org/wsdocs/getDocument.aspx?DOCNUM=36201660)\n- Instituto Nacional de la Infraestructura Física Educativa. [http://www.inifed.gob.mx/](http://www.inifed.gob.mx/) \n- Ley general de la Infraestructura Física Educativa. [http://www.diputados.gob.mx/LeyesBiblio/pdf/LGIFE.pdf](http://www.diputados.gob.mx/LeyesBiblio/pdf/LGIFE.pdf)\n- Subdirección de educación primaria. [http://portal2.edomex.gob.mx/deprim/index.htm?ssSourceNodeId=20081&ssSourceSiteId=deprim](http://portal2.edomex.gob.mx/deprim/index.htm?ssSourceNodeId=20081&ssSourceSiteId=deprim) \n- Guía para el Consejo Técnico Escolar. [http://www.iea.gob.mx/webiea/tiempo_completo/archivos/1-GUIA%20ETC+.pdf](http://www.iea.gob.mx/webiea/tiempo_completo/archivos/1-GUIA%20ETC+.pdf) \n- Cuidemos nuestra escuela. Manual de Mantenimiento Escolar. [http://148.244.102.133/doc/servicios/Manual_de_mantenimiento_2013_web.pdf](http://148.244.102.133/doc/servicios/Manual_de_mantenimiento_2013_web.pdf ) \n\n- \n",
+        "machine": [
+          [
+            2,
+            1,
+            9,
+            9
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            2,
+            9,
+            9
+          ],
+          [
+            5,
+            2,
+            9,
+            9
+          ],
+          [
+            6,
+            2,
+            9,
+            9
+          ],
+          [
+            7,
+            5,
+            9,
+            9
+          ],
+          [
+            8,
+            4,
+            9,
+            9
+          ],
+          [
+            9,
+            2,
+            9
+          ],
+          [
+            10
+          ]
+        ],
+        "label": "Infraestructura",
+        "states": [
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4JFIJAlkcgWYkW4SQAwuo2"
+            }
+          },
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "T4SPS7jvSo4UeEAOMcsQw"
+            }
+          },
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "221C74mCmwW4o2668AmC0k"
+            }
+          },
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "NJM368HwaGuC0UyEoAeWi"
+            }
+          },
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "EQhp6dTWWOwkUQEq2UEwE"
+            }
+          },
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "5jUMo9vgQ8S8amAKu8qK4C"
+            }
+          },
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "5WFSZmwvSM8c6a6A0c2c64"
+            }
+          },
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "5G7hr5I1P2qAS6Gec4cgE2"
+            }
+          },
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1EGmUCiU2o4S6iuEyyqyAm"
+            }
+          }
+        ],
+        "parameters": {},
+        "category": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3a2veHzX3qQgaeqqEEmoEM"
+          }
+        }
+      }
+    }
+  ],
+  "includes": {
+    "Entry": [
+      {
+        "fields": {
+          "title": "Atención especializada",
+          "content": "## Atención especializada\n\nEl área especializada de seguimiento debe realizar una investigación y valoración de tu caso. A partir de ella, se determinarán y acordaron contigo medidas correctivas para lidar con el caso de acoso escolar. Estas medidas pueden ser charlas, firmar compromisos para corregir conductas, o aplicar sanciones.\n\nEl área especializada de seguimiento debe llevar a cabo la valoración de tu caso en los siguientes ??? días hábiles y contactarte al respecto.\n\nSi ya ha pasado el plazo establecido, cuéntanos qué sucedió: \n",
+          "slug": "atencion-especializada",
+          "options": [
+            "Los responsables del área especializada ya propusieron medidas que se llevarán a cabo",
+            "Los responsables del área especializada no han propuesto medidas para solucionar la situación",
+            "Ya se ha resuelto la situación",
+            "He decidido no continuar con el reporte"
+          ]
+        },
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "msnkbvgxrvah"
+            }
+          },
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "WnEaEO4oScgCISqywyuOs"
+            }
+          },
+          "id": "5WFSZmwvSM8c6a6A0c2c64",
+          "revision": 1,
+          "createdAt": "2015-08-17T22:49:00.711Z",
+          "updatedAt": "2015-08-17T22:49:00.711Z",
+          "locale": "es-MX"
+        }
+      },
+      {
+        "fields": {
+          "slug": "encuesta-salida",
+          "title": "Encuesta de salida",
+          "content": "## Encuesta de salida\n\nPhasellus faucibus nisl a quam facilisis malesuada. Suspendisse suscipit tellus urna, non posuere tortor euismod vitae. Nulla sit amet nunc eu sem ullamcorper tempus. Per ac sem ac lobortis. Praesent sit amet leo in odio luctus molestie quis eget est. Quisque a mollis orci, a scelerisque mauris.",
+          "options": [],
+          "form": {
+            "method": "/api/encuesta",
+            "fields": [
+              {
+                "label": "nombre",
+                "handle": "name",
+                "type": "text"
+              },
+              {
+                "label": "comentario",
+                "handle": "comment",
+                "type": "textarea"
+              }
+            ]
+          }
+        },
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "msnkbvgxrvah"
+            }
+          },
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "WnEaEO4oScgCISqywyuOs"
+            }
+          },
+          "id": "1EGmUCiU2o4S6iuEyyqyAm",
+          "revision": 1,
+          "createdAt": "2015-08-17T22:48:57.248Z",
+          "updatedAt": "2015-08-17T22:48:57.248Z",
+          "locale": "es-MX"
+        }
+      },
+      {
+        "fields": {
+          "title": "Aplicación de medidas",
+          "content": "## Aplicación de medidas\n\nEl área especializada debe llevar a cabo las medidas correctivas propuestas para lidar con el caso. \n\nEl área especializada de seguimiento debe llevar a cabo las medidas en los siguientes ??? días hábiles. \n\nSi ya ha sean llevada a cabo las medidas correctivas, por favor cuéntanos qué sucedió: \n",
+          "slug": "aplicacion-de-medidas",
+          "options": [
+            "La situación de acoso escolar se resolvió",
+            "La situación de acoso escolar no se ha resuelto",
+            "He decidido no continuar con el reporte"
+          ]
+        },
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "msnkbvgxrvah"
+            }
+          },
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "WnEaEO4oScgCISqywyuOs"
+            }
+          },
+          "id": "5G7hr5I1P2qAS6Gec4cgE2",
+          "revision": 1,
+          "createdAt": "2015-08-17T22:48:58.808Z",
+          "updatedAt": "2015-08-17T22:48:58.808Z",
+          "locale": "es-MX"
+        }
+      },
+      {
+        "fields": {
+          "slug": "telefono-df-acoso-docente",
+          "title": "Llamar a la línea de atención telefónica y realizar tu denuncia",
+          "content": "## Llamar a la línea de atención telefónica y realizar tu denuncia\n\nDebes llamar al 36 01 87 00 (extensiones 20600 y 20604), en horario de 10 am a 6 pm, y estar listo para proporcionar por lo menos los siguientes datos, además de otros que el asesor te pueda pedir:\n\n- Nombre del padre o tutor del menor\n- Teléfono de contacto\n- Clave de centro de trabajo de la escuela\n- Nombre, grupo, grado y turno del alumno agredido\n- Nombre, grupo y grado en el que enseña, y turno del maestro agresor\n- Tiempo, lugar y forma en la que ha sucedido el acoso\n\nCon estos datos los asesores genera el reporte y te deben proporcionar un número de folio. Con este número, tú podrás dar seguimiento a tu denuncia más adelante.\n\nTu denuncia debe ser ingresada y tu debes recibir tu número de folio inmediatamente al momento de llamar.\n\nSi has realizado tu denuncia, cuéntanos qué sucedió:\n",
+          "options": [
+            "Ya realicé mi denuncia y se me informó mi número de folio",
+            "No pude realizar mi denuncia",
+            "Ya se ha resuelto la situación",
+            "He decidido no continuar con el reporte"
+          ]
+        },
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "msnkbvgxrvah"
+            }
+          },
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "WnEaEO4oScgCISqywyuOs"
+            }
+          },
+          "id": "NJM368HwaGuC0UyEoAeWi",
+          "revision": 1,
+          "createdAt": "2015-08-18T00:01:12.821Z",
+          "updatedAt": "2015-08-18T00:01:12.821Z",
+          "locale": "es-MX"
+        }
+      },
+      {
+        "fields": {
+          "slug": "telefono-df-acoso-entre-alumnos",
+          "title": "Realizar tu reporte en la línea de atención telefónica",
+          "content": "## Realizar tu reporte en la línea de atención telefónica\n\nDebes llamar al 01 800 222 2676, en horario de 8 am a 8:30 pm, y estar listo para proporcionar por lo menos los siguientes datos, además de otros que el asesor te pueda pedir:\n\n- Nombre del padre o tutor del menor\n- Teléfono de contacto\n- Clave de centro de trabajo de la escuela\n- Nombre, grupo, grado y turno del alumno agredido\n- Nombre, apodo, grupo, grado y turno del alumno agresor\n- Tiempo, lugar y forma en la que ha sucedido el acoso\n\nCon estos datos los asesores generan el reporte y te deben proporcionar un **número de folio**. Con este número, tú podrás dar seguimiento a tu denuncia más adelante.\n\n**Plazo:** Tu denuncia debe ser ingresada y tu debes recibir tu número de folio inmediatamente al momento de llamar.",
+          "options": [
+            "Ya realicé mi denuncia y se me informó mi número de folio",
+            "No pude realizar mi denuncia",
+            "Ya se ha resuelto la situación",
+            "He decidido no continuar con el reporte"
+          ]
+        },
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "msnkbvgxrvah"
+            }
+          },
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "WnEaEO4oScgCISqywyuOs"
+            }
+          },
+          "id": "221C74mCmwW4o2668AmC0k",
+          "revision": 1,
+          "createdAt": "2015-08-17T22:49:03.731Z",
+          "updatedAt": "2015-08-17T22:49:03.731Z",
+          "locale": "es-MX"
+        }
+      },
+      {
+        "fields": {
+          "title": "Canalización al seguimiento especializado",
+          "slug": "canalizacion-seguimiento-especializado",
+          "content": "## Canalización al seguimiento especializado\n\nEl área especializada de la Secretaría de Educación al que haya sido canalizada tu caso debe comunicarse contigo vía correo electrónico, para obtener más información y comenzar su investigación sobre el caso.\n\nEn ??? días hábiles se debe comunicar contigo el área de seguimiento especializada.\n\nSi ya ha pasado el plazo establecido, cuéntanos qué sucedió:",
+          "options": [
+            "Los responsables del área especializada ya contactaron conmigo",
+            "Los responsables del área especializada no contactaron conmigo",
+            "Ya se ha resuelto la situación",
+            "He decidido no continuar con el reporte"
+          ]
+        },
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "msnkbvgxrvah"
+            }
+          },
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "WnEaEO4oScgCISqywyuOs"
+            }
+          },
+          "id": "5jUMo9vgQ8S8amAKu8qK4C",
+          "revision": 1,
+          "createdAt": "2015-08-17T22:49:01.452Z",
+          "updatedAt": "2015-08-17T22:49:01.452Z",
+          "locale": "es-MX"
+        }
+      },
+      {
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "msnkbvgxrvah"
+            }
+          },
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "WnEaEO4oScgCISqywyuOs"
+            }
+          },
+          "id": "T4SPS7jvSo4UeEAOMcsQw",
+          "revision": 1,
+          "createdAt": "2015-08-17T23:57:37.008Z",
+          "updatedAt": "2015-08-17T23:57:37.008Z",
+          "locale": "es-MX"
+        },
+        "fields": {
+          "slug": "tipo-acoso",
+          "title": "Tipo de acoso",
+          "content": "## Tipos de acoso\n\n### Acoso entre estudiantes\n\nPhasellus efficitur ut ante ultrices lobortis. Vivamus volutpat magna vitae elit vestibulum imperdiet eu ac massa. Nulla nibh risus, pellentesque et lectus vel, pharetra sagittis velit. Curabitu\n\n### Acoso entre estudiante y un docente o personal administrativo\n\nPhasellus efficitur ut ante ultrices lobortis. Vivamus volutpat magna vitae elit vestibulum imperdiet eu ac massa. Nulla nibh risus, pellentesque et lectus vel, pharetra sagittis velit. Curabitu\n\n",
+          "options": [
+            "Acoso entre estudiantes",
+            "Acoso entre estudiante y un docente o personal administrativo"
+          ]
+        }
+      },
+      {
+        "fields": {
+          "slug": "contacto-seguimiento-especializado",
+          "title": "Contacto con el seguimiento especializado",
+          "content": "##Contacto con el seguimiento especializado\n\nEl departamento de acoso escolar revisará tu caso y se deben comunicar contigo vía correo electrónico para informarte qué área especializada de la Secretaría de Educación va a dar seguimiento a tu denuncia, según el tipo de acoso del que se trate. Cuando lo hagan, deben informarte sobre el número de teléfono de esa área, al cual podrás llamar para aportar nueva información o dar seguimiento a tu caso. \n\nEn 3 a 5 días hábiles se debe comunicar contigo el departamento de acoso escolar.\n\nSi has realizado tu denuncia y ya ha pasado el plazo establecido, cuéntanos qué sucedió:",
+          "options": [
+            "El departamento de acoso escolar ya se comunicó conmigo",
+            "El departamento de acoso escolar no se comunicó conmigo",
+            "Ya se ha resuelto la situación",
+            "He decidido no continuar con el reporte"
+          ]
+        },
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "msnkbvgxrvah"
+            }
+          },
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "WnEaEO4oScgCISqywyuOs"
+            }
+          },
+          "id": "EQhp6dTWWOwkUQEq2UEwE",
+          "revision": 1,
+          "createdAt": "2015-08-17T22:49:02.223Z",
+          "updatedAt": "2015-08-17T22:49:02.223Z",
+          "locale": "es-MX"
+        }
+      },
+      {
+        "fields": {
+          "slug": "director",
+          "title": "Acercarte con el director",
+          "content": "## Acercarte con el director\n\nLa primera acción en un caso de acoso escolar o bullying siempre debe ser acercarte con el director del plantel. Él o ella es quien mejor conoce la escuela, a los maestros y alumnos, y quien podrá darle una solución más rápida al problema. \n\nSi ya te has acercado con el director, dialogado con él, pero aun así no se ha solucionado la situación de acoso escolar o bullying, entonces debes proceder a levantar un reporte o denuncia.\n\n**Plazo:** El director debe buscar una solución a la situación en los siguientes ??? después de que te hayas reunido con él o ella.",
+          "options": [
+            "Sí, ya lo hice",
+            "No, no lo he hecho",
+            "Ya se ha resuelto la situación",
+            "He decidido no continuar con el reporte"
+          ],
+          "showSchool": true
+        },
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "msnkbvgxrvah"
+            }
+          },
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "WnEaEO4oScgCISqywyuOs"
+            }
+          },
+          "id": "4JFIJAlkcgWYkW4SQAwuo2",
+          "revision": 2,
+          "createdAt": "2015-08-17T22:48:56.152Z",
+          "updatedAt": "2015-10-07T22:39:17.188Z",
+          "locale": "es-MX"
+        }
+      },
+      {
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "msnkbvgxrvah"
+            }
+          },
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "7ohwe7A24M4A064oyUWQo"
+            }
+          },
+          "id": "3a2veHzX3qQgaeqqEEmoEM",
+          "revision": 3,
+          "createdAt": "2015-10-19T18:40:27.046Z",
+          "updatedAt": "2015-10-19T19:05:26.226Z",
+          "locale": "es-MX"
+        },
+        "fields": {
+          "description": "## Tipos de mantenimiento a la infraestructura escolar\n\n- __Mantenimiento preventivo:__ son las acciones que deben realizarse de manera periódicamente  en los edificios, instalaciones y mobiliario de los centros educativos para evitar deterioros o accidentes y así alargar su vida útil.\n- __Mantenimiento correctivo:__ trabajos que se deben llevar a cabo de forma inmediata para reparar daños ocasionados por el desgaste, por accidentes o por el uso inadecuado. Se clasifican dependiendo el monto económico con el que se cuente o el personal que se requiera para su atención. \n  - __Mantenimiento menor:__ son las acciones que no requieren de una inversión económica cuantiosa ni personas especializadas en el problema.\n  - __Mantenimiento mayor:__ son reparaciones que demandan un gasto económico mayor y que debe ser realizado por personas especialmente capacitadas.\n\n## ¿Quiénes son los responsables de la Infraestructura educativa?\n\n- __Instituto Nacional de la Infraestructura Física Educativa (INIFED):__ organismo encargado de vigilar la calidad y construcción de infraestructura, además de la prevención y atención de daños ocasionados por desastres naturales, tecnológicos o humanos en las diferentes escuelas del país. \n  - Artículo 7. La infraestructura física educativa del país deberá cumplir requisitos de calidad, seguridad, funcionalidad, oportunidad, equidad, sustentabilidad, pertinencia y oferta suficiente de agua potable para consumo humano, de acuerdo con la política educativa determinada por el Estado [...]\n- __Consejo Técnico Escolar (CTE):__ detecta y atiende las necesidades que tienen los alumnos derivadas de las carencias de infraestructura y/o inmobiliario, gestionando y haciendo las peticiones a las instancias correspondientes. \n\n## Marco legal\nEstos son algunos de los recursos que regulan y vigilan esta problemática. \n- __Ley General de Educación__\n- __Ley General de la Infraestructura Física Educativa:__ tiene como objetivo reglamentar y atender las disposiciones para la construcción, equipamiento y mantenimiento de inmuebles e instalaciones destinados al servicio educativo en todo el país. \n\n## Programas para fortalecer la intervención del mejoramiento de infraestructura escolar\n- Programa “Mejores Escuelas” (INIFED)\n- Programa “Mejores Espacios Educativos“ (SEP)\n- Programa “Escuelas de Calidad” (PEC)\n- Programa “Escuelas Dignas”\n- Programa de la Reforma Educativa para Abatir el Rezago Educativo\n- Infraestructura educativa en el CONAFE \n\n## Cifras:\n- Un estudio elaborado por la UNESCO con los datos de SERCE reveló que las condiciones físicas de las escuelas influyen considerablemente en el desempeño del estudiante y puede contribuir a la reducción de la brecha de aprendizaje asociada con la desigualdad social.\n- Datos del SERCE (Segundo Estudio Regional Comparativo y Explicativo) arrojaron que cerca del 40% de las escuelas de educación básica en Latinoamérica no tienen biblioteca; 88% no tienen laboratorios de ciencias; 63% no cuentan con espacios de reuniones u oficinas para los docentes; 73% no tienen comedor; 65% no poseen salas de computadores; y 35% no cuentan con ningún espacio para deportes. \n- Además, 21% de las escuelas no tienen acceso a agua potable; 40% no tienen desagüe; 53% no tienen línea telefónica; 32% tienen insuficiencias en el número de baños; y 11% no tiene acceso alguno a electricidad.\n\n## *Fuentes*\n- La infraestructura educativa para el bienestar y el desarrollo de las competencias en los niños. [http://publicaciones.inee.edu.mx/buscadorPub/P1/D/232/P1D232_08E08.pdf](http://publicaciones.inee.edu.mx/buscadorPub/P1/D/232/P1D232_08E08.pdf) \n- Infraestructura escolar y aprendizajes en la Educación Básica Latinoamericana: Un análisis a partir del SERCE. Mayo 2011. [http://idbdocs.iadb.org/wsdocs/getDocument.aspx?DOCNUM=36201660](http://idbdocs.iadb.org/wsdocs/getDocument.aspx?DOCNUM=36201660)\n- Instituto Nacional de la Infraestructura Física Educativa. [http://www.inifed.gob.mx/](http://www.inifed.gob.mx/) \n- Ley general de la Infraestructura Física Educativa. [http://www.diputados.gob.mx/LeyesBiblio/pdf/LGIFE.pdf](http://www.diputados.gob.mx/LeyesBiblio/pdf/LGIFE.pdf)\n- Subdirección de educación primaria. [http://portal2.edomex.gob.mx/deprim/index.htm?ssSourceNodeId=20081&ssSourceSiteId=deprim](http://portal2.edomex.gob.mx/deprim/index.htm?ssSourceNodeId=20081&ssSourceSiteId=deprim) \n- Guía para el Consejo Técnico Escolar. [http://www.iea.gob.mx/webiea/tiempo_completo/archivos/1-GUIA%20ETC+.pdf](http://www.iea.gob.mx/webiea/tiempo_completo/archivos/1-GUIA%20ETC+.pdf) \n- Cuidemos nuestra escuela. Manual de Mantenimiento Escolar. [http://148.244.102.133/doc/servicios/Manual_de_mantenimiento_2013_web.pdf](http://148.244.102.133/doc/servicios/Manual_de_mantenimiento_2013_web.pdf ) \n\n- \n",
+          "introduction": "# PROBLEMAS  DE INFRAESTRUCTURA ESCOLAR\nLa infraestructura escolar es uno de los componentes del sistema educativo nacional. Se refiere a las __condiciones físicas en las que se encuentra cada plantel__ (edificios, jardines, sanitarios, salones, inmobiliario) y los __servicios básicos__ (electricidad, agua, alcantarillado y teléfono) con los que debe contar. \n\nLa presencia de espacios de apoyo a la comunidad educativa como bibliotecas, laboratorios de ciencias y salas de cómputo también es parte de la infraestructura escolar.",
+          "label": "Infraestructura",
+          "slug": "infraestructura",
+          "denuncias": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3JFuLY15te0mam6KeUu6kC"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
