@@ -7,15 +7,18 @@
  * # ConoceCtrl
  * Controller of the tuberiaPrototypeApp
  */
-function ConoceCtrl($scope ,$location, schoolsService){
+function ConoceCtrl($scope ,$location, $filter, schoolsService, denunciaService){
   var ctrl = this;
   ctrl.searchText = '';
   ctrl.categories = [];
+  ctrl.user = {};
   ctrl.indexCategory = 0;
   ctrl.selectedCategory = {};
   ctrl.tiposDenuncia = $scope.tiposDenuncia;
   ctrl.icons = $scope.icons;
   ctrl.toggleMailSignIn = false;
+  ctrl.toggleForm = false;
+  ctrl.createDenunciaLoading = false;
   ctrl.params = {};
 
   ctrl.getSchools = getSchools;
@@ -24,6 +27,10 @@ function ConoceCtrl($scope ,$location, schoolsService){
   ctrl.getCategories = getCategories;
   ctrl.setSelectedCategory = setSelectedCategory;
   ctrl.startReport = startReport;
+  ctrl.createDenuncia = createDenuncia;
+  ctrl.setUpParams = setUpParams;
+  ctrl.getCurrentDType = getCurrentDType;
+  ctrl.validateFields = validateFields;
   ctrl.init = init;
 
   function getCategories(){
@@ -42,6 +49,7 @@ function ConoceCtrl($scope ,$location, schoolsService){
   function getSchools(name) {
     return schoolsService.getSchools(name)
       .then(function(data){
+        //console.log(data);
         return data;
       });
   }
@@ -60,18 +68,67 @@ function ConoceCtrl($scope ,$location, schoolsService){
   }
 
   function startReport(dType){
-    ctrl.toggleMailSignIn = true;
+    //ctrl.toggleMailSignIn = true;
+    ctrl.setUpParams();
+  }
+
+  function setUpParams(dType){
     ctrl.params.startDate = new Date();
     ctrl.params.dTypeSlug = dType.fields.slug;
     ctrl.params.dTypeId = dType.sys.id;
     ctrl.params.cct = ctrl.selectedSchool.cct;
   }
 
+  function getCurrentDType(){
+    var arr = ctrl.selectedCategory.fields.denuncias;
+    var control = ctrl.selectedSchool.control;
+    var types = $filter('denunciaFilter')(arr, control);
+    if(types.length > 0){
+      return types[0];
+    }
+    return false;
+  }
+
+  function validateFields(keys,model){
+    for(var i=0;i<keys.length;i++){
+      if(typeof model[keys[i]] === 'undefined' || model[keys[i]] === '' || model[keys[i]] === false ){
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function createDenuncia(){
+    ctrl.createDenunciaError = false;
+    if(ctrl.selectedSchool && ctrl.validateFields(['email','name','occupation'],ctrl.user) ){
+      var dType = ctrl.getCurrentDType();
+
+      ctrl.setUpParams(dType);
+      ctrl.params.email = ctrl.user.email;
+      ctrl.params.userName = ctrl.user.name;
+      ctrl.params.userOccupation = ctrl.user.occupation;
+      var data = ctrl.params;
+
+      ctrl.createDenunciaLoading = true;
+      console.log(data);
+      denunciaService.createDenuncia(data).then(function(res){
+        console.log(res);
+        if(res.data.success){
+          $location.path('/caso/'+res.data.token);
+        }else{
+          ctrl.createDenunciaError = true;
+        }
+        ctrl.createDenunciaLoading = false;
+      });
+    }else{
+      ctrl.createDenunciaError = true;
+    }
+  };
 
   ctrl.init();
 
 }
 
-ConoceCtrl.$inject = ['$scope', '$location','schoolsService', 'denunciaService'];
+ConoceCtrl.$inject = ['$scope', '$location','$filter','schoolsService', 'denunciaService'];
 angular.module('tuberiaPrototypeApp')
   .controller('ConoceCtrl',ConoceCtrl);

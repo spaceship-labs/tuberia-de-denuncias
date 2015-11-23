@@ -28,8 +28,10 @@
 
       if(path.indexOf('/caso/') >= 0 || path.indexOf('/conoce') >= 0){
         $scope.sidebarOn = true;
+        $scope.reportaOn = true;
       }else{
         $scope.sidebarOn = false;
+        $scope.reportaOn = false;
       }
     });
 

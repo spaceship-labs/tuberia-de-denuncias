@@ -1,31 +1,99 @@
 <md-content class="content-conoce">
-  <div class="title-section container center-content">
-    <div class="container-md">
-      <h2>Selecciona el tipo de problematica del que quieras revisar información</h2>
-    </div>
-    <div class="container-xlg">
-      <div class="report-select report-select-conoce" class="container-sm" layout="row" layout-align="space-between center" layout-wrap>
-        <div
-          ng-repeat="tipo in conoce.categories  track by $index"
-          flex
-          flex-sm="40"
-          class="report-select-item">
-          <p>
-            <a ng-if="!conoce.icons[tipo.fields.slug]" href='' ng-click="conoce.setSelectedCategory($index)">
-              <i class="icon-escuela"></i>
-            </a>
-            <a ng-if="conoce.icons[tipo.fields.slug]" href='' ng-click="conoce.setSelectedCategory($index)">
-              <i class="icon-{{ conoce.icons[tipo.fields.slug] }}"></i>
-            </a>
-          </p>
-          <p>
-            <a class="report-select-item-btn" ng-class="{'report-select-item-btn-on': $index == conoce.indexCategory}" href='' ng-click="conoce.setSelectedCategory($index)">
-              <strong>{{tipo.fields.label}}</strong>
-            </a>
-          </p>
+  <div class="title-section center-content" layout="row">
+
+    <div flex="70">
+      <div class="container container-xlg">
+        <div class="container-md">
+          <h2>Selecciona el tipo de problematica del que quieras revisar información</h2>
+        </div>
+        <div class="report-select report-select-conoce" class="container-sm" layout="row" layout-align="space-between center" layout-wrap>
+          <div
+            ng-repeat="tipo in conoce.categories  track by $index"
+            flex
+            flex-sm="40"
+            class="report-select-item">
+            <p>
+              <a ng-if="!conoce.icons[tipo.fields.slug]" href='' ng-click="conoce.setSelectedCategory($index)">
+                <i class="icon-escuela"></i>
+              </a>
+              <a ng-if="conoce.icons[tipo.fields.slug]" href='' ng-click="conoce.setSelectedCategory($index)">
+                <i class="icon-{{ conoce.icons[tipo.fields.slug] }}"></i>
+              </a>
+            </p>
+            <p>
+              <a class="report-select-item-btn" ng-class="{'report-select-item-btn-on': $index == conoce.indexCategory}" href='' ng-click="conoce.setSelectedCategory($index)">
+                <strong>{{tipo.fields.label}}</strong>
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
+
+    <div class="pre-report" flex="30" layout="row" layout-align="center center">
+      <div ng-if="!conoce.toggleForm" class="container container-xsm">
+        <p><i class="icon-tuberia large-icon"></i></p>
+        <p>¿Ya revisaste la información que debes saber antes de hacer una denuncia?</p>
+        <div class="action-btn-wrap action-btn-wrap-center">
+          <a ng-click="conoce.toggleForm = true" href="" class="action-btn">Comienza tu reporte</a>
+        </div>
+      </div>
+      <div ng-if="conoce.toggleForm" class="container container-xsm">
+        <h4>Comienza tu reporte</h4>
+        <form ng-if="!conoce.createDenunciaLoading" ng-submit="conoce.createDenuncia()" class="school-search" id="simple_search">
+
+          <div class="input-field">
+
+            <md-autocomplete
+                md-search-text-change=""
+                md-selected-item="conoce.selectedSchool"
+                md-selected-item-change="conoce.setSelectedSchool()"
+                md-search-text="conoce.searchTerm"
+                md-items="school in conoce.getSchools(conoce.searchTerm)"
+                md-item-text="school.nombre + ' (' +  school.nom_nivel + ')'"
+                md-min-length="1"
+                md-floating-label="Busca una escuela">
+              <md-item-template>
+                <strong>{{school.nombre}}</strong> <strong>({{school.nom_nivel}})</strong>
+                <p><span>{{school.nom_localidad}} , {{school.nom_entidad}}</span></p>
+              </md-item-template>
+              <md-not-found>
+                No se encontraron resultados.
+              </md-not-found>
+            </md-autocomplete>
+          </div>
+
+          <md-input-container md-no-float>
+            <input placeholder="Nombre" required ng-model="conoce.user.name">
+          </md-input-container>
+
+          <md-input-container md-no-float>
+            <input placeholder="Correo" required ng-model="conoce.user.email">
+          </md-input-container>
+
+          <md-select ng-model="conoce.user.occupation" placeholder="¿Quién eres?">
+            <md-option value="alumno">Alumno</md-option>
+            <md-option value="exalumno">Ex-alumno</md-option>
+            <md-option value="padredefamilia">Padre de familia</md-option>
+            <md-option value="maestro">Maestro</md-option>
+            <md-option value="director">Director</md-option>
+            <md-option value="ciudadano">Ciudadano</md-option>
+          </md-select>
+
+          <div class="action-btn-wrap action-btn-wrap-center">
+            <input type="submit" value="Continuar" class="action-btn">
+          </div>
+          <p>*La información no será pública</p>
+          <p ng-if="conoce.createDenunciaError">Hubo un error, revisa tus datos e intenta de nuevo.</p>
+        </form>
+
+        <section layout="row" layout-align="center center" ng-if="conoce.createDenunciaLoading">
+          <md-progress-circular  md-mode="indeterminate" md-diameter="50px"></md-progress-circular>
+        </section>
+
+      </div>
+    </div>
+
   </div>
 
   <section layout="row" layout-sm="column">
@@ -57,7 +125,7 @@
           </div>
           <div btf-markdown='conoce.selectedCategory.fields.introduction'></div>
 
-          <p ng-if="conoce.selectedSchool" class="report-section-btns">
+          <!--<p ng-if="conoce.selectedSchool" class="report-section-btns">
             <a
               ng-repeat="dType in conoce.selectedCategory.fields.denuncias | denunciaFilter:conoce.selectedSchool.control track by $index"
               href=""
@@ -65,11 +133,11 @@
               class="action-btn">
               Realizar reporte
             </a>
-          </p>
+          </p>-->
 
         </div>
 
-        <div class="container-sm container-rel">
+        <!--<div class="container-sm container-rel">
 
           <form class="school-search school-search-alt" id="simple_search">
             <div class="input-field">
@@ -110,7 +178,7 @@
 
           <mail-sign-in ng-show="conoce.toggleMailSignIn" create="true" params="conoce.params"></mail-sign-in>
 
-        </div>
+        </div>-->
 
         <div class="main-content-description" btf-markdown='conoce.selectedCategory.fields.description'></div>
 

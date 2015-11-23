@@ -12,7 +12,7 @@
       <div class="action-bar-inner container center-content">
         <h2>Tus acciones</h2>
 
-        <div class="action-item" ng-repeat="state in caso.tiposDenuncia.getHistory()">
+        <div class="action-item" ng-class="{'action-item-active' : caso.state.stepNumber === state.number}" ng-repeat="state in caso.tiposDenuncia.getHistory()">
           <p>
             <strong ng-bind="state.number"></strong>
              <strong ng-bind="state.title"></strong>
@@ -73,6 +73,12 @@
             <a href="" ng-click='formSubmit(caso.state.form.method,0)' class="action-btn">Enviar</a>
           </p>
         </div>
+
+        <div class="alert-msg center-content">
+          <p><strong>¿La información que aparece aquí está incompleta o equivocada?</strong></p>
+          <a href="#" class="action-btn">Háznoslo saber</a>
+        </div>
+
       </div>
 
       <div class="footer-msg center-content container container-md">

@@ -65,6 +65,7 @@
 
     $scope.$watch(
       function() {
+        console.log(ctrl.tiposDenuncia.getCurrentState());
         return ctrl.tiposDenuncia.getCurrentState();
       },
       function(newVal) {

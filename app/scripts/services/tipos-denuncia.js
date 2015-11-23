@@ -108,6 +108,7 @@
           for(var i=0;i<history.length;i++){
             var historyItem = history[i];
             index = historyItem.index;
+            console.log(denunciaType.fields.states[index].fields);
             var stateItem = angular.copy( denunciaType.fields.states[index].fields );
             stateItem.number = historyItem.number;
             stateItem.date = historyItem.date;
