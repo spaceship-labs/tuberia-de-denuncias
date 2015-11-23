@@ -1,22 +1,25 @@
 <div class="mail-signup-modal">
-  <form ng-submit="submitForm()">
-    <p ng-if="!create">Escribe tu e-mail para seguir con tu denuncia</p>
-    <p ng-if="create">Escribe tu e-mail para iniciar tu denuncia</p>
+  <div class="mail-signup-modal-inner">
+    <a ng-if="closeOption" ng-click="closeOptionCb()" href="" class="mail-signup-modal-close">&#x2715; </a>
+    <form ng-submit="submitForm()">
+      <p ng-if="!create">Escribe tu e-mail para seguir con tu denuncia</p>
+      <p ng-if="create">Escribe tu e-mail para iniciar tu denuncia</p>
 
-    <section ng-if="!loading">
-       <md-input-container>
-          <label>E-mail</label>
-          <input required type="email" name="userEmail" ng-model="user.email"
-                 minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
-        </md-input-container>
-        <input type="submit" class="action-btn" value="Enviar">
-    </section>
+      <section ng-if="!loading">
+         <md-input-container>
+            <label>E-mail</label>
+            <input required type="email" name="userEmail" ng-model="user.email"
+                   minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+          </md-input-container>
+          <input type="submit" class="action-btn" value="Enviar">
+      </section>
 
-    <section layout="row" layout-align="center center" ng-if="loading">
-      <md-progress-circular class="md-accent" md-mode="indeterminate" md-diameter="50px"></md-progress-circular>
-    </section>
+      <section layout="row" layout-align="center center" ng-if="loading">
+        <md-progress-circular class="md-accent" md-mode="indeterminate" md-diameter="50px"></md-progress-circular>
+      </section>
 
-    <label class="alert-msg" ng-if="showError">Hubo un error, intentalo de nuevo</label>
-    <label class="alert-msg" ng-if="showExportMsg">Hemos enviado un e-mail a tu bandeja de entrada con las denuncias que has realizado.</label>
-  </form>
+      <label class="alert-msg" ng-if="showError">Hubo un error, intentalo de nuevo</label>
+      <label class="alert-msg" ng-if="showExportMsg">Hemos enviado un e-mail a tu bandeja de entrada con las denuncias que has realizado.</label>
+    </form>
+  </div>
 </div>

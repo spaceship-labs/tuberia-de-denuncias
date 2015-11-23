@@ -310,18 +310,42 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
 /*
 .sigue-item:hover .mail-signup-modal{display: block;}*/
 .mail-signup-modal-active{display: block}
+
+.mail-signup-modal-home .mail-signup-modal{
+  background: #fff;
+  color: #ED018A;
+  top: 42%;
+}
+.mail-signup-modal-home md-input-container input{border-color: #ED018A;}
+.mail-signup-modal-home label,
+.mail-signup-modal-home input{color: #ED018A!important;}
+.mail-signup-modal-home .action-btn{border:3px solid #ED018A;}
+.mail-signup-modal-home .action-btn:hover{
+  background: #ED018A!important;
+  color: #fff!important;
+}
+
 .mail-signup-modal{
   background: #14ABE4;
   color: #fff;
   left: 0;
   margin: 0 auto;
   max-width: 300px;
-  padding: 20px;
   position: absolute;
   right: 0;
   text-align: center;
   top: 50%;
   z-index: 9;
+}
+.mail-signup-modal-inner{
+  position: relative;
+  padding: 20px;
+}
+.mail-signup-modal-close{
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  color: #ED018A;
 }
 .toolbar-head .mail-signup-modal{
   top: 100%;
@@ -567,6 +591,33 @@ md-input-container .md-input{
 }
 .feature-inner p{font-size: 14px;}
 
+/*---------/
+  #USER-ACTIONS
+/*--------*/
+.user-action{
+  color: #F79100;
+  font-size: 16px;
+}
+.user-action .action-btn{
+  border: 3px solid #F79100;
+  color: #F79100;
+  display: inline-block;
+  min-width: 100px;
+  font-size: 14px;
+}
+.user-action .action-btn:hover{
+  background: #F79100;
+  color: #fff;
+}
+
+.user-action-alt{color: #ED018A}
+.user-action-alt .action-btn{
+  border-color: #ED018A;
+  color: #ED018A;
+}
+.user-action-alt .action-btn:hover{
+  background: #ED018A;
+}
 
 /*-----------/
   #MAIN-CONTENT

@@ -23,7 +23,12 @@
     ctrl.selectedSchoolChange = selectedSchoolChange;
     ctrl.getTiposDenuncia = getTiposDenuncia;
     ctrl.startReport = startReport;
+    ctrl.closeMailForm = closeMailForm;
     ctrl.init = init;
+
+    function closeMailForm(){
+      ctrl.toggleMailSignIn = false;
+    }
 
     function getTiposDenuncia(){
       ctrl.tiposDenuncia.getList()

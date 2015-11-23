@@ -13,7 +13,9 @@ angular.module('tuberiaPrototypeApp')
         headerModal: '=',
         showModal: '=',
         create: '=',
-        params: '='
+        params: '=',
+        closeOption: '=',
+        closeOptionCb: '&'
       },
       templateUrl: 'views/directives/mailsignin.html',
       restrict: 'EA',
