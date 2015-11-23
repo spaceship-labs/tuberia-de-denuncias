@@ -67,8 +67,11 @@ function ConoceCtrl($scope ,$location, $filter, schoolsService, denunciaService)
     ctrl.getCategories();
   }
 
-  function startReport(dType){
+  /*function startReport(dType){
     //ctrl.toggleMailSignIn = true;
+    ctrl.setUpParams();
+  }*/
+  function startReport(){
     ctrl.setUpParams();
   }
 
@@ -123,7 +126,7 @@ function ConoceCtrl($scope ,$location, $filter, schoolsService, denunciaService)
     }else{
       ctrl.createDenunciaError = true;
     }
-  };
+  }
 
   ctrl.init();
 
