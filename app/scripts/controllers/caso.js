@@ -10,9 +10,9 @@
 (function(){
 
   angular.module('tuberiaPrototypeApp').controller('CasoCtrl', CasoCtrl);
-  CasoCtrl.$inject = ['$scope','$filter','$routeParams','schoolsService', 'denunciaService'];
+  CasoCtrl.$inject = ['$scope','$filter', '$location','$routeParams','schoolsService', 'denunciaService'];
 
-  function CasoCtrl($scope,$filter,$routeParams,schoolsService, denunciaService){
+  function CasoCtrl($scope, $filter, $location, $routeParams, schoolsService, denunciaService){
     var ctrl = this;
 
     ctrl.tiposDenuncia = $scope.tiposDenuncia;
@@ -26,6 +26,7 @@
     ctrl.getDenuncia = getDenuncia;
     ctrl.getUserSchool = getUserSchool;
     ctrl.getTipoDenuncia = getTipoDenuncia;
+    $scope.toConoce = toConoce;
 
     ctrl.init();
 
@@ -61,6 +62,10 @@
         ctrl.getUserSchool(res.data.cct);
         ctrl.getTipoDenuncia(res.data.dTypeId, res.data);
       });
+    }
+
+    function toConoce(){
+      $location.path('/conoce');
     }
 
     $scope.$watch(

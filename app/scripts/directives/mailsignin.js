@@ -38,10 +38,17 @@ angular.module('tuberiaPrototypeApp')
         };
 
         scope.exportDenuncias = function(email){
+          scope.showExportMsg = false;
+          scope.showExportEmptyMsg = false;
+          scope.showError = false;
           denunciaService.exportDenuncias(email).then(function(res){
             if(res.data.success){
-              scope.showExportMsg = true;
-              scope.totalDenuncias = res.data.total;
+              if(res.data.total){
+                scope.showExportMsg = true;
+                scope.totalDenuncias = res.data.total;
+              }else{
+                scope.showExportEmptyMsg = true;
+              }
             }else{
               scope.showError = true;
             }
