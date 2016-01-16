@@ -26,9 +26,17 @@
     ctrl.getDenuncia = getDenuncia;
     ctrl.getUserSchool = getUserSchool;
     ctrl.getTipoDenuncia = getTipoDenuncia;
+    ctrl.backToState = backToState;
     $scope.toConoce = toConoce;
 
     ctrl.init();
+
+    function backToState(state){
+      if (state && state.number) {
+        ctrl.state = state;
+        ctrl.state.stepNumber = state.number;
+      }
+    }
 
     function init(){
       ctrl.token = $routeParams.token;
@@ -70,7 +78,7 @@
 
     $scope.$watch(
       function() {
-        console.log(ctrl.tiposDenuncia.getCurrentState());
+        //console.log(ctrl.tiposDenuncia.getCurrentState());
         return ctrl.tiposDenuncia.getCurrentState();
       },
       function(newVal) {

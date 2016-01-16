@@ -61,6 +61,7 @@
         .catch(getDenunciaFailed);
 
         function getDenunciaComplete(res){
+          console.log("res", res);
           return res;
         }
 

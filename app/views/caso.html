@@ -12,7 +12,7 @@
       <div class="action-bar-inner container center-content">
         <h2>Tus acciones</h2>
 
-        <div class="action-item" ng-class="{'action-item-active' : caso.state.stepNumber === state.number}" ng-repeat="state in caso.tiposDenuncia.getHistory()">
+        <div class="action-item" ng-class="{'action-item-active' : caso.state.stepNumber === state.number}" ng-repeat="state in caso.tiposDenuncia.getHistory()" ng-click="caso.backToState(state)">
           <p>
             <strong ng-bind="state.number"></strong>
              <strong ng-bind="state.title"></strong>
