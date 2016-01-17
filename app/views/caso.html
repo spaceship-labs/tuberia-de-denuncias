@@ -66,11 +66,11 @@
         <div class="report-section center-content" ng-if='caso.state.form'>
           <md-input-container ng-repeat='field in caso.state.form.fields'>
             <label ng-bind='field.label'></label>
-            <input type='text' ng-if='field.type == "text"' />
-            <textarea ng-if='field.type == "textarea"'></textarea>
+            <input type='text' ng-if='field.type == "text"' ng-model="caso.finalInput[field.label]" />
+            <textarea ng-if='field.type == "textarea"'  ng-model="caso.finalInput[field.label]"></textarea>
           </md-input-container>
           <p class="report-section-btns">
-            <a href="" ng-click='formSubmit(caso.state.form.method,0) && toConoce()' class="action-btn">Enviar</a>
+            <a href="" ng-click='caso.formSubmit(caso.state.form,0) && toConoce()' class="action-btn">Enviar</a>
           </p>
         </div>
 

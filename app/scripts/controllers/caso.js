@@ -27,6 +27,8 @@
     ctrl.getUserSchool = getUserSchool;
     ctrl.getTipoDenuncia = getTipoDenuncia;
     ctrl.backToState = backToState;
+    ctrl.formSubmit = formSubmit;
+    ctrl.finalInput = {};
     $scope.toConoce = toConoce;
 
     ctrl.init();
@@ -36,6 +38,20 @@
         ctrl.state = state;
         ctrl.state.stepNumber = state.number;
       }
+    }
+
+    function formSubmit(form){
+      if (form && form.fields.length === Object.keys(ctrl.finalInput).length) {
+        var data = {
+          token: ctrl.token,
+          finalInput: ctrl.finalInput,
+          complete: true
+        };
+        denunciaService.updateDenuncia(data).then(function() {
+          $location.path('/conoce');
+        });
+      }
+
     }
 
     function init(){
