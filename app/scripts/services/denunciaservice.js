@@ -28,18 +28,7 @@
           params: {
             data: data
           }
-        })
-        .then(createDenunciaComplete)
-        .catch(createDenunciaFailed);
-
-        function createDenunciaComplete(res){
-          return res;
-        }
-
-        function createDenunciaFailed(err){
-          console.log(err);
-          return false;
-        }
+        });
       }
 
       function getDenuncia(token){

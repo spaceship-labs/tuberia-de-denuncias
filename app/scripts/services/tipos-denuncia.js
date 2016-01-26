@@ -14,7 +14,6 @@
   var state = 0;
   var denunciaType = null;
   var _denuncia = null;
-  var restoredHistory = false;
 
   angular.module('tuberiaPrototypeApp')
     .service('tiposDenuncia', function($http, $q, contentful, denunciaService){
@@ -24,7 +23,6 @@
       this.getCurrentState = getCurrentState;
       this.getHistory = getHistory;
       this.resetData = resetData;
-      this.registerHistory = registerHistory;
       this.getCurrentList = getCurrentList;
       this.getDenunciaType = getDenunciaType;
       this.restoreHistory = restoreHistory;
@@ -57,9 +55,6 @@
             if(denuncia){
               _denuncia = denuncia;
               restoreHistory(denuncia.history);
-              if(!restoredHistory){
-                registerHistory(denuncia);
-              }
             }
             deferred.resolve(res.data.items[0]);
           }
@@ -67,9 +62,9 @@
         return deferred.promise;
       }
 
-      function changeState(option) {
-        state = denunciaType.fields.machine[state][option]-1;
-        registerHistory(_denuncia);
+      function changeState(currentState, option) {
+        state = denunciaType.fields.machine[currentState][option]-1;
+        updateStateHistory(_denuncia, currentState, option, state);
       }
 
       function getCurrentState() {
@@ -100,18 +95,20 @@
       }
 
       function restoreHistory(history){
-        if(history && history.length > 0){
-          restoredHistory = true;
+        if(history && history.length){
           var index;
           stateHistory = [];
 
           for(var i=0;i<history.length;i++){
             var historyItem = history[i];
             index = historyItem.index;
-            console.log(denunciaType.fields.states[index].fields);
+            //console.log(denunciaType.fields.states[index].fields);
             var stateItem = angular.copy( denunciaType.fields.states[index].fields );
+            //console.log('StateItem', stateItem);
             stateItem.number = historyItem.number;
+            stateItem.numberToShow = historyItem.numberToShow;
             stateItem.date = historyItem.date;
+            stateItem.select = stateItem.select;
             stateHistory.push(stateItem);
           }
 
@@ -122,14 +119,52 @@
         }
       }
 
+      function updateStateHistory(denuncia, state, option, nextState) {
+        var currentDate = new Date(),
+          select = {
+          index: option,
+          text: stateHistory[state].options[option]
+        };
+
+        stateHistory[state].select = select;
+        stateHistory[state].date = currentDate;
+
+        var next = angular.copy(denunciaType.fields.states[nextState].fields);
+        next.number = nextState + 1;
+        if (stateHistory[nextState]) {
+          stateHistory[nextState] = next;
+        } else {
+          stateHistory.push(next);
+        }
+
+        var history = stateHistory.map(function(h){
+          return {
+            index: h.number-1,
+            number: h.number,
+            date: currentDate,
+            select: h.select,
+          };
+        });
+
+
+        //console.log('stateHistory', stateHistory);
+        if (denuncia) {
+          denuncia.history = history;
+          denunciaService.updateDenuncia(denuncia);
+        }
+
+
+      }
+      /*
 
       function registerHistory(denuncia) {
         //Adding date
         var date = new Date();
         denunciaType.fields.states[state].fields.date  = date;
 
-        stateHistory.push(angular.copy(denunciaType.fields.states[state].fields));
-        stateHistory[stateHistory.length - 1].number = stateHistory.length;
+        //stateHistory.push(angular.copy(denunciaType.fields.states[state].fields));
+        //stateHistory[stateHistory.length - 1].number = state + 1;
+
 
         //Para guardar datos escenciales en la BD
         var history = stateHistory.map(function(itemState){
@@ -142,11 +177,12 @@
         });
 
         if(denuncia){
-          denuncia.history = history;
-          denunciaService.updateDenuncia(denuncia);
+          //denuncia.history = history;
+          //denunciaService.updateDenuncia(denuncia);
         }
 
       }
+      */
 
 
     });

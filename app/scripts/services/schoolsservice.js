@@ -29,7 +29,7 @@
           url: 'http://mte.spaceshiplabs.com/api/escuelas',
           params: {
             term: name,
-            solr: true
+            //solr: true
           }
         })
         .then(getSchoolsComplete)

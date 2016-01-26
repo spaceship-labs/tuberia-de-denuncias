@@ -62,7 +62,8 @@
 
 
     function userChoice(choice){
-      $scope.tiposDenuncia.changeState(choice);
+      var state = ctrl.state.stepNumber || 1;
+      $scope.tiposDenuncia.changeState(state-1, choice);
     }
 
     function getUserSchool(cct){
@@ -99,6 +100,7 @@
       },
       function(newVal) {
         ctrl.state = newVal;
+        console.log('current State', ctrl.state);
       }
     );
 

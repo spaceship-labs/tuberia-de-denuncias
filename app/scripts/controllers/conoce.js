@@ -113,9 +113,11 @@ function ConoceCtrl($scope ,$location, $filter, schoolsService, denunciaService)
       var data = ctrl.params;
 
       ctrl.createDenunciaLoading = true;
-      console.log(data);
+      data.history = [{
+        index: 0,
+        number: 1
+      }];
       denunciaService.createDenuncia(data).then(function(res){
-        console.log(res);
         if(res.data.success){
           $location.path('/caso/'+res.data.token);
         }else{

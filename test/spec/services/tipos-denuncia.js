@@ -50,7 +50,16 @@ describe('Service: tiposDenuncia', function() {
       $httpBackend.expectGET('https://cdn.contentful.com:443/spaces/msnkbvgxrvah/entries?access_token=c3e13974fb72003886ab1f9151a883721f523e16f8143d95e92313ff1dd2c66e&sys.id='+typeId)
         .respond(this.tipoJSON);
 
-      tiposDenuncia.getDenunciaType(typeId);
+      tiposDenuncia.getDenunciaType(typeId, {
+        cct: '11EPR0657X',
+        email: 'some@some.com',
+        token: 'd1003a4ffafd0715faf737fdb9d3a77a',
+        id: '56a6f34cd65dfb384344f793',
+        history: [{
+          index: 0,
+          number: 1
+        }]
+      });
       $httpBackend.flush();
 
     });
@@ -68,7 +77,7 @@ describe('Service: tiposDenuncia', function() {
 
   describe('changeState', function() {
     it('should advance to the next step and add one to the history', function() {
-      tiposDenuncia.changeState(0);
+      tiposDenuncia.changeState(0, 0);
       var state = tiposDenuncia.getCurrentState();
       state.should.exist.and.be.an.object;
     });
@@ -78,7 +87,7 @@ describe('Service: tiposDenuncia', function() {
   describe('history', function() {
     it('should have set two items in the history', function() {
       var history = tiposDenuncia.getHistory();
-      history.should.exist.and.be.an('array').and.have.length(1);
+      history.should.exist.and.be.an('array').and.have.length(2);
     });
   });
 
