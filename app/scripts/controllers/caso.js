@@ -29,6 +29,7 @@
     ctrl.backToState = backToState;
     ctrl.formSubmit = formSubmit;
     ctrl.finalInput = {};
+    ctrl.userChoiceForm = userChoiceForm;
     $scope.toConoce = toConoce;
 
     ctrl.init();
@@ -66,6 +67,13 @@
       $scope.tiposDenuncia.changeState(state-1, choice);
     }
 
+    function userChoiceForm(form){
+      var userForm = angular.copy(form);
+      userForm.submit = true;
+      var state = ctrl.state.stepNumber || 1;
+      $scope.tiposDenuncia.changeState(state-1, userForm);
+    }
+
     function getUserSchool(cct){
       schoolsService.getSchool(cct).then(function(res){
         if(res.length > 0){
@@ -100,7 +108,6 @@
       },
       function(newVal) {
         ctrl.state = newVal;
-        console.log('current State', ctrl.state);
       }
     );
 

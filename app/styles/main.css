@@ -732,7 +732,7 @@ md-input-container .md-input{
   font-size: 14px;
   transition: all .4s;
 }
-.report-section-btns .action-btn:hover{
+.report-section-btns .action-btn:hover, .report-section-btns .action-btn.selected{
   background: #1BCA93;
   color: #fff;
 }

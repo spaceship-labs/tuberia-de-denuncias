@@ -60,17 +60,17 @@
         </div>
 
         <div class="report-section-btns center-content">
-          <a href="" ng-repeat='(key,action) in caso.state.options' ng-click='caso.userChoice(key)' ng-bind="action" class="action-btn"></a>
+          <a href="" ng-repeat='(key,action) in caso.state.options' ng-click='caso.userChoice(key)' ng-bind="action" ng-class="{'selected': caso.state.select.index == key}" class="action-btn"></a>
         </div>
 
         <div class="report-section center-content" ng-if='caso.state.form'>
           <md-input-container ng-repeat='field in caso.state.form.fields'>
             <label ng-bind='field.label'></label>
-            <input type='text' ng-if='field.type == "text"' ng-model="caso.finalInput[field.label]" />
-            <textarea ng-if='field.type == "textarea"'  ng-model="caso.finalInput[field.label]"></textarea>
+            <input type='text' ng-if='field.type == "text"' ng-model="caso.state.select[field.handle]" />
+            <textarea ng-if='field.type == "textarea"'  ng-model="caso.state.select[field.handle]"></textarea>
           </md-input-container>
           <p class="report-section-btns">
-            <a href="" ng-click='caso.formSubmit(caso.state.form,0) && toConoce()' class="action-btn">Enviar</a>
+            <a href="" ng-click='caso.userChoiceForm(caso.state.select)' class="action-btn">Enviar</a>
           </p>
         </div>
 

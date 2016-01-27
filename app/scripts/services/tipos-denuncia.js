@@ -63,19 +63,28 @@
       }
 
       function changeState(currentState, option) {
-        state = denunciaType.fields.machine[currentState][option]-1;
+        if (option.toFixed) {
+          //si se agrega soporte para varios forms, estos tendrian que tener el campo option.
+          state = denunciaType.fields.machine[currentState][option]-1;
+        }
         updateStateHistory(_denuncia, currentState, option, state);
       }
 
       function getCurrentState() {
-        if(denunciaType){
+        if (denunciaType) {
           //Adding step number
-          denunciaType.fields.states[state].fields.stepNumber = state+1;
+          //denunciaType.fields.states[state].fields.stepNumber = state+1;
+          //return denunciaType ? denunciaType.fields.states[state].fields : false;
 
-          return denunciaType ? denunciaType.fields.states[state].fields : false;
-        }else{
+          if (stateHistory && stateHistory.length) {
+            stateHistory[state].stepNumber = state + 1;
+            return stateHistory[state];
+          }
           return false;
         }
+
+        return false;
+
 
       }
 
@@ -96,9 +105,30 @@
 
       function restoreHistory(history){
         if(history && history.length){
-          var index;
           stateHistory = [];
 
+
+          denunciaType.fields.states.forEach(function(stateItem, i) {
+            var stateItemFields = angular.copy(stateItem.fields);
+            //var historyItem = history[i] || {};
+            var historyItemIndex = history.filter(function(h) {
+              return h.index === i;
+            });
+
+            var historyItem = historyItemIndex[0] || {};
+
+            stateItemFields.number = i + 1;
+            stateItemFields.select =  historyItem.select || {};
+            if (historyItem.date) {
+              stateItemFields.date = historyItem.date;
+            }
+            stateHistory.push(stateItemFields);
+          });
+
+          state = history[history.length - 1].nextState || 0;
+
+
+          /*
           for(var i=0;i<history.length;i++){
             var historyItem = history[i];
             index = historyItem.index;
@@ -111,8 +141,8 @@
             stateItem.select = stateItem.select;
             stateHistory.push(stateItem);
           }
+          */
 
-          state = index;
         }else{
           state = 0;
           stateHistory = [];
@@ -121,14 +151,22 @@
 
       function updateStateHistory(denuncia, state, option, nextState) {
         var currentDate = new Date(),
+          select;
+
+        if (option.toFixed) {
           select = {
-          index: option,
-          text: stateHistory[state].options[option]
-        };
+            index: option,
+            text: stateHistory[state].options[option]
+          };
+        } else {
+          select = option;
+        }
 
         stateHistory[state].select = select;
         stateHistory[state].date = currentDate;
+        stateHistory[state].nextState = stateHistory[nextState] ? nextState : state;
 
+        /*
         var next = angular.copy(denunciaType.fields.states[nextState].fields);
         next.number = nextState + 1;
         if (stateHistory[nextState]) {
@@ -136,18 +174,21 @@
         } else {
           stateHistory.push(next);
         }
+        */
 
         var history = stateHistory.map(function(h){
           return {
             index: h.number-1,
             number: h.number,
-            date: currentDate,
+            date: h.date,
+            nextState: h.nextState,
             select: h.select,
           };
+        }).filter(function(h) {
+          return h.date;
         });
 
 
-        //console.log('stateHistory', stateHistory);
         if (denuncia) {
           denuncia.history = history;
           denunciaService.updateDenuncia(denuncia);

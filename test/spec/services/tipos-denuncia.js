@@ -85,9 +85,9 @@ describe('Service: tiposDenuncia', function() {
 
 
   describe('history', function() {
-    it('should have set two items in the history', function() {
+    it('should have history with the length of states', function() {
       var history = tiposDenuncia.getHistory();
-      history.should.exist.and.be.an('array').and.have.length(2);
+      history.should.exist.and.be.an('array').and.have.length(9);
     });
   });
 
