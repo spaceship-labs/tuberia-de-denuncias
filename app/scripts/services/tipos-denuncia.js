@@ -153,10 +153,13 @@
         var currentDate = new Date(),
           select;
 
+        console.log("denuncia", denuncia);
+        console.log("text", stateHistory[state].slug);
         if (option.toFixed) {
           select = {
             index: option,
-            text: stateHistory[state].options[option]
+            text: stateHistory[state].options[option],
+            slug: stateHistory[state].slug || stateHistory[state].title
           };
         } else {
           select = option;
