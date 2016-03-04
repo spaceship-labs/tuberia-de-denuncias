@@ -54,12 +54,18 @@
           </div>
         </div>
 
+        <!--
         <div ng-if="caso.state.showSchool" class="report-section center-content" ng-if='caso.state.options'>
           <p >Si ya te has acercado con el director diálogado con él, pero aun asi no se ha solucionado la situación de acoso escolar o bullying, entonces debes proceder a levantar un reporte o denuncia.</p>
           <h4>Si ya te has acercado con el director de tu plantel, cuentanos que sucedio:</h4>
         </div>
+        -->
 
-        <div class="report-section-btns center-content">
+        <div ng-if="caso.state.question" class="report-section center-content">
+          <h4 ng-bind="caso.state.question"></h4>
+        </div>
+
+        <div class="report-section-btns center-content" ng-cloak>
           <a href="" ng-repeat='(key,action) in caso.state.options' ng-click='caso.userChoice(key)' ng-bind="action" ng-class="{'selected': caso.state.select.index == key}" class="action-btn"></a>
         </div>
 

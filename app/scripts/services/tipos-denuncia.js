@@ -54,7 +54,7 @@
             denunciaType = res.data.items[0];
             if(denuncia){
               _denuncia = denuncia;
-              restoreHistory(denuncia.history);
+              restoreHistory(denuncia.history, denuncia.entidadId);
             }
             deferred.resolve(res.data.items[0]);
           }
@@ -75,7 +75,6 @@
           //Adding step number
           //denunciaType.fields.states[state].fields.stepNumber = state+1;
           //return denunciaType ? denunciaType.fields.states[state].fields : false;
-
           if (stateHistory && stateHistory.length) {
             stateHistory[state].stepNumber = state + 1;
             return stateHistory[state];
@@ -103,10 +102,12 @@
         return list;
       }
 
-      function restoreHistory(history){
+      function restoreHistory(history, entidadId){
+        entidadId = entidadId || '';
+
+        var contentField = 'content' + entidadId;
         if(history && history.length){
           stateHistory = [];
-
 
           denunciaType.fields.states.forEach(function(stateItem, i) {
             var stateItemFields = angular.copy(stateItem.fields);
@@ -122,6 +123,9 @@
             if (historyItem.date) {
               stateItemFields.date = historyItem.date;
             }
+
+            stateItemFields.content = stateItemFields[contentField] || stateItemFields.content;
+            //aqui cambiaremos a algo como content_df
             stateHistory.push(stateItemFields);
           });
 
@@ -153,8 +157,6 @@
         var currentDate = new Date(),
           select;
 
-        console.log("denuncia", denuncia);
-        console.log("text", stateHistory[state].slug);
         if (option.toFixed) {
           select = {
             index: option,
