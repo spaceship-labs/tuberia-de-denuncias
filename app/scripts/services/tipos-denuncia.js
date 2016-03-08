@@ -16,7 +16,7 @@
   var _denuncia = null;
 
   angular.module('tuberiaPrototypeApp')
-    .service('tiposDenuncia', function($http, $q, contentful, denunciaService){
+    .service('tiposDenuncia', function($http, $q, $mdDialog, contentful, denunciaService){
       this.getList = getList;
       this.getCategories = getCategories;
       this.changeState = changeState;
@@ -64,10 +64,25 @@
 
       function changeState(currentState, option) {
         if (option.toFixed) {
-          //si se agrega soporte para varios forms, estos tendrian que tener el campo option.
-          state = denunciaType.fields.machine[currentState][option]-1;
+          var nextOption = denunciaType.fields.machine[currentState][option];
+
+          if (nextOption < -1) {
+            var confirm = $mdDialog.confirm()
+              .content('Antes de presentar una queja, es recomendable haber intentado solucionar la situación dentro de tu escuela. ¿Estás seguro que quieres ir al siguiente paso?')
+              .ok('Continuar')
+              .cancel('Cancelar');
+
+            $mdDialog.show(confirm).then(function() {
+              state = Math.abs(nextOption)-1;
+              updateStateHistory(_denuncia, currentState, option, state);
+            }, function() {
+              console.log("cancel");
+            });
+          } else {
+            state = nextOption-1;
+            updateStateHistory(_denuncia, currentState, option, state);
+          }
         }
-        updateStateHistory(_denuncia, currentState, option, state);
       }
 
       function getCurrentState() {
@@ -125,7 +140,6 @@
             }
 
             stateItemFields.content = stateItemFields[contentField] || stateItemFields.content;
-            //aqui cambiaremos a algo como content_df
             stateHistory.push(stateItemFields);
           });
 

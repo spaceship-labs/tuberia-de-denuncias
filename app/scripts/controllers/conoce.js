@@ -7,7 +7,7 @@
  * # ConoceCtrl
  * Controller of the tuberiaPrototypeApp
  */
-function ConoceCtrl($scope ,$location, $filter, schoolsService, denunciaService){
+function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denunciaService, entityIdsAvailable){
   var ctrl = this;
   ctrl.searchText = '';
   ctrl.categories = [];
@@ -102,6 +102,23 @@ function ConoceCtrl($scope ,$location, $filter, schoolsService, denunciaService)
   }
 
   function createDenuncia(){
+    if (entityIdsAvailable && entityIdsAvailable.length) {
+      var entityId = ctrl.selectedSchool && ctrl.selectedSchool.entidad || '';
+      if (entityIdsAvailable.indexOf(entityId.toString()) === -1) {
+        $mdDialog.show(
+          $mdDialog.alert()
+          .clickOutsideToClose(true)
+          .title('No disponible')
+          .content('Actualmente el servicio no se encuentra disponible para este estado.')
+          .ok('Ok')
+        );
+
+        return console.log("failed", entityId);
+      }
+      console.log("success", entityId);
+    }
+
+
     ctrl.createDenunciaError = false;
     if(ctrl.selectedSchool && ctrl.validateFields(['email','name','occupation'],ctrl.user) ){
       var dType = ctrl.getCurrentDType();
@@ -134,6 +151,6 @@ function ConoceCtrl($scope ,$location, $filter, schoolsService, denunciaService)
 
 }
 
-ConoceCtrl.$inject = ['$scope', '$location','$filter','schoolsService', 'denunciaService'];
+ConoceCtrl.$inject = ['$scope', '$location','$filter', '$mdDialog', 'schoolsService', 'denunciaService', 'entityIdsAvailable'];
 angular.module('tuberiaPrototypeApp')
-  .controller('ConoceCtrl',ConoceCtrl);
+  .controller('ConoceCtrl', ConoceCtrl);
