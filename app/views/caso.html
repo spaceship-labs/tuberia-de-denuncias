@@ -61,6 +61,10 @@
         </div>
         -->
 
+        <div ng-if="caso.state.filter" class="report-section-btns center-content" ng-cloak ng-layout="column">
+          <a  ng-repeat='(key,action) in caso.state.filter' ng-click='caso.userChoiceFilter(key)' ng-bind="action" ng-class="{'selected': caso.state.selectFilter == key}" class="action-btn"></a>
+        </div>
+
         <div ng-if="caso.state.question" class="report-section center-content">
           <h4 ng-bind="caso.state.question"></h4>
         </div>

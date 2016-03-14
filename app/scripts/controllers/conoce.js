@@ -37,6 +37,7 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
     ctrl.tiposDenuncia.getCategories()
       .then(function(data){
         ctrl.categories = data;
+        console.log("tipos", data);
         ctrl.selectedCategory = ctrl.categories[ctrl.indexCategory];
       });
   }
@@ -56,6 +57,7 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
 
   function setSelectedSchool(){
     if(ctrl.selectedSchool){
+      console.log("school", ctrl.selectedSchool);
       schoolsService.setUserSchool(ctrl.selectedSchool);
     }
   }
@@ -80,16 +82,18 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
     ctrl.params.dTypeSlug = dType.fields.slug;
     ctrl.params.dTypeId = dType.sys.id;
     ctrl.params.cct = ctrl.selectedSchool.cct;
+    ctrl.params.entidadId = ctrl.selectedSchool.entidad;
+    ctrl.params.nivelName = ctrl.selectedSchool.nom_nivel;
   }
 
   function getCurrentDType(){
     var arr = ctrl.selectedCategory.fields.denuncias;
-    var control = ctrl.selectedSchool.control;
-    var types = $filter('denunciaFilter')(arr, control);
-    if(types.length > 0){
-      return types[0];
-    }
-    return false;
+    console.log('arr', arr);
+    var conditions = {
+      entidadId: ctrl.selectedSchool.entidad,
+      controlId: ctrl.selectedSchool.control
+    };
+    return $filter('denunciaByConditions')(arr, conditions);
   }
 
   function validateFields(keys,model){

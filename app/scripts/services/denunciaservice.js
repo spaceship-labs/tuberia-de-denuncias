@@ -12,8 +12,8 @@
   angular.module('tuberiaPrototypeApp')
     .service('denunciaService', function ($http) {
 
-      //var baseUrl = 'http://comparatuescuela/api/';
-      var baseUrl = 'http://mte.spaceshiplabs.com/api/';
+      var baseUrl = 'http://comparatuescuela/api/';
+      //var baseUrl = 'http://mte.spaceshiplabs.com/api/';
 
       this.getDenuncia = getDenuncia;
       this.createDenuncia = createDenuncia;

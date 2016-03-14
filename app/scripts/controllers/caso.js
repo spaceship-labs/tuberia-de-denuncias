@@ -30,15 +30,13 @@
     ctrl.formSubmit = formSubmit;
     ctrl.finalInput = {};
     ctrl.userChoiceForm = userChoiceForm;
+    ctrl.userChoiceFilter = userChoiceFilter;
     $scope.toConoce = toConoce;
 
     ctrl.init();
 
     function backToState(state){
-      if (state && state.number) {
-        ctrl.state = state;
-        ctrl.state.stepNumber = state.number;
-      }
+      $scope.tiposDenuncia.moveToState(state.number);
     }
 
     function formSubmit(form){
@@ -65,6 +63,10 @@
     function userChoice(choice){
       var state = ctrl.state.stepNumber || 1;
       $scope.tiposDenuncia.changeState(state-1, choice);
+    }
+
+    function userChoiceFilter(value){
+      ctrl.state.selectFilter = value;
     }
 
     function userChoiceForm(form){
@@ -103,7 +105,6 @@
 
     $scope.$watch(
       function() {
-        //console.log(ctrl.tiposDenuncia.getCurrentState());
         return ctrl.tiposDenuncia.getCurrentState();
       },
       function(newVal) {
