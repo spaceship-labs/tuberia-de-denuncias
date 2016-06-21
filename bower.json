@@ -23,6 +23,6 @@
   "moduleName": "tuberiaPrototypeApp",
   "resolutions": {
     "angular-material": "~0.11.2",
-    "angular": "1.4.9"
+    "angular": "1.4.12"
   }
 }
