@@ -931,6 +931,47 @@ md-input-container .md-input{
   background: #17C48E;
 }
 
+.footer .links-info{
+  color: #17C48E;
+}
+
+.footer .links-info a{
+  color: white;
+  padding: 0 5px;
+}
+
+.footer .links-info a:hover{
+  color: #17C48E;
+}
+
+/*Quienes somos*/
+
+.info-content .text-content h2{
+ text-align: center;
+ color: #fff;
+}
+
+.info-content .text-content{
+  background: #0FA778;
+}
+
+.info-content p.main-info{
+  text-align: justify;
+  font-weight: 400;
+  color: #fff;
+}
+
+.center-text{
+  display: block;
+  text-align: center;
+}
+
+.unsorted-list{
+  color: #fff;
+}
+
+/**/
+
 
 /*------/
   #RESPONSIVE

@@ -41,6 +41,21 @@
           controller: 'ConoceCtrl',
           controllerAs: 'conoce'
         })
+        .when('/quienes-somos', {
+          templateUrl: 'views/quienes-somos.html',
+          controller: 'QuienesSomosCtrl',
+          controllerAs: 'quienesSomos'
+        })
+        .when('/preguntas-frecuentes', {
+          templateUrl: 'views/preguntas-frecuentes.html',
+          controller: 'PreguntasFrecuentesCtrl',
+          controllerAs: 'preguntasFrecuentes'
+        })
+        .when('/aviso-de-privacidad', {
+          templateUrl: 'views/aviso-de-privacidad.html',
+          controller: 'AvisoDePrivacidadCtrl',
+          controllerAs: 'avisoDePrivacidad'
+        })
         .otherwise({
           redirectTo: '/'
         });
