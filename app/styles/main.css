@@ -244,7 +244,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
 }
 .toolbar-head .califica-item i,
 .toolbar-head .califica-item span{
-  color: #4AB67A;
+  color: #00AAE7;
 }
 .toolbar-head .menu-item{
   /*overflow: hidden;*/
@@ -275,7 +275,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
 .toolbar-head .conoce-item:before{background:#EA078A}
 .toolbar-head .reporta-item:before{background:#F6911B}
 .toolbar-head .sigue-item:before{background:#14ABE4}
-.toolbar-head .califica-item:before{background:#4AB67A}
+.toolbar-head .califica-item:before{background:#00AAE7}
 
 
 
@@ -907,17 +907,16 @@ md-input-container .md-input{
 .footer-bar{
   background: #1E1E1E;
 }
-.footer .social-icons a{
+.social-icons a{
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  border: 2px solid #17C48E;
   position: relative;
-  margin: 0 4px;
+  margin: 0 2px;
 }
 
-.footer .social-icons a > i{
+.social-icons a > i{
   position: absolute;
   left: 0;
   color: #fff;
@@ -925,9 +924,22 @@ md-input-container .md-input{
   top: 50%;
   margin: 0 auto;
   transform:translateY(-50%);
+  text-align: center;
 }
 
-.footer .social-icons a:hover{
+.social-icons a.fb{
+  background: #3b5998;
+}
+
+.social-icons a.twitter{
+  background: #55acee;
+}
+
+.social-icons a.insta{
+  background: #292f33;
+}
+
+.social-icons a:hover{
   background: #17C48E;
 }
 
