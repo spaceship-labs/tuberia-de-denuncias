@@ -18,6 +18,7 @@
 
       this.getSchools = getSchools;
       this.getSchool = getSchool;
+      this.contact = contact;
 
       //TODO: verificar relevancia
       this.setUserSchool = setUserSchool;
@@ -69,6 +70,15 @@
         function getSchoolFailed(err){
           console.log(err);
         }
+      }
+
+      function contact(form) {
+        return $http({
+          method: 'GET',
+          url: 'http://mte.spaceshiplabs.com/api/send_email_contacto',
+          params: form
+        });
+
       }
 
       function setUserSchool(school){

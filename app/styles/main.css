@@ -970,7 +970,35 @@ md-input-container .md-input{
   color: #fff;
 }
 
-/**/
+/* Contact*/
+
+.contact-content{
+  background: #0FA778;
+}
+
+.contact-content h2{
+  color: white;
+  margin-top: 50px;
+}
+
+.contact-content h3{
+  color: white;
+}
+
+
+
+#contact-form label{
+  color: white;
+}
+
+#contact-form input, #contact-form textarea{
+  color: white;
+}
+
+#contact-form .md-primary{
+  background-color: #00AAE7;
+  color: white;
+}
 
 
 /*------/

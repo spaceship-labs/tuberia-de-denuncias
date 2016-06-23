@@ -1,0 +1,28 @@
+<div class="contact">
+  <md-content class="contact-content" layout-align="center center" layout="column" layout-padding>
+    <h2 ng-show="!loading || !success || !failed">¡Contáctanos!</h2>
+    <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+    <h3 ng-show="success">Mensaje enviado</h3>
+    <h3 ng-show="failed">Ocurrió un error, por favor inténtalo de nuevo.</h3>
+    <form id="contact-form" ng-submit="send(form)" layout="row" layout-align="space-between center" flex="100" layout-wrap layout-padding ng-show="!loading && !success && !failed">
+      <md-input-container flex="50">
+        <label>Nombre</label>
+        <input type="text" ng-model="form.nombre" required>
+      </md-input-container>
+
+      <md-input-container flex="50">
+        <label>Correo electrónico</label>
+        <input type="email" ng-model="form.email" required>
+      </md-input-container>
+
+      <md-input-container flex="100">
+        <label>Mensaje</label>
+        <textarea ng-model="form.mensaje" required>
+        </textarea>
+      </md-input-container>
+      <p layout="row" layout-align="center center" flex="100">
+        <md-button class="md-raised md-primary">Enviar</md-button>
+      </p>
+    </form>
+  </md-content>
+</div>

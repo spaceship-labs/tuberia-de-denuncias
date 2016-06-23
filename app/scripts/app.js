@@ -56,6 +56,11 @@
           controller: 'AvisoDePrivacidadCtrl',
           controllerAs: 'avisoDePrivacidad'
         })
+        .when('/contacto', {
+          templateUrl: 'views/contacto.html',
+          controller: 'ContactoCtrl',
+          controllerAs: 'contacto'
+        })
         .otherwise({
           redirectTo: '/'
         });
