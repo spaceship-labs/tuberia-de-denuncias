@@ -1156,11 +1156,12 @@ md-input-container .md-input{
 }
 
 #califica .question-box p{
-  padding: 5px 37px;
+  padding: 0 37px;
 }
 
 #califica .question{
   margin: 0;
+  height: 80px;
 }
 
 #califica .question-box .circle{
@@ -1172,6 +1173,13 @@ md-input-container .md-input{
   text-align: center;
   line-height: 30px;
   margin: 2px;
+}
+
+#califica .question-box .circle:hover,
+#califica .question-box .circle.marked{
+  background: #30B6FD;
+  color: white;
+  cursor: pointer;
 }
 
 #califica .sum{

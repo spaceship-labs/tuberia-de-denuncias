@@ -8,33 +8,21 @@
  * Controller of the tuberiaPrototypeApp
  */
 angular.module('tuberiaPrototypeApp')
-  .controller('CalificaCtrl', function ($scope) {
+  .controller('CalificaCtrl', function ($scope, contentfulApi) {
+    $scope.total = 0;
+    contentfulApi.getQuestions('3iL6jJaboci2qyCMiWY4ke').then(function(questions) {
+      $scope.questions = questions;
+    });
 
-    $scope.questions = [{
-      title: 'This is a ...',
-      text: 'pregunta uno',
-      max: 'muy bien',
-      min: "muy mal",
-    },{
-      title: 'This is a two ...',
-      text: 'pregunta dos',
-      max: 'muy bien',
-      min: "muy mal",
-    },
-    {
-      title: 'This is a two ...',
-      text: 'pregunta dos',
-      max: 'muy bien',
-      min: "muy mal",
-    },
-    {
-      title: 'This is a two ...',
-      text: 'pregunta dos',
-      max: 'muy bien',
-      min: "muy mal",
-    },
+    $scope.sumTotal = function () {
+      var total = 0;
+      $scope.questions.forEach(function(ques) {
+        total += ques.mark || 0;
+      });
+      total /= $scope.questions.length;
 
-    ];
+      $scope.total = total
+    };
 
 
     this.awesomeThings = [
@@ -42,4 +30,7 @@ angular.module('tuberiaPrototypeApp')
       'AngularJS',
       'Karma'
     ];
+
+
+
   });
