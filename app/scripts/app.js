@@ -61,6 +61,11 @@
           controller: 'ContactoCtrl',
           controllerAs: 'contacto'
         })
+        .when('/califica', {
+          templateUrl: 'views/califica.html',
+          controller: 'CalificaCtrl',
+          controllerAs: 'califica'
+        })
         .otherwise({
           redirectTo: '/'
         });

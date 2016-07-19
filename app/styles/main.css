@@ -13,7 +13,7 @@ html{min-width: 320px;}
 body{font-family: 'Roboto',sans-serif;}
 a{text-decoration:none;}
 strong{font-weight: 700}
-a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif}
+a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif;}
 .clear{clear: both}
 .nopadding{padding: 0!important}
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -1058,5 +1058,161 @@ md-input-container .md-input{
     #FOOTER
   /*-------*/
   .footer-msg p{font-size: 14px;}
+
+  #califica .check.flex-sm-100{
+    padding: 0 !important;
+  }
 }
 
+
+/* califica */
+#califica .title{
+  background-color: #0BA777;
+  color: white;
+  padding: 18px 0 51px;
+}
+
+#califica p{
+  margin:0;
+}
+
+#califica .title h2{
+  margin-bottom: 0;
+  font-size: 33px;
+  font-weight: 300;
+}
+
+#califica .title p{
+  text-align: center;
+}
+
+#califica .content{
+  margin: 0 auto;
+  width: 80%;
+  max-width: 900px;
+}
+
+#califica .sub{
+  text-align: center;
+  background-color: #F69200;
+  color: white;
+  padding: 21px 0;
+  font-weight: 400;
+  margin-top: 40px;
+  margin-bottom: 23px;
+  font-size: 17px;
+}
+
+#califica .check{
+  margin-bottom: 16px;
+}
+
+#califica .check .head{
+  background-color: #00A9EE;
+
+/*
+  color: white;
+  padding: 1px 14px 7px 0;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+*/
+}
+
+#califica .check:nth-child(odd){
+  padding-right: 8px;
+}
+
+
+#califica .check:nth-child(even){
+  padding-left: 8px;
+}
+
+
+#califica .check .head .h-icon{
+  background-color: #0E95CC;
+  color: white;
+}
+
+#califica .check .head p{
+  padding: 18px 26px;
+}
+
+#califica .check .head .h-icon i{
+  padding: 15px 27px 14px 32px;
+}
+
+#califica .question-box{
+  background-color: #EFEFEF;
+  padding: 29px 0;
+}
+
+#califica .question-box .range{
+  line-height: 26px;
+}
+
+#califica .question-box .circles{
+  margin-top: 16px;
+}
+
+#califica .question-box p{
+  padding: 5px 37px;
+}
+
+#califica .question{
+  margin: 0;
+}
+
+#califica .question-box .circle{
+  border-radius: 50%;
+  background-color: #C3C3C3;
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  margin: 2px;
+}
+
+#califica .sum{
+  color: white;
+  font-size: 27px;
+  font-weight: bold;
+  margin: 12px 0;
+}
+
+#califica .sum p{
+  background-color: #EA0D8E;
+  text-align: center;
+  padding: 25px;
+}
+
+#califica .sum .res{
+  background-color: #D20B80;
+}
+
+#califica .m-icon{
+  background-color: #1383EF;
+  color: white;
+  text-align: center;
+}
+
+#califica .m-icon i{
+  margin-top: 7px;
+}
+
+#califica .msg textarea{
+  min-height: 83px;
+  border: none;
+  background-color: #EFEFEF;
+  padding: 10px;
+}
+
+#califica .msg .submit{
+  background-color: #0BA777;
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  border: none;
+  margin-top: 15px;
+}

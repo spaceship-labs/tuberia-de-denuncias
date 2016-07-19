@@ -1,0 +1,58 @@
+<div id="califica">
+
+  <div class="title" layout="column" layout-align="center center" layout-padding>
+    <h2>CALIFICA</h2>
+    <p>Te permite dar tu opinión sobre la atención<br>que te brindaron las autoridades.</p>
+  </div>
+
+  <div class="content">
+    <p class="sub">
+      Califica seleccionando para cada campo una calificación de 1-10. <br>
+      Estas calificaciones se promedian para generar la calificación de la escuela según los usuarios
+    </p>
+
+    <div layout="row" layout-align="space-between center" flex="100" layout-wrap>
+      <div class="check" flex="50" flex-sm="100" layout-align="center"  ng-repeat="question in questions">
+        <div class="head" layout="row">
+          <div class="h-icon">
+            <i class="fa fa-check fa-2x" aria-hidden="true"></i>
+          </div>
+          <div>
+            <p>{{question.title}}</p>
+          </div>
+        </div>
+        <div class="question-box">
+          <p class="question">{{question.text}}</p>
+          <p class="range">
+            1 = "{{question.min}}"
+            <br>
+            10 = "{{question.max}}"
+          </p>
+          <p class="circles" layout="row" layout-align="center">
+            <span class="circle" ng-repeat="n in [].constructor(10) track by $index"> {{$index+1}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sum" layout="row" layout-align="center center">
+      <p  flex="70">En promedio tu calificas la atención con:</p>
+      <p class="res" flex="30"> 8 </p>
+    </div>
+
+    <form class="msg">
+      <div layout="row">
+        <div class="m-icon" flex="10">
+          <i class="fa fa-comment fa-fw fa-3x fa-flip-horizontal" aria-hidden="true"></i>
+        </div>
+        <textarea flex="90" placeholder="¿Quieres dejar un comentario?"></textarea>
+      </div>
+      <p layout="row" layout-align="center center">
+        <input class="submit" flex="30" type="submit" value="Enviar calificación">
+      </p>
+    </form>
+
+  </div>
+
+
+</div>
