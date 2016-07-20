@@ -53,11 +53,11 @@
       $scope.toggleMailSignInHeader = !$scope.toggleMailSignInHeader;
     };
 
-    $scope.toCalifica = function() {
+    $scope.toSectionWithToken = function(section) {
       if ($routeParams.token) { //WTF!!!
-        return $location.path('/califica/' + $routeParams.token);
+        return $location.path(section + $routeParams.token);
       }
-      $location.path('/califica/');
+      $location.path(section);
     };
 
   }
