@@ -13,14 +13,11 @@ angular.module('tuberiaPrototypeApp')
 
     api.getQuestions = function(category) {
       var deferred = $q.defer();
-      function log(l) {
-        console.log.apply(console, [l]);
-      }
       contentful.entries('content_type=question&order=sys.createdAt').then(function(res) {
         var items = res.data.items;
         if (category) {
-          var items = items.filter(function (item) {
-            return item.fields.category.sys.id === category
+          items = items.filter(function (item) {
+            return item.fields.category.sys.id === category;
           });
         }
         items.push({

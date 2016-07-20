@@ -8,7 +8,12 @@
  * Controller of the tuberiaPrototypeApp
  */
 angular.module('tuberiaPrototypeApp')
-  .controller('CalificaCtrl', function ($scope, contentfulApi) {
+  .controller('CalificaCtrl', function ($scope, $routeParams, contentfulApi) {
+    var token = $routeParams.token;
+    if (!token) {
+      return;
+    }
+
     $scope.total = 0;
     contentfulApi.getQuestions('3iL6jJaboci2qyCMiWY4ke').then(function(questions) {
       $scope.questions = questions;
@@ -21,7 +26,7 @@ angular.module('tuberiaPrototypeApp')
       });
       total /= $scope.questions.length;
 
-      $scope.total = total
+      $scope.total = total;
     };
 
 

@@ -1224,3 +1224,7 @@ md-input-container .md-input{
   border: none;
   margin-top: 15px;
 }
+
+#califica-empty{
+  padding: 70px 0 180px 0;
+}

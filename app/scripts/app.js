@@ -61,10 +61,15 @@
           controller: 'ContactoCtrl',
           controllerAs: 'contacto'
         })
-        .when('/califica', {
+        .when('/califica/:token', {
           templateUrl: 'views/califica.html',
           controller: 'CalificaCtrl',
           controllerAs: 'califica'
+        })
+        .when('/califica', {
+          templateUrl: 'views/califica-empty.html',
+          controller: 'CalificaEmptyCtrl',
+          controllerAs: 'calificaEmpty'
         })
         .otherwise({
           redirectTo: '/'

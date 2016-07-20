@@ -9,7 +9,7 @@
  */
 (function(){
 
-  function MainCtrl($scope, $mdSidenav, $location, tiposDenuncia, schoolsService){
+  function MainCtrl($scope, $mdSidenav, $location, tiposDenuncia, schoolsService, $routeParams){
     $scope.tiposDenuncia = tiposDenuncia;
     $scope.schoolsService = schoolsService;
     $scope.icons = {
@@ -26,12 +26,18 @@
 
       $scope.toggleMailSignInHeader = false;
 
-      if(path.indexOf('/caso/') >= 0 || path.indexOf('/conoce') >= 0){
+      if (path.indexOf('/caso/') >= 0 || path.indexOf('/conoce') >= 0) {
         $scope.sidebarOn = true;
         $scope.reportaOn = true;
-      }else{
+        $scope.calificaOn = false;
+      } else if (path.indexOf('/califica') !== -1) {
+        $scope.reportaOn = false;
+        $scope.sidebarOn = false;
+        $scope.calificaOn = true;
+      } else {
         $scope.sidebarOn = false;
         $scope.reportaOn = false;
+        $scope.calificaOn = false;
       }
     });
 
@@ -47,9 +53,16 @@
       $scope.toggleMailSignInHeader = !$scope.toggleMailSignInHeader;
     };
 
+    $scope.toCalifica = function() {
+      if ($routeParams.token) { //WTF!!!
+        return $location.path('/califica/' + $routeParams.token);
+      }
+      $location.path('/califica/');
+    };
+
   }
 
-  MainCtrl.$inject = ['$scope','$mdSidenav','$location','tiposDenuncia'];
+  MainCtrl.$inject = ['$scope','$mdSidenav','$location','tiposDenuncia','schoolsService', '$routeParams'];
   angular.module('tuberiaPrototypeApp').controller('MainCtrl', MainCtrl);
 
 })();
