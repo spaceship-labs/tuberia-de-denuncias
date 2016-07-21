@@ -13,13 +13,13 @@
                 <img src="images/logo.png" alt="">
               </a>
             </li>
-            <li flex="25" class="menu-item conoce-item">
+            <li flex="25" class="menu-item conoce-item" ng-class="{'menu-item-active': conoceOn}" >
               <a href="#/conoce" class="absolute-link"></a>
               <p><i class="icon-tuberia"></i></p>
               <span>INFORMATE</span>
             </li>
             <li flex="25" class="menu-item reporta-item" ng-class="{'menu-item-active': reportaOn}">
-              <a href="" ng-click="toSectionWithToken('/caso/')" class="absolute-link"></a>
+              <a href="#/reporta" ng-click="toSectionWithToken('/caso/')" class="absolute-link"></a>
               <p><i class="icon-reporta"></i></p>
               <span>REPORTA</span>
             </li>

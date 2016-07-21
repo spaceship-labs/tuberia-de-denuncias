@@ -26,18 +26,20 @@
 
       $scope.toggleMailSignInHeader = false;
 
-      if (path.indexOf('/caso/') >= 0 || path.indexOf('/conoce') >= 0) {
+
+      $scope.sidebarOn = false;
+      $scope.reportaOn = false;
+      $scope.calificaOn = false;
+      $scope.conoceOn = false;
+      if (path.indexOf('/caso/') >= 0) {
         $scope.sidebarOn = true;
-        $scope.reportaOn = true;
-        $scope.calificaOn = false;
       } else if (path.indexOf('/califica') !== -1) {
-        $scope.reportaOn = false;
-        $scope.sidebarOn = false;
         $scope.calificaOn = true;
-      } else {
-        $scope.sidebarOn = false;
-        $scope.reportaOn = false;
-        $scope.calificaOn = false;
+      } else if (path.indexOf('/reporta') >= 0) {
+        $scope.reportaOn = true;
+      } else if (path.indexOf('/conoce') >= 0){
+        $scope.sidebarOn =  true;
+        $scope.conoceOn = true;
       }
     });
 

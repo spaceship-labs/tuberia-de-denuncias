@@ -71,6 +71,11 @@
           controller: 'CalificaEmptyCtrl',
           controllerAs: 'calificaEmpty'
         })
+        .when('/reporta', {
+          templateUrl: 'views/reporta.html',
+          controller: 'ReportaCtrl',
+          controllerAs: 'reporta'
+        })
         .otherwise({
           redirectTo: '/'
         });

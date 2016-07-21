@@ -1225,6 +1225,19 @@ md-input-container .md-input{
   margin-top: 15px;
 }
 
-#califica-empty{
+#califica-empty, #reporta{
   padding: 70px 0 180px 0;
 }
+
+/*Reporta*/
+.user-actions{
+  position: relative;
+}
+
+md-dialog.dialog-no-disponible md-dialog-content{
+  order: 0;
+  --webkit-order: 0;
+  -ms-flex-order: 0;
+}
+
+.dialog-no-disponible .label-email{font-weight: bold;}

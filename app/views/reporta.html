@@ -1,0 +1,20 @@
+<div id="reporta" ng-cloak>
+  <div class="user-actions container container-smd center-content" layout="row">
+
+  <mail-sign-in class="mail-signup-modal-home" close-option="true" close-option-cb="toggleMailSignIn = false" ng-show="toggleMailSignIn"></mail-sign-in>
+    <div class="user-action" flex="50">
+      <p><strong>Comienza tu reporte</strong></p>
+      <div class="action-btn-wrap">
+        <a href="" ng-click="showInfo = true" class="action-btn">Comenzar</a>
+      </div>
+    </div>
+    <div class="user-action user-action-alt" flex="50">
+      <p><strong>¿Ya iniciaste tu reporte?</strong></p>
+      <div class="action-btn-wrap">
+        <a ng-click="toggleMailSignIn = true; showInfo = false;" href="" class="action-btn">Continuar con él</a>
+      </div>
+    </div>
+  </div>
+
+  <ng-include src="'views/conoce.html'" ng-controller="ConoceCtrl as conoce" ng-show="showInfo"></ng-include>
+</div>

@@ -1,0 +1,37 @@
+<md-dialog class="dialog-no-disponible" aria-label="No dispobible"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Información no disponible</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="closeDialog()">
+          x
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <h2>¿Quieres que te notifiquemos cuando exista información disponible para tu estado?</h2>
+      </div>
+      <div layout="row" layout-align="center center" ng-show="showInputs">
+        <md-input-container flex="50">
+          <label class="label-email">Correo electronico</label>
+          <input type="email" ng-model="user.name" autofocus>
+        </md-input-container>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="showInputs = true" ng-show="!showInputs">
+        Informarme
+      </md-button>
+      <md-button ng-click="" ng-show="showInputs">
+        Enviar
+      </md-button>
+      <md-button ng-click="closeDialog()">
+        No, gracias
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+
