@@ -30,7 +30,7 @@
           url: 'http://mte.spaceshiplabs.com/api/escuelas',
           params: {
             term: name,
-            solr: true
+            solr: false,//falla en sandbox...
           }
         })
         .then(getSchoolsComplete)
