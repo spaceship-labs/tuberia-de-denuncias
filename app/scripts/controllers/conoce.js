@@ -158,18 +158,48 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
   ctrl.init();
 
   function showDialog() {
-       var parentEl = angular.element(document.body);
-       $mdDialog.show({
-         parent: parentEl,
-         templateUrl: 'views/no-disponible.html',
-         controller: DialogController
+    var parentEl = angular.element(document.body);
+      $mdDialog.show({
+        parent: parentEl,
+        templateUrl: 'views/no-disponible.html',
+        controller: DialogController,
+        locals: {
+          school: ctrl.selectedSchool,
+          userForm: ctrl.user
+        }
       });
-      function DialogController($scope, $mdDialog) {
+
+      function DialogController($scope, $mdDialog, schoolsService, school, userForm) {
         $scope.closeDialog = function() {
           $mdDialog.hide();
         };
-      }
+
+        $scope.userForm = {
+          email: userForm.email,
+          estado: school.nom_entidad,
+          entity: school.entidad,
+          cct: school.cct
+        };
+        var send = false;
+        $scope.notifies_available = function(form) {
+          if ($scope.send) {
+            $scope.closeDialog();
+            return;
+          }
+
+          if (send) {
+            return;
+          }
+          send = true;
+          schoolsService.notifies_available(form).then(function(res) {
+            if (res.data && res.data.success) {
+              $scope.send = true;
+              send = false;
+            }
+          });
+        };
     }
+  }
 
 
   //showDialog();

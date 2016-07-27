@@ -1,35 +1,41 @@
 <md-dialog class="dialog-no-disponible" aria-label="No dispobible"  ng-cloak>
-  <form>
+  <form ng-submit="notifies_available(userForm)">
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>Información no disponible</h2>
+        <h2>La Ventanilla Escolar de MejoraTuEscuela se encuentra en versión de prueba.</h2>
         <span flex></span>
-        <md-button class="md-icon-button" ng-click="closeDialog()">
+        <a class="md-icon-button" ng-click="closeDialog()">
           x
-        </md-button>
+        </a>
       </div>
     </md-toolbar>
     <md-dialog-content>
       <div class="md-dialog-content">
-        <h2>¿Quieres que te notifiquemos cuando exista información disponible para tu estado?</h2>
+        <h2>¡Lo sentimos mucho! Por el momento no contamos con información para tu estado. Estamos trabajando para dentro de poco incluir información de más estados y más tipos de reportes. </h2>
+        <h3>¿Quieres que te notifiquemos cuando se incorpore información para tu estado? Escribe tu correo electrónico aquí:</h3>
       </div>
-      <div layout="row" layout-align="center center" ng-show="showInputs">
-        <md-input-container flex="50">
+      <div layout="row" layout-align="center center" layout-wrap>
+        <md-input-container flex="60" ng-show="!send">
           <label class="label-email">Correo electronico</label>
-          <input type="email" ng-model="user.name" autofocus>
+          <input type="email" ng-model="userForm.email" autofocus required>
         </md-input-container>
+        <md-input-container flex="60" ng-show="!send">
+          <label class="label-email">Estado</label>
+          <input type="text" ng-model="userForm.estado" disabled>
+        </md-input-container>
+        <h4 flex="50" ng-show="send">Enviado</h4>
+
+        <span flex="90"> Para asistencia con quejas, comunícate al TelSep: 01 800 288 6688. </span>
       </div>
+
     </md-dialog-content>
     <md-dialog-actions layout="row">
       <span flex></span>
-      <md-button ng-click="showInputs = true" ng-show="!showInputs">
+      <md-button ng-show="!send">
         Informarme
       </md-button>
-      <md-button ng-click="" ng-show="showInputs">
-        Enviar
-      </md-button>
-      <md-button ng-click="closeDialog()">
-        No, gracias
+      <md-button ng-show="send">
+        Cerrar
       </md-button>
     </md-dialog-actions>
   </form>

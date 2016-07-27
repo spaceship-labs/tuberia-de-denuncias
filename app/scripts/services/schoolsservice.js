@@ -19,15 +19,18 @@
       this.getSchools = getSchools;
       this.getSchool = getSchool;
       this.contact = contact;
+      this.notifies_available = notifies_available;
 
       //TODO: verificar relevancia
       this.setUserSchool = setUserSchool;
       this.getUserSchool = getUserSchool;
 
+      var api = 'http://comparatuescuela/';
+
       function getSchools(name){
         return $http({
           method: 'GET',
-          url: 'http://mte.spaceshiplabs.com/api/escuelas',
+          url: 'http://mte.spaceshiplabs.com/' + 'api/escuelas',
           params: {
             term: name,
             solr: false,//falla en sandbox...
@@ -91,6 +94,18 @@
         //var school =  $cookies.getObject(cookieSchoolName);
         //return school;
         return userSchool;
+      }
+
+      function notifies_available(form){
+        return $http({
+          method: 'GET',
+          url: api + 'api_ventanilla_escolar/notifies_available',
+          params: {
+            email: form.email,
+            cct: form.cct || '',
+            entity: form.entity || 0
+          }
+        });
       }
 
     });
