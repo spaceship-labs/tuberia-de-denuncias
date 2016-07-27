@@ -1241,3 +1241,35 @@ md-dialog.dialog-no-disponible md-dialog-content{
 }
 
 .dialog-no-disponible .label-email{font-weight: bold;}
+
+/*Perfil supervisor*/
+.supervisor-icon{
+  background: #14ABE4;
+}
+.supervisor-icon .icon{
+  display: block;
+  text-indent: -9999px;
+  width: 80px;
+  height: 80px;
+  background: url(../images/supervisor.png) #14ABE4 no-repeat center center;
+  background-size: 50px 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.supervisor-icon .icon + span{
+  text-align: center;
+  color: white;
+}
+
+.supervisor-info .name{
+  color: #6B6B6B;
+  font-size: 25px;
+  padding: 10px;
+}
+
+.supervisor-info .info{
+  background: #5C67D0;
+  padding: 22px 10px;
+  color: white;
+}
