@@ -1264,12 +1264,22 @@ md-dialog.dialog-no-disponible md-dialog-content{
 
 .supervisor-info .name{
   color: #6B6B6B;
-  font-size: 25px;
-  padding: 10px;
+  font-size: 24px;
+  padding: 1px;
 }
 
 .supervisor-info .info{
   background: #5C67D0;
   padding: 22px 10px;
+  color: white;
+}
+
+.supervisor-info .info span{
+  font-weight: bold;
+}
+
+.supervisor-info .perfil {
+  background: #0FA778;
+  text-align: center;
   color: white;
 }

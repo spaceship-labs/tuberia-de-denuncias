@@ -61,15 +61,17 @@
           </div>
           <div flex="70" layout="row" layout-align="center center" layout-wrap>
             <p class="name" flex="80">
-              Nombre: Jesus Godinez lopez
+              Nombre: {{supervisor.nombre || 'N/D'}}
             </p>
             <p class="info" flex="100">
-              ClaveCCT: clave
-              Domicilio: a  <br>
-              Colonia: b <br>
-              Localidad: c<br>
-              Telefono: 1212 <br>
+              Nombre CT: <span>{{supervisor.nombrect || 'N/D'}} </span><br>
+              Clave CCT: <span>{{supervisor.cct || 'N/D'}} </span><br>
+              Domicilio: <span>{{supervisor.domicilio || 'N/D'}} </span><br>
+              Colonia: <span>{{supervisor.colonia || 'N/D'}}</span><br>
+              Localidad: <span>{{supervisor.localidad || 'N/D'}}</span><br>
+              Telefono: <span>{{supervisor.telefono || 'N/D'}}</span><br>
             </p>
+            <a target="_blank" ng-show="supervisor.cct_zona" flex="100" class="perfil" href="http://mejoratuescuela.com/escuelas/index/{{supervisor.cct_zona}}">Ver perfil</a>
           </div>
         </div>
 

@@ -57,7 +57,6 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
 
   function setSelectedSchool(){
     if(ctrl.selectedSchool){
-      console.log("school", ctrl.selectedSchool);
       schoolsService.setUserSchool(ctrl.selectedSchool);
     }
   }
@@ -191,7 +190,7 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
             return;
           }
           send = true;
-          schoolsService.notifies_available(form).then(function(res) {
+          schoolsService.notifiesAvailable(form).then(function(res) {
             if (res.data && res.data.success) {
               $scope.send = true;
               send = false;

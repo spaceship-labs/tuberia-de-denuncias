@@ -19,7 +19,8 @@
       this.getSchools = getSchools;
       this.getSchool = getSchool;
       this.contact = contact;
-      this.notifies_available = notifies_available;
+      this.notifiesAvailable = notifiesAvailable;
+      this.getSupervisor = getSupervisor;
 
       //TODO: verificar relevancia
       this.setUserSchool = setUserSchool;
@@ -96,7 +97,7 @@
         return userSchool;
       }
 
-      function notifies_available(form){
+      function notifiesAvailable(form){
         return $http({
           method: 'GET',
           url: api + 'api_ventanilla_escolar/notifies_available',
@@ -107,6 +108,17 @@
           }
         });
       }
+
+      function getSupervisor(cct) {
+        return $http({
+          method: 'GET',
+          url: api + 'api_ventanilla_escolar/supervisor',
+          params: {
+            cct: cct
+          }
+        });
+      }
+
 
     });
 

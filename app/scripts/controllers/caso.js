@@ -96,6 +96,7 @@
       denunciaService.getDenuncia(token).then(function(res){
         ctrl.getUserSchool(res.data.cct);
         ctrl.getTipoDenuncia(res.data.dTypeId, res.data);
+        schoolsService.getSupervisor(res.data.cct).then(setSupervisor);
       });
     }
 
@@ -111,6 +112,12 @@
         ctrl.state = newVal;
       }
     );
+
+    function setSupervisor(res) {
+      if (res.data) {
+        $scope.supervisor = res.data;
+      }
+    }
 
   }
 
