@@ -37,7 +37,6 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
     ctrl.tiposDenuncia.getCategories()
       .then(function(data){
         ctrl.categories = data;
-        console.log("tipos", data);
         ctrl.selectedCategory = ctrl.categories[ctrl.indexCategory];
       });
   }
@@ -87,7 +86,6 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
 
   function getCurrentDType(){
     var arr = ctrl.selectedCategory.fields.denuncias;
-    console.log('arr', arr);
     var conditions = {
       entidadId: ctrl.selectedSchool.entidad,
       controlId: ctrl.selectedSchool.control
