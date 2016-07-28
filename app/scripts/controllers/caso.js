@@ -98,6 +98,7 @@
         ctrl.getTipoDenuncia(res.data.dTypeId, res.data);
         schoolsService.getSupervisor(res.data.cct).then(setSupervisor);
         schoolsService.getDif(res.data.cct).then(setDif);
+        schoolsService.getContraloria(res.data.entidadId).then(setContraloria);
       });
     }
 
@@ -122,10 +123,14 @@
 
     function setDif(res) {
       if (res.data) {
-        console.log(res.data);
         $scope.dif = res.data;
       }
+    }
 
+    function setContraloria(res) {
+      if (res.data) {
+        $scope.sep = res.data;
+      }
     }
 
   }

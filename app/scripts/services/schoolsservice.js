@@ -22,6 +22,7 @@
       this.notifiesAvailable = notifiesAvailable;
       this.getSupervisor = getSupervisor;
       this.getDif = getDif;
+      this.getContraloria = getContraloria;
 
       //TODO: verificar relevancia
       this.setUserSchool = setUserSchool;
@@ -126,6 +127,16 @@
           url: api + 'api_ventanilla_escolar/dif',
           params: {
             cct: cct
+          }
+        });
+      }
+
+      function getContraloria(entidad) {
+        return $http({
+          method: 'GET',
+          url: api + 'api_ventanilla_escolar/contraloria_sep',
+          params: {
+            entidad: entidad
           }
         });
       }
