@@ -21,6 +21,7 @@
       this.contact = contact;
       this.notifiesAvailable = notifiesAvailable;
       this.getSupervisor = getSupervisor;
+      this.getDif = getDif;
 
       //TODO: verificar relevancia
       this.setUserSchool = setUserSchool;
@@ -119,6 +120,15 @@
         });
       }
 
+      function getDif(cct) {
+        return $http({
+          method: 'GET',
+          url: api + 'api_ventanilla_escolar/dif',
+          params: {
+            cct: cct
+          }
+        });
+      }
 
     });
 

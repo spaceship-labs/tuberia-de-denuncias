@@ -69,9 +69,28 @@
               Domicilio: <span>{{supervisor.domicilio || 'N/D'}} </span><br>
               Colonia: <span>{{supervisor.colonia || 'N/D'}}</span><br>
               Localidad: <span>{{supervisor.localidad || 'N/D'}}</span><br>
-              Telefono: <span>{{supervisor.telefono || 'N/D'}}</span><br>
+              Teléfono: <span>{{supervisor.telefono || 'N/D'}}</span><br>
             </p>
             <a target="_blank" ng-show="supervisor.cct_zona" flex="100" class="perfil" href="http://mejoratuescuela.com/escuelas/index/{{supervisor.cct_zona}}">Ver perfil</a>
+          </div>
+        </div>
+
+        <div class="dif school-info">
+          <div class="school-info-item" >
+            <div class="school-info-item-inner" layout="row" layout-align="center center">
+              <div flex layout="column" layout-align="center center">
+                <i class="icon-escuela"></i>
+                <span>DIF</span>
+              </div>
+              <div flex="80">
+                <p>Domicilio: <strong>{{dif.domicilio || 'N/D'}}</strong></p>
+                <p>Correo Electronico: <strong>{{dif.email || 'N/D'}}</strong></p>
+                <p>Encargado: <strong>{{dif.encargado || 'N/D'}}</strong></p>
+                <p>Horario: <strong>{{dif.horario || 'N/D'}}</strong></p>
+                <p>Municipio <strong>{{dif.municipio_nombre || 'N/D'}}</strong></p>
+                <p>Teléfono: <strong>{{dif.telefono || 'N/D'}}</strong></p>
+              </div>
+            </div>
           </div>
         </div>
 
