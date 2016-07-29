@@ -23,6 +23,7 @@
       this.getSupervisor = getSupervisor;
       this.getDif = getDif;
       this.getContraloria = getContraloria;
+      this.setScore = setScore;
 
       //TODO: verificar relevancia
       this.setUserSchool = setUserSchool;
@@ -137,6 +138,20 @@
           url: api + 'api_ventanilla_escolar/contraloria_sep',
           params: {
             entidad: entidad
+          }
+        });
+      }
+
+      function setScore(token, scores, comment) {
+        return $http({
+          method: 'GET',
+          url: api + 'api_ventanilla_escolar/calificacion',
+          params: {
+            token: token,
+            comment: comment || '',
+            score: {
+              scores: scores
+            }
           }
         });
       }

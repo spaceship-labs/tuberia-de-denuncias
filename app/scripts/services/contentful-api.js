@@ -23,6 +23,9 @@ angular.module('tuberiaPrototypeApp')
         items.push({
           fields: {
             text: '¿Qué tan útil para solucionar tu problema fue la información de Ventanilla Escolar?'
+          },
+          sys: {
+            id: 'quetanutilpara'
           }
         });
 

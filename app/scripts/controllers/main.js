@@ -55,11 +55,11 @@
       $scope.toggleMailSignInHeader = !$scope.toggleMailSignInHeader;
     };
 
-    $scope.toSectionWithToken = function(section) {
+    $scope.toSectionWithToken = function(section, otherwise) {
       if ($routeParams.token) { //WTF!!!
         return $location.path(section + $routeParams.token);
       }
-      $location.path(section);
+      $location.path(otherwise || section);
     };
 
   }
