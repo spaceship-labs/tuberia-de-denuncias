@@ -165,6 +165,7 @@
 
             stateItemFields.number = i + 1;
             stateItemFields.select =  historyItem.select || {};
+            stateItemFields.answer = historyItem.answer;
             if (historyItem.date) {
               stateItemFields.date = historyItem.date;
             }
@@ -221,16 +222,19 @@
             date: h.date,
             nextState: h.nextState,
             select: h.select,
-            selectFilter: h.selectFilter
+            selectFilter: h.selectFilter,
+            answer: h.answer
           };
         }).filter(function(h) {
-          return h.date;
+          return h.answer || h.date;
         });
 
 
         if (denuncia) {
           denuncia.history = history;
-          denunciaService.updateDenuncia(denuncia);
+          denunciaService.updateDenuncia(denuncia).then(function(res) {
+            stateHistory[state].answer = res.data.history[state].answer;
+          });
         }
 
 

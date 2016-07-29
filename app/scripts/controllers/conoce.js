@@ -76,8 +76,10 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
   }
 
   function setUpParams(dType){
+    console.log('dtype', dType);
     ctrl.params.startDate = new Date();
     ctrl.params.dTypeSlug = dType.fields.slug;
+    ctrl.params.label = dType.fields.label;
     ctrl.params.dTypeId = dType.sys.id;
     ctrl.params.cct = ctrl.selectedSchool.cct;
     ctrl.params.entidadId = ctrl.selectedSchool.entidad;
@@ -107,17 +109,6 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
       var entityId = ctrl.selectedSchool && ctrl.selectedSchool.entidad || '';
       if (entityIdsAvailable.indexOf(entityId.toString()) === -1) {
         showDialog();
-
-        /*
-        $mdDialog.show(
-          $mdDialog.alert()
-          .clickOutsideToClose(true)
-          .title('No disponible')
-          .content('Actualmente el servicio no se encuentra disponible para este estado.')
-          .ok('Ok')
-        );
-        */
-
         return console.log("failed", entityId);
       }
       console.log("success", entityId);
@@ -140,6 +131,7 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
         number: 1
       }];
       denunciaService.createDenuncia(data).then(function(res){
+        console.log('res', res);
         if(res.data.success){
           $location.path('/caso/'+res.data.token);
         }else{
