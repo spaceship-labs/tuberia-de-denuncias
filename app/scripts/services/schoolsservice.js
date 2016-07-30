@@ -30,15 +30,16 @@
       this.setUserSchool = setUserSchool;
       this.getUserSchool = getUserSchool;
 
-      var api = 'http://comparatuescuela/';
+      //var api = 'http://comparatuescuela/';
+      var api = 'http://mte.spaceshiplabs.com/';
 
       function getSchools(name){
         return $http({
-          method: 'GET',
-          url: 'http://mte.spaceshiplabs.com/' + 'api/escuelas',
+          method: 'JSONP',
+          url: api + 'api/escuelas?callback=JSON_CALLBACK',
           params: {
             term: name,
-            solr: false,//falla en sandbox...
+            solr: true,//falla en sandbox...
           }
         })
         .then(getSchoolsComplete)
