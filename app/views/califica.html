@@ -1,11 +1,18 @@
 <div id="califica">
-
   <div class="title" layout="column" layout-align="center center" layout-padding>
     <h2>CALIFICA</h2>
     <p>Te permite dar tu opinión sobre la atención<br>que te brindaron las autoridades.</p>
   </div>
 
-  <div class="content">
+  <div layout="row" layout-align="center center" ng-show="loading">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  </div>
+
+  <div layout="row" layout-align="center center" ng-show="success">
+    <h3>Enviado correctamente</h3>
+  </div>
+  <div class="content" ng-show="!loading && !success">
+
     <p class="sub">
       Califica la atención que recibiste para resolver tu queja seleccionando
       <br>
@@ -49,7 +56,7 @@
         <div class="m-icon" flex="10">
           <i class="fa fa-comment fa-fw fa-3x fa-flip-horizontal" aria-hidden="true"></i>
         </div>
-        <textarea ng-model="comment" flex="90" placeholder="Opcionalmente, deja un comentario sobre la información y la página de Ventanilla Escolar"></textarea>
+        <textarea ng-model="comment.text" flex="90" placeholder="Opcionalmente, deja un comentario sobre la información y la página de Ventanilla Escolar"></textarea>
       </div>
       <p layout="row" layout-align="center center">
         <input class="submit" flex="30" type="submit" value="Enviar calificación">

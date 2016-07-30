@@ -23,6 +23,7 @@
       this.getSupervisor = getSupervisor;
       this.getDif = getDif;
       this.getContraloria = getContraloria;
+      this.getScore = getScore;
       this.setScore = setScore;
 
       //TODO: verificar relevancia
@@ -143,15 +144,27 @@
       }
 
       function setScore(token, scores, comment) {
+        comment = comment || {};
         return $http({
           method: 'GET',
           url: api + 'api_ventanilla_escolar/calificacion',
           params: {
             token: token,
-            comment: comment || '',
+            comment: comment.text || '',
+            commentId: comment.pid,
             score: {
               scores: scores
             }
+          }
+        });
+      }
+
+      function getScore(token) {
+        return $http({
+          method: 'GET',
+          url: api + 'api_ventanilla_escolar/get_calificacion',
+          params: {
+            token: token
           }
         });
       }
