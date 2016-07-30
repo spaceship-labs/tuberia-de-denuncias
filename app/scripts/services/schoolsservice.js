@@ -31,12 +31,12 @@
       this.getUserSchool = getUserSchool;
 
       //var api = 'http://comparatuescuela/';
-      var api = 'http://mte.spaceshiplabs.com/';
+      var api = 'https://mte.spaceshiplabs.com/';
 
       function getSchools(name){
         return $http({
-          method: 'JSONP',
-          url: api + 'api/escuelas?callback=JSON_CALLBACK',
+          method: 'GET',
+          url: api + 'api/escuelas',
           params: {
             term: name,
             solr: true,//falla en sandbox...
@@ -60,7 +60,7 @@
       function getSchool(cct){
         return $http({
           method: 'GET',
-          url: 'http://mte.spaceshiplabs.com/api/escuelas',
+          url: 'https://mte.spaceshiplabs.com/api/escuelas',
           params: {
             ccts: cct,
             solr: true
@@ -84,7 +84,7 @@
       function contact(form) {
         return $http({
           method: 'GET',
-          url: 'http://mte.spaceshiplabs.com/api/send_email_contacto',
+          url: 'https://mte.spaceshiplabs.com/api/send_email_contacto',
           params: form
         });
 
