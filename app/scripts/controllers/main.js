@@ -9,7 +9,7 @@
  */
 (function(){
 
-  function MainCtrl($scope, $mdSidenav, $location, tiposDenuncia, schoolsService, $routeParams){
+  function MainCtrl($scope, $mdSidenav, $location, tiposDenuncia, schoolsService, $routeParams, $mdDialog){
     $scope.tiposDenuncia = tiposDenuncia;
     $scope.schoolsService = schoolsService;
     $scope.icons = {
@@ -56,6 +56,27 @@
     };
 
     $scope.toSectionWithToken = function(section, otherwise) {
+      console.log($location.path());
+      var path = $location.path();
+
+      if (path.indexOf('/caso/') === 0 && $routeParams.token) {
+
+        var confirm = $mdDialog.confirm()
+          .title('Calificar')
+          .content('Una vez que hayas concluido tu reporte, te invitamos que califiques algunos aspectos de la atención que recibiste. Las calificaciones ayudan a detectar áreas de mejora y a reconocer los logros alcanzados')
+          .ariaLabel('')
+          .ok('Continuar a calificar')
+          .cancel('Continuar con el reporte');
+
+        $mdDialog.show(confirm).then(function() {
+          return $location.path(section + $routeParams.token);
+        }, function() {
+          //...
+        });
+
+        return ;
+      }
+
       if ($routeParams.token) { //WTF!!!
         return $location.path(section + $routeParams.token);
       }
@@ -64,7 +85,7 @@
 
   }
 
-  MainCtrl.$inject = ['$scope','$mdSidenav','$location','tiposDenuncia','schoolsService', '$routeParams'];
+  MainCtrl.$inject = ['$scope','$mdSidenav','$location','tiposDenuncia','schoolsService', '$routeParams', '$mdDialog'];
   angular.module('tuberiaPrototypeApp').controller('MainCtrl', MainCtrl);
 
 })();
