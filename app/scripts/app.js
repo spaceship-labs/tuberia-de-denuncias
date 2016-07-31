@@ -76,6 +76,11 @@
           controller: 'ReportaCtrl',
           controllerAs: 'reporta'
         })
+        .when('/haznoslo-saber', {
+          templateUrl: 'views/haznoslo-saber.html',
+          controller: 'HaznosloSaberCtrl',
+          controllerAs: 'haznosloSaber'
+        })
         .otherwise({
           redirectTo: '/'
         });

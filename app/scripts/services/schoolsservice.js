@@ -25,13 +25,14 @@
       this.getContraloria = getContraloria;
       this.getScore = getScore;
       this.setScore = setScore;
+      this.informationFixed = informationFixed;
 
       //TODO: verificar relevancia
       this.setUserSchool = setUserSchool;
       this.getUserSchool = getUserSchool;
 
-      //var api = 'http://comparatuescuela/';
-      var api = 'https://mte.spaceshiplabs.com/';
+      var api = 'http://comparatuescuela/';
+      //var api = 'https://mte.spaceshiplabs.com/';
 
       function getSchools(name){
         return $http({
@@ -168,6 +169,15 @@
             token: token
           }
         });
+      }
+
+      function informationFixed(form) {
+        return $http({
+          method: 'GET',
+          url: api + 'api_ventanilla_escolar/information_fixed',
+          params: form
+        });
+
       }
 
     });

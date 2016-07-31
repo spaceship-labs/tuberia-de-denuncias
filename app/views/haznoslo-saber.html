@@ -1,0 +1,53 @@
+<div class="contact saber">
+  <md-content class="contact-content" layout-align="center center" layout="column" layout-padding>
+    <h2 ng-show="!loading || !success || !failed">Haznoslos saber</h2>
+    <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+    <h3 ng-show="success">¡Gracias por tus solicitud! Te informaremos por correo electrónico cuando la información nueva esté disponible. </h3>
+    <h3 ng-show="failed">Ocurrió un error, por favor inténtalo de nuevo.</h3>
+    <form id="contact-form" ng-submit="send(form)" layout="row" layout-align="center center" flex="100" layout-wrap layout-padding ng-show="!loading && !success && !failed">
+      <div layout="row" flex="60">
+        <p>Solicita actualizar la información de</p>
+        <md-input-container class="select">
+          <md-select required ng-model="form.type" placeholder="Tipo de denuncia" ng-required="form.type" >
+            <md-option  ng-repeat="den in denunces" ng-value="den.fields.label">{{ den.fields.label }}</md-option>
+          </md-select>
+        </md-input-container>
+
+        <md-input-container class="select">
+         <md-select ng-model="form.entity" placeholder="Estado">
+            <md-option ng-value="ent.id" ng-repeat="ent in entities">{{ ent.label }}</md-option>
+          </md-select>
+        </md-input-container>
+
+      </div>
+
+      <md-input-container flex="60">
+        <label>Tu Correo electrónico</label>
+        <input type="email" ng-model="form.email" required>
+      </md-input-container>
+
+      <md-input-container flex="60">
+        <label>Información que quieres que se actualice o corrija</label>
+        <textarea ng-model="form.textOld" required>
+        </textarea>
+      </md-input-container>
+
+      <md-input-container flex="60">
+        <label>Información nueva (si la conoces)</label>
+        <textarea ng-model="form.textNew" >
+        </textarea>
+      </md-input-container>
+
+      <md-input-container flex="60">
+        <label>Comentario</label>
+        <textarea ng-model="form.mensage" required>
+        </textarea>
+      </md-input-container>
+
+      <p layout="row" layout-align="center center" flex="100">
+        <md-button class="md-raised md-primary">Enviar</md-button>
+      </p>
+      <p>*Tu información personal no será pública*</p>
+    </form>
+  </md-content>
+</div>
