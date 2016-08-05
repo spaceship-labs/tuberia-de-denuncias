@@ -1311,13 +1311,16 @@ md-dialog.dialog-no-disponible md-dialog-content{
 .section-caso-index .main-content p{text-align: justify; padding: 10px 0;}
 
 .logos .imco{
-  width: 100px;
-  height: 75px;
+  width: 105px;
+  height: 40px;
+  margin-top: -21px;
 }
 
 .logos .usmf{
-  width: 100px;
-  height: 75px;
+  width: 160px;
+  height: 51px;
 }
+
+.logos .mte{width: 253px;height:63px;}
 
 .logos{padding-top: 15px;}
