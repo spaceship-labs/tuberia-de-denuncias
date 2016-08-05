@@ -10,9 +10,9 @@
 (function(){
 
   angular.module('tuberiaPrototypeApp').controller('CasoCtrl', CasoCtrl);
-  CasoCtrl.$inject = ['$scope','$filter', '$location','$routeParams','schoolsService', 'denunciaService'];
+  CasoCtrl.$inject = ['$scope','$filter', '$location','$routeParams','schoolsService', 'denunciaService', '$mdDialog'];
 
-  function CasoCtrl($scope, $filter, $location, $routeParams, schoolsService, denunciaService){
+  function CasoCtrl($scope, $filter, $location, $routeParams, schoolsService, denunciaService, $mdDialog){
     var ctrl = this;
 
     ctrl.tiposDenuncia = $scope.tiposDenuncia;
@@ -35,8 +35,15 @@
 
     ctrl.init();
 
+    function goTop() {
+      if (window.scrollTo) {
+        window.scrollTo(0, 100);
+      }
+    }
+
     function backToState(state){
       $scope.tiposDenuncia.moveToState(state.number);
+      goTop();
     }
 
     function formSubmit(form){
@@ -63,6 +70,7 @@
     function userChoice(choice){
       var state = ctrl.state.stepNumber || 1;
       $scope.tiposDenuncia.changeState(state-1, choice);
+      goTop();
     }
 
     function userChoiceFilter(value){
@@ -74,6 +82,20 @@
       userForm.submit = true;
       var state = ctrl.state.stepNumber || 1;
       $scope.tiposDenuncia.changeState(state-1, userForm);
+
+      var confirm = $mdDialog.confirm()
+        .title('Listo')
+        .content('Una vez que hayas concluido tu reporte, te invitamos que califiques algunos aspectos de la atención que recibiste. Las calificaciones ayudan a detectar áreas de mejora y a reconocer los logros alcanzados')
+        .ariaLabel('')
+        .ok('Continuar a calificar')
+        .cancel('Salir');
+
+      $mdDialog.show(confirm).then(function() {
+        return $location.path('/califica/' + $routeParams.token);
+      }, function() {
+        $location.path("/");
+      });
+
     }
 
     function getUserSchool(cct){

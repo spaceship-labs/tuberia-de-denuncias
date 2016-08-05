@@ -90,7 +90,8 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
     var arr = ctrl.selectedCategory.fields.denuncias;
     var conditions = {
       entidadId: ctrl.selectedSchool.entidad,
-      controlId: ctrl.selectedSchool.control
+      controlId: ctrl.selectedSchool.control,
+      nivelId: ctrl.selectedSchool.nivel
     };
     return $filter('denunciaByConditions')(arr, conditions);
   }

@@ -94,9 +94,9 @@
     /*
       9 | DISTRITO FEDERAL
       15 | México
-      19 | Nuevo León
-      14 | JALISCO
-      21 | PUEBLA
+      19 | Nuevo León -- dfc430c512c79608f1722521751e1af5
+      14 | JALISCO -- 2326d5b76e5f5f3ea56dce4127da85d7
+      21 | PUEBLA -- 68de41215a56006711cbc1a0db19a8fe
 
     */
 

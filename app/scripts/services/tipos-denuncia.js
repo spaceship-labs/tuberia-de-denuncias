@@ -87,6 +87,7 @@
 
       function changeState(currentState, option) {
 
+        console.log('changeState', option);
         if (option.toFixed) {
           var nextOption = denunciaType.fields.machine[currentState][option];
 
@@ -112,7 +113,10 @@
             state = nextOption-1;
             updateStateHistory(_denuncia, currentState, option, state);
           }
+        } else if (option && option.submit) {
+          updateStateHistory(_denuncia, currentState, option, state);
         }
+
       }
 
       function getCurrentState() {
@@ -216,6 +220,7 @@
         */
 
         var history = stateHistory.map(function(h){
+          console.log('h.', h.number, h.stepId);
           return {
             index: h.number-1,
             number: h.number,
@@ -223,7 +228,8 @@
             nextState: h.nextState,
             select: h.select,
             selectFilter: h.selectFilter,
-            answer: h.answer
+            answer: h.answer,
+            stepId: h.stepId
           };
         }).filter(function(h) {
           return h.answer || h.date;
@@ -233,7 +239,9 @@
         if (denuncia) {
           denuncia.history = history;
           denunciaService.updateDenuncia(denuncia).then(function(res) {
-            stateHistory[state].answer = res.data.history[state].answer;
+            if (res && res.data && res.data.history && res.data.history[state]) {
+              stateHistory[state].answer = res.data.history[state].answer;
+            }
           });
         }
 

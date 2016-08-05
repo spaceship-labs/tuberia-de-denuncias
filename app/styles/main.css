@@ -557,10 +557,12 @@ md-input-container .md-input{
 }
 .action-bar .action-item{
   padding: 20px;
+  cursor: pointer;
 }
 .action-bar .action-item-active{
   background: #fff;
   color: #14ABE4;
+  cursor: default;
 }
 .action-bar .action-item + .action-item{ border-top: 3px solid #fff;}
 .action-bar .action-item p{font-size: 14px;}
@@ -727,6 +729,10 @@ md-input-container .md-input{
 .school-info .school-info-item i{font-size: 46px}
 .school-info .school-info-item + .school-info-item{border-left: 0}
 
+.section-caso-index .main-content .school-info .school-info-item p{
+  padding: 3px 1px;
+}
+
 .main-content .alert-msg{
   color: #FB9101;
 }
@@ -754,7 +760,7 @@ md-input-container .md-input{
   margin: 12px auto;
 }
 
-.report-section-btns{margin: 20px 0!important;}
+.report-section-btns{margin: 20px 0!important; text-align: center !important;}
 .report-section-btns p{margin: 20px 0;}
 .report-section-btns .action-btn{
   border: 0;
@@ -1270,7 +1276,7 @@ md-dialog.dialog-no-disponible md-dialog-content{
   padding: 1px;
 }
 
-.supervisor-info .info{
+#main .supervisor-info .info{
   background: #5C67D0;
   padding: 22px 10px;
   color: white;

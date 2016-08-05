@@ -2,7 +2,6 @@
   <div class="title-section container center-content">
     <div class="container-md">
       <h1>{{caso.dType.fields.title}}</h1>
-      <h2>Te proporcionamos los pasos necesarios para resolver tu caso de <span>Bullying</span></h2>
     </div>
   </div>
 
@@ -54,7 +53,7 @@
           </div>
         </div>
 
-        <div class="supervisor-info" layout="row">
+        <div class="supervisor-info" layout="row" ng-show="caso.state.showSupervisor">
           <div class="supervisor-icon" flex="30" layout-align="center center" layout="row" layout-wrap>
             <span class="icon" flex="50"></span>
             <span flex="60">Supervisor escolar</span>
@@ -75,7 +74,7 @@
           </div>
         </div>
 
-        <div class="dif school-info">
+        <div class="dif school-info" ng-show="caso.state.showDif">
           <div class="school-info-item" >
             <div class="school-info-item-inner" layout="row" layout-align="center center">
               <div flex layout="column" layout-align="center center">
@@ -94,7 +93,7 @@
           </div>
         </div>
 
-        <div class="contraloria school-info">
+        <div class="contraloria school-info" ng-show="caso.state.showContraloria">
           <div class="school-info-item" >
             <div class="school-info-item-inner" layout="row" layout-align="center center">
               <div flex layout="column" layout-align="center center">
@@ -122,12 +121,16 @@
         </div>
         -->
 
+        <div class="intro center-content">
+          <div btf-markdown='caso.state.contenidoPos'></div>
+        </div>
+
         <div ng-if="caso.state.filter" class="report-section-btns center-content" ng-cloak ng-layout="column">
           <a  ng-repeat='(key,action) in caso.state.filter' ng-click='caso.userChoiceFilter(key)' ng-bind="action" ng-class="{'selected': caso.state.selectFilter == key}" class="action-btn"></a>
         </div>
 
         <div ng-if="caso.state.question" class="report-section center-content">
-          <h4 ng-bind="caso.state.question"></h4>
+          <p ng-bind="caso.state.question"></p>
         </div>
 
         <div class="report-section-btns center-content" ng-cloak>
@@ -154,7 +157,7 @@
 
       <div class="footer-msg center-content container container-md">
         <img src="images/logo_mejora.png" alt="">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus nulla magnam laudantium assumenda aliquam voluptatem doloribus, autem expedita optio, odio porro quos quasi consequatur necessitatibus cumque deleniti ipsum. Minus, dignissimos.</p>
+        <p>Ventanilla Escolar no es parte del proceso formal de denuncias ni un sustituto para ello. Los reportes realizados en este sitio son sólo internos y con fines de orientación. </p>
       </div>
 
     </section>
