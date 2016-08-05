@@ -1309,3 +1309,15 @@ md-dialog.dialog-no-disponible md-dialog-content{
 .saber p{color: white;}
 
 .section-caso-index .main-content p{text-align: justify; padding: 10px 0;}
+
+.logos .imco{
+  width: 100px;
+  height: 75px;
+}
+
+.logos .usmf{
+  width: 100px;
+  height: 75px;
+}
+
+.logos{padding-top: 15px;}
