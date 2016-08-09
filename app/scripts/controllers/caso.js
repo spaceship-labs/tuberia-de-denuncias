@@ -83,6 +83,12 @@
       var state = ctrl.state.stepNumber || 1;
       $scope.tiposDenuncia.changeState(state-1, userForm);
 
+      showDialog();
+
+    }
+
+    function showDialog() {
+
       var confirm = $mdDialog.confirm()
         .title('Listo')
         .content('Una vez que hayas concluido tu reporte, te invitamos que califiques algunos aspectos de la atención que recibiste. Las calificaciones ayudan a detectar áreas de mejora y a reconocer los logros alcanzados')
@@ -97,6 +103,8 @@
       });
 
     }
+
+    $scope.showDialog = showDialog;
 
     function getUserSchool(cct){
       schoolsService.getSchool(cct).then(function(res){
@@ -134,6 +142,9 @@
       },
       function(newVal) {
         ctrl.state = newVal;
+        if (newVal.slug === "encuesta-salida") {
+          showDialog();
+        }
       }
     );
 

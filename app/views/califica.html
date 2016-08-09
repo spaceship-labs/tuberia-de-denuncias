@@ -35,9 +35,9 @@
         <div class="question-box">
           <p class="question">{{question.fields.text}}</p>
           <p class="range">
-            1 = "{{question.min || 'Mal'}}"
+            1 = "{{question.min || 'Muy mal'}}"
             <br>
-            10 = "{{question.max || 'Bien'}}"
+            10 = "{{question.max || 'Muy bien'}}"
           </p>
           <p class="circles" layout="row" layout-align="center">
             <span ng-class="['circle', {marked: ($index+1)==question.mark }]"  ng-repeat="n in [].constructor(10) track by $index" ng-click="question.mark = ($index + 1); sumTotal();"> {{$index+1}}</span>

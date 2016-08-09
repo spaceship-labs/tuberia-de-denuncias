@@ -105,9 +105,8 @@
                 <p>Cargo: <strong>{{sep.cargo || 'N/D'}}</strong></p>
                 <p>Correo Electronico: <strong>{{sep.email || 'N/D'}}</strong></p>
                 <p>Domicilio: <strong>{{sep.domicilio || 'N/D'}}</strong></p>
-                <p>Nombre: <strong>{{sep.nombre || 'N/D'}}</strong></p>
+                <p>Nombre: <strong>{{sep.secretaria || 'N/D'}}</strong></p>
                 <p>Responsable: <strong>{{sep.responsable || 'N/D'}}</strong></p>
-                <p>Secretaria: <strong>{{sep.secretaria || 'N/D'}}</strong></p>
                 <p>Teléfono: <strong>{{sep.telefono || 'N/D'}}</strong></p>
               </div>
             </div>
@@ -138,6 +137,7 @@
         </div>
 
         <div class="report-section center-content" ng-if='caso.state.form'>
+          <!--
           <md-input-container ng-repeat='field in caso.state.form.fields'>
             <label ng-bind='field.label'></label>
             <input type='text' ng-if='field.type == "text"' ng-model="caso.state.select[field.handle]" />
@@ -145,6 +145,10 @@
           </md-input-container>
           <p class="report-section-btns">
             <a href="" ng-click='caso.userChoiceForm(caso.state.select)' class="action-btn">Enviar</a>
+          </p>
+          -->
+          <p class="report-section-btns">
+            <a href="" ng-click='showDialog()' class="action-btn">Calificar denuncia</a>
           </p>
         </div>
 

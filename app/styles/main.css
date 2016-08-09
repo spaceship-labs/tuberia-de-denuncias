@@ -367,7 +367,7 @@ a,p,h1,h2,h3,h4,a[href],input,textarea,span{font-family: 'Roboto', sans-serif;}
   color: #14ABE4;
 }
 .mail-signup-modal .alert-msg{
-  font-size: 12px;
+  font-size: 16px;
   display: block;
   margin-top: 20px;
 }
