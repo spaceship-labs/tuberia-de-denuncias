@@ -8,7 +8,7 @@
  * Controller of the tuberiaPrototypeApp
  */
 angular.module('tuberiaPrototypeApp')
-  .controller('CalificaCtrl', function ($scope, $routeParams, $anchorScroll, $location, contentfulApi, schoolsService) {
+  .controller('CalificaCtrl', function ($scope, $routeParams, $anchorScroll, $location, contentfulApi, schoolsService, denunciaService) {
     var token = $routeParams.token;
     if (!token) {
       return;
@@ -16,14 +16,48 @@ angular.module('tuberiaPrototypeApp')
 
     $scope.loading = true;
 
-    $scope.total = 0;
-    contentfulApi.getQuestions('3iL6jJaboci2qyCMiWY4ke').then(function(questions) {
-      $scope.questions = questions;
+    function loadDenunce() {
+      denunciaService.getDenuncia(token).then(function(res){
+        $scope.history = res.data.history.map(function(h) {
+          return h.stepId;
+        });
+        $scope.tiposDenuncia.getDenunciaType(res.data.dTypeId).then(function(data){
+          data.fields.questions.push({
+            fields: {
+              text: '¿Qué tan útil para solucionar tu problema fue la información de Ventanilla Escolar?'
+            },
+            sys: {
+              id: 'quetanutilpara'
+            }
+          });
+          loadQuestions(data.fields.questions);
+        });
+      });
+    }
+
+    loadDenunce();
+
+
+    function loadQuestions(questions) {
+      $scope.total = 0;
+      $scope.questions = questions.filter(filterQuestions);
       schoolsService.getScore(token).then(loadScores);
-    });
+    }
+
+    function filterQuestions(question) {
+      if (question && question.fields.steps) {
+        return question.fields.steps.filter(function (s) {
+          var id = ""+s;
+          return $scope.history.indexOf(id) != -1;
+        }).length;
+
+      } else if (question.sys.id === 'quetanutilpara') {
+          return true;
+      }
+    }
+
 
     function loadScores(res) {
-      console.log('res', res);
       if (res && res.data && res.data.preguntas) {
         var pre = res.data.preguntas;
         $scope.questions = $scope.questions.map(function(ques) {

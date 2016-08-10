@@ -94,12 +94,12 @@
         .content('Una vez que hayas concluido tu reporte, te invitamos que califiques algunos aspectos de la atención que recibiste. Las calificaciones ayudan a detectar áreas de mejora y a reconocer los logros alcanzados')
         .ariaLabel('')
         .ok('Continuar a calificar')
-        .cancel('Salir');
+        .cancel('Aceptar');
 
       $mdDialog.show(confirm).then(function() {
         return $location.path('/califica/' + $routeParams.token);
       }, function() {
-        $location.path("/");
+        //$location.path("/");
       });
 
     }
