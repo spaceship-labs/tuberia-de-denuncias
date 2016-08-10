@@ -48,7 +48,7 @@ angular.module('tuberiaPrototypeApp')
       if (question && question.fields.steps) {
         return question.fields.steps.filter(function (s) {
           var id = ""+s;
-          return $scope.history.indexOf(id) != -1;
+          return $scope.history.indexOf(id) !== -1;
         }).length;
 
       } else if (question.sys.id === 'quetanutilpara') {
