@@ -37,6 +37,7 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
     ctrl.tiposDenuncia.getCategories()
       .then(function(data){
         ctrl.categories = data;
+        console.log('cats', data);
         ctrl.selectedCategory = ctrl.categories[ctrl.indexCategory];
       });
   }
@@ -190,6 +191,13 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
         };
     }
   }
+
+  $scope.anchorTo = function(name) {
+    var anchor = document.querySelector('.'+name);
+    if (anchor) {
+      document.querySelector('body').scrollTop = anchor.offsetTop + 350;
+    }
+  };
 
 
   //showDialog();

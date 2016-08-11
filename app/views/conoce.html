@@ -102,10 +102,9 @@
       <div class="action-bar-inner container container-mini center-content">
         <h2>Secciones de la denuncia</h2>
 
-        <div class="action-item" ng-repeat="state in conoce.tiposDenuncia.getHistory()">
+        <div class="action-item" ng-repeat="anchor in conoce.selectedCategory.fields.resume"  ng-click="anchorTo(anchor.name)">
           <p>
-            <strong ng-bind="state.number"></strong>
-             <strong ng-bind="state.title"></strong>
+             <strong ng-bind="anchor.title"></strong>
            </p>
           <p>{{::state.date | date:'dd/MM/yyyy'}}</p>
         </div>
