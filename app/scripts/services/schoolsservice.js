@@ -22,7 +22,10 @@
       this.notifiesAvailable = notifiesAvailable;
       this.getSupervisor = getSupervisor;
       this.getDif = getDif;
+      this.getConsejoEscolar = getConsejoEscolar;
       this.getContraloria = getContraloria;
+      this.getDelegacionFedSep = getDelegacionFedSep;
+      this.getInstitutoInfraestructura = getInstitutoInfraestructura;
       this.getScore = getScore;
       this.setScore = setScore;
       this.informationFixed = informationFixed;
@@ -31,8 +34,8 @@
       this.setUserSchool = setUserSchool;
       this.getUserSchool = getUserSchool;
 
-      //var api = 'http://comparatuescuela/';
-      var api = 'https://mte.spaceshiplabs.com/';
+      var api = 'http://comparatuescuela/';
+      //var api = 'https://mte.spaceshiplabs.com/';
 
       function getSchools(name){
         return $http({
@@ -139,6 +142,36 @@
         return $http({
           method: 'GET',
           url: api + 'api_ventanilla_escolar/contraloria_sep',
+          params: {
+            entidad: entidad
+          }
+        });
+      }
+
+      function getConsejoEscolar(entidad) {
+        return $http({
+          method: 'GET',
+          url: api + 'api_ventanilla_escolar/consejo_escolar',
+          params: {
+            entidad: entidad
+          }
+        });
+      }
+
+      function getDelegacionFedSep(entidad) {
+        return $http({
+          method: 'GET',
+          url: api + 'api_ventanilla_escolar/delegacion_fed_sep',
+          params: {
+            entidad: entidad
+          }
+        });
+      }
+
+      function getInstitutoInfraestructura(entidad) {
+        return $http({
+          method: 'GET',
+          url: api + 'api_ventanilla_escolar/instituto_infraestructura',
           params: {
             entidad: entidad
           }

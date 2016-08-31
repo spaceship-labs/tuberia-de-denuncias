@@ -129,6 +129,9 @@
         schoolsService.getSupervisor(res.data.cct).then(setSupervisor);
         schoolsService.getDif(res.data.cct).then(setDif);
         schoolsService.getContraloria(res.data.entidadId).then(setContraloria);
+        schoolsService.getConsejoEscolar(res.data.entidadId).then(setConsejo);
+        schoolsService.getDelegacionFedSep(res.data.entidadId).then(setDelegacion);
+        schoolsService.getInstitutoInfraestructura(res.data.entidadId).then(setInstituto);
       });
     }
 
@@ -160,9 +163,27 @@
       }
     }
 
+    function setConsejo(res) {
+      if (res.data) {
+        $scope.consejo = res.data;
+      }
+    }
+
     function setContraloria(res) {
       if (res.data) {
         $scope.sep = res.data;
+      }
+    }
+
+    function setDelegacion(res) {
+      if (res.data) {
+        $scope.delegacionFedSep = res.data;
+      }
+    }
+
+    function setInstituto(res) {
+      if (res.data) {
+        $scope.instituto = res.data;
       }
     }
 

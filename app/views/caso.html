@@ -113,6 +113,66 @@
           </div>
         </div>
 
+        <div class="contraloria school-info"  ng-show="caso.state.showConsejo">
+          <div class="school-info-item" >
+            <div class="school-info-item-inner" layout="row" layout-align="center center">
+              <div flex layout="column" layout-align="center center">
+                <span class="contra">Consejo
+                <br>
+                escolar</span>
+              </div>
+              <div flex="80">
+                <p>Responsables: <strong>{{consejo.responsables || 'N/D'}}</strong></p>
+                <p>Correo Electronico: <strong>{{consejo.email || 'N/D'}}</strong></p>
+                <p>Teléfono: <strong>{{consejo.telefono || 'N/D'}}</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contraloria school-info"  ng-show="caso.state.showDelegacionFedSep">
+          <div class="school-info-item" >
+            <div class="school-info-item-inner" layout="row" layout-align="center center">
+              <div flex layout="column" layout-align="center center">
+                <span class="contra">Delegación
+                <br>
+                fed
+                <br>
+                sep
+                </span>
+              </div>
+              <div flex="80">
+                <p>Titulo: <strong>{{delegacionFedSep.titulo || 'N/D'}}</strong></p>
+                <p>Domicilio: <strong>{{delegacionFedSep.domicilio || 'N/D'}}</strong></p>
+                <p>Correo Electronico: <strong>{{delegacionFedSep.email || 'N/D'}}</strong></p>
+                <p>Teléfono: <strong>{{delegacionFedSep.telefono || 'N/D'}}</strong></p>
+                <p>Fax: <strong>{{delegacionFedSep.fax || 'N/D'}}</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contraloria school-info"  ng-show="caso.state.showInstitutoInfraestructura">
+          <div class="school-info-item" >
+            <div class="school-info-item-inner" layout="row" layout-align="center center">
+              <div flex layout="column" layout-align="center center">
+                <span class="contra">Instituto
+                <br>
+                infraestructura
+                </span>
+              </div>
+              <div flex="80">
+                <p>Responsable: <strong>{{instituto.responsable || 'N/D'}}</strong></p>
+                <p>Instituto: <strong>{{instituto.instituto || 'N/D'}}</strong></p>
+                <p>Cargo: <strong>{{instituto.cargo || 'N/D'}}</strong></p>
+                <p>Domicilio: <strong>{{instituto.domicilio || 'N/D'}}</strong></p>
+                <p>Correo Electronico: <strong>{{instituto.email || 'N/D'}}</strong></p>
+                <p>Teléfono: <strong>{{instituto.telefono || 'N/D'}}</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!--
         <div ng-if="caso.state.showSchool" class="report-section center-content" ng-if='caso.state.options'>
           <p >Si ya te has acercado con el director diálogado con él, pero aun asi no se ha solucionado la situación de acoso escolar o bullying, entonces debes proceder a levantar un reporte o denuncia.</p>
