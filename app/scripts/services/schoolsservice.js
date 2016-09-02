@@ -34,8 +34,8 @@
       this.setUserSchool = setUserSchool;
       this.getUserSchool = getUserSchool;
 
-      var api = 'http://comparatuescuela/';
-      //var api = 'https://mte.spaceshiplabs.com/';
+      //var api = 'http://comparatuescuela/';
+      var api = 'https://mte.spaceshiplabs.com/';
 
       function getSchools(name){
         return $http({
