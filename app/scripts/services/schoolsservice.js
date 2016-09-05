@@ -36,6 +36,7 @@
 
       //var api = 'http://comparatuescuela/';
       var api = 'https://mte.spaceshiplabs.com/';
+      //var api = 'http://www.mejoratuescuela.com/'
 
       function getSchools(name){
         return $http({
@@ -64,7 +65,7 @@
       function getSchool(cct){
         return $http({
           method: 'GET',
-          url: 'https://mte.spaceshiplabs.com/api/escuelas',
+          url: api + 'api/escuelas',
           params: {
             ccts: cct,
             solr: true
@@ -88,7 +89,7 @@
       function contact(form) {
         return $http({
           method: 'GET',
-          url: 'https://mte.spaceshiplabs.com/api/send_email_contacto',
+          url: api + 'api/send_email_contacto',
           params: form
         });
 
