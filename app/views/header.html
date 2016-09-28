@@ -1,11 +1,28 @@
 <md-toolbar class='toolbar-head md-tall'>
-  <div class="md-toolbar-tools container container-xlg nopadding" layout-wrap layout-align="center center" layout='row' layout-sm="column">
+  <div 
+    class="md-toolbar-tools container container-xlg nopadding" 
+    layout-wrap 
+    layout-align="center center" 
+    layout='row' 
+  >
 
-      <div id="button-menu-mobile" ng-click="toggleSidebar()" flex="10" flex-gt-md="30">
-        <hr><hr><hr>
+      <div 
+        id="button-menu-mobile" 
+        ng-click="toggleSidebar()" 
+        flex="10" 
+        flex-gt-md="30"
+        flex-sm="20"
+      >
+        <div>
+          <hr><hr><hr>
+        </div>
       </div>
 
-      <div class="menu-wrapper" flex="50" flex-sm="30" >
+      <div 
+        class="menu-wrapper" 
+        flex="50" 
+        flex-sm="30" 
+      >
         <nav class="menu" >
           <ul layout="row" layout-align="center center">
             <li flex="50">
@@ -51,8 +68,13 @@
         </div>
       </div>
       -->
-      <div flex="25">
-        <p class="social-icons" layout="row" layout-align="center end">
+      <div flex="25" flex-sm="80">
+        <p 
+          class="social-icons" 
+          layout="row" 
+          layout-align="center end"
+          layout-align-sm="center end"
+        >
           <a class="transition-all fb" target="_blank" href="https://www.facebook.com/MejoraTuEscuela"><i class="icon-face"></i></a>
           <a class="transition-all twitter" target="_blank" href="https://twitter.com/mejoratuescuela"><i class="icon-tweet"></i></a>
           <!--

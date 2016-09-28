@@ -5,7 +5,7 @@
     </div>
   </div>
 
-  <section layout="row" layout-sm="column">
+  <section layout="row" layout-wrap>
     <!--ACTION BAR-->
     <section class="action-bar" flex="25" flex-sm="100">
       <div class="action-bar-inner container center-content">
@@ -31,7 +31,12 @@
           <div btf-markdown='caso.state.content'></div>
         </div>
 
-        <div ng-if="caso.state.showSchool && caso.school" class="school-info" layout="row" layout-sm="column">
+        <div 
+          ng-if="caso.state.showSchool && caso.school" 
+          class="school-info" 
+          layout="row" 
+          layout-wrap
+        >
           <div class="school-info-item" flex="50" flex-sm="100">
             <div class="school-info-item-inner" layout="row" layout-align="center center">
               <div flex><i class="icon-escuela"></i></div>

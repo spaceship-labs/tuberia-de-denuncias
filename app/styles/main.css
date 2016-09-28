@@ -582,9 +582,10 @@ md-input-container .md-input{
 }
 .feature-inner{
   border: 2px solid #fff;
+  height: 100%;
+  min-height: 190px;
   padding: 0px 10px 10px;
   position: relative;
-  height: 100%;
 }
 .feature-inner h4 a,
 .feature-inner p a{color: #fff;}
@@ -958,11 +959,25 @@ md-input-container .md-input{
 .footer .links-info a{
   color: white;
   padding: 0 5px;
+  position: relative;
 }
-
-.footer .links-info a:hover{
-  color: #17C48E;
+.footer .links-info a:after{
+  content:'';
+  width: 2px;
+  background:#17C48E;  
+  height: 16px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
+.footer .links-info a:last-child:after{
+  display: none;
+}
+.footer .links-info a:hover{color: #17C48E;}
 
 /*Quienes somos*/
 
@@ -1061,12 +1076,13 @@ md-input-container .md-input{
     font-size: 28px;
     text-align: left;
   }
+  .user-action .action-btn{min-width: 0;}
 
   /*--------/
     #FOOTER
   /*-------*/
   .footer-msg p{font-size: 14px;}
-
+  .footer .links-info a:after{display: none;}
   #califica .check.flex-sm-100{
     padding: 0 !important;
   }
