@@ -10,6 +10,9 @@
  */
 (function(){
 
+  var base = window && window.document.getElementsByTagName('base');
+  var baseData = base.length && base[0].getAttribute('href');
+
   angular
     .module('tuberiaPrototypeApp', [
       'ngAnimate',
@@ -92,7 +95,8 @@
         accessToken : '2ccc4f0f4454bbfdd2845dc3027f1b2da0afbf11d00d9c0de03609d70d657d14', //sandbox (includes unpublished content)
         host: 'preview.contentful.com', //user for sandbox hosts
       });
-    }).value('entityIdsAvailable', ['9', '15', '19', '14', '21']);
+    }).value('entityIdsAvailable', ['9', '15', '19', '14', '21'])
+      .value('URLAPIMODEPROD', ( baseData === '/ventanilla-escolar/'));
     /*
       9 | DISTRITO FEDERAL
       15 | México

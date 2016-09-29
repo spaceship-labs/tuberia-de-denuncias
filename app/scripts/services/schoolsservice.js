@@ -11,7 +11,8 @@
 
   angular
     .module('tuberiaPrototypeApp')
-    .service('schoolsService', function($http){
+    .service('schoolsService', function($http, URLAPIMODEPROD){
+      console.log(URLAPIMODEPROD);
       //user vars
       var userSchool = {};
       //var cookieSchoolName = 'tuberiadedenuncias.user.school';
@@ -36,7 +37,12 @@
 
       //var api = 'http://comparatuescuela/';
       var api = 'https://mte.spaceshiplabs.com/';
-      //var api = 'http://www.mejoratuescuela.com/'
+
+      if (URLAPIMODEPROD) {
+        api = 'http://www.mejoratuescuela.com/';
+      }
+
+      console.log('url', api);
 
       function getSchools(name){
         return $http({
