@@ -39,7 +39,7 @@ angular.module('tuberiaPrototypeApp')
 
       Object.keys(ctrl.form).forEach(function(key){
         var data = ctrl.form[key];
-        return params[key] = data && data.id || null;
+        params[key] = data && data.id || null;
       });
 
       schoolsService.getSchools("", params).then(function(res) {
@@ -83,7 +83,7 @@ angular.module('tuberiaPrototypeApp')
         }else if (goto >= 3) {
           pages = prev.concat([goto-1, goto]);
           if (goto < ctrl.schools.totalPages) {
-            pages.push(goto+1)
+            pages.push(goto+1);
           }
           if (goto+3<ctrl.schools.totalPages) {
             pages = pages.concat(post);
