@@ -8,7 +8,7 @@
  * Controller of the tuberiaPrototypeApp
  */
 angular.module('tuberiaPrototypeApp')
-  .controller('BuscadorCtrl', function ($http, schoolsService, $q, staticData) {
+  .controller('BuscadorCtrl', function ($scope, $location, schoolsService, staticData) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -101,4 +101,12 @@ angular.module('tuberiaPrototypeApp')
 
     ctrl.reloadSearch();
     ctrl.pages = [1,2,3, '>', 'Últimas'];
+
+    ctrl.setSelectedSchool = function() {
+      if (ctrl.selectedSchool) {
+        $location.path('/conoce/'+ctrl.selectedSchool.cct);
+      }
+    };
+
+    ctrl.getSchools = schoolsService.getSchools;
   });

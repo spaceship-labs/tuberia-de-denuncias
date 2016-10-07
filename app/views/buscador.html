@@ -2,7 +2,23 @@
 
   <div class="title" layout="column" layout-align="center center">
     <h2>Buscador avanzado</h2>
-    <h3>Buscar escuela</h3>
+    <md-autocomplete
+      md-class="fast-search"
+      md-selected-item="buscador.selectedSchool"
+      md-selected-item-change="buscador.setSelectedSchool()"
+      md-search-text="buscador.searchTerm"
+      md-items="school in buscador.getSchools(buscador.searchTerm)"
+      md-item-text="school.nombre + ' (' +  school.nom_nivel + ')'"
+      md-min-length="1"
+      md-floating-label="Buscar escuela">
+      <md-item-template>
+        <strong>{{school.nombre}}</strong> <strong>({{school.nom_nivel}})</strong>
+        <p><span>{{school.nom_localidad}} , {{school.nom_entidad}}</span></p>
+      </md-item-template>
+      <md-not-found>
+        No se encontraron resultados.
+      </md-not-found>
+    </md-autocomplete>
   </div>
 
   <div class="container-info" layout="row" flex="100" layout-fill layout-align="center center">

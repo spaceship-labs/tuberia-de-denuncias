@@ -1471,3 +1471,15 @@ md-dialog.dialog-no-disponible md-dialog-content{
   margin: -19px 0 5px;
   display: block;
 }
+
+.title md-autocomplete{
+  width: 60%;
+  margin: -6px 0 50px 0;
+}
+
+#search .title label{color: white;}
+#search .title md-autocomplete input{
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid white;
+}

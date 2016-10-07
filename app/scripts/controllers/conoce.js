@@ -33,14 +33,14 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
   ctrl.validateFields = validateFields;
   ctrl.init = init;
 
-  console.log("rrr", $routeParams.cct);
   ctrl.preSelectedSchool = $routeParams.cct;
 
   if (ctrl.preSelectedSchool) {
     ctrl.toggleForm = true;
-    schoolsService.getSchools("", {cct: ctrl.preSelectedSchool, solr: true}).then(function(res) {
+    schoolsService.getSchools("", {oneCCT: ctrl.preSelectedSchool, solr: true}).then(function(res) {
       if (res && res.length) {
-        console.log('res', res);
+        ctrl.selectedSchool = res[0];
+        ctrl.setSelectedSchool();
       }
     });
   }
@@ -49,7 +49,6 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
     ctrl.tiposDenuncia.getCategories()
       .then(function(data){
         ctrl.categories = data;
-        console.log('cats', data);
         ctrl.selectedCategory = ctrl.categories[ctrl.indexCategory];
       });
   }
@@ -69,7 +68,6 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
 
   function setSelectedSchool(){
     if(ctrl.selectedSchool){
-      console.log('s', ctrl.selectedSchool);
       schoolsService.setUserSchool(ctrl.selectedSchool);
     }
   }
@@ -90,7 +88,6 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
   }
 
   function setUpParams(dType){
-    console.log('dtype', dType);
     ctrl.params.startDate = new Date();
     ctrl.params.dTypeSlug = dType.fields.slug;
     ctrl.params.label = dType.fields.label;
@@ -146,7 +143,6 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
         number: 1
       }];
       denunciaService.createDenuncia(data).then(function(res){
-        console.log('res', res);
         if(res.data.success){
           $location.path('/caso/'+res.data.token);
         }else{
