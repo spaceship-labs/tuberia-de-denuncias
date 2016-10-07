@@ -1,0 +1,97 @@
+<div id="search" flex="100" layout-fill layout-wrap>
+
+  <div class="title" layout="column" layout-align="center center">
+    <h2>Buscador avanzado</h2>
+    <h3>Buscar escuela</h3>
+  </div>
+
+  <div class="container-info" layout="row" flex="100" layout-fill layout-align="center center">
+    <form class="searching" action="" layout="row" layout-align="center center" layout-align-sm="start start" layout-wrap flex-sm="80" layout-wrap>
+      <div layout="row" layout-sm="column" flex="80">
+        <p flex="45" flex-sm="100">
+          <label>Escuela</label>
+          <input ng-model="buscador.form.term_like.id" ng-change="buscador.reloadSearch()" type="text" placeholder="Jean Piaget">
+        </p>
+
+        <p>
+          <label>Nivel escolar:</label>
+					<select ng-model='buscador.form.nivel' ng-options='nivel as nivel.label for nivel in buscador.filters.niveles' ng-change="buscador.reloadSearch()">
+            <option value="">Todos</option>
+          </select>
+        </p>
+
+        <p class="no-border">
+          <label for="">Turno:</label>
+					<select ng-model='buscador.form.turno' ng-options='turno as turno.label for turno in buscador.filters.turnos' ng-change="buscador.reloadSearch()">
+            <option value="">Todos</option>
+          </select>
+        </p>
+      </div>
+      <div layout="row" layout-sm="column" flex="80" layout-wrap>
+        <p flex="20" flex-sm="100">
+          <label for="">Sector:</label>
+					<select ng-model='buscador.form.control' ng-options='control as control.label for control in buscador.filters.controles' ng-change="buscador.reloadSearch()">
+            <option value="">Todos</option>
+          </select>
+        </p>
+        <p flex="25" flex-sm="100">
+          <label for="">Estado:</label>
+					<select ng-model='buscador.form.entidad' ng-options='entidad as entidad.nombre for entidad in buscador.filters.entidades' ng-change="buscador.reloadSearch(); buscador.loadLocalidades()" flex="70">
+            <option value="">Todos</option>
+          </select>
+        </p>
+
+        <p flex="35" flex-sm="100">
+          <label for="">Municipio:</label>
+					<select ng-model='buscador.form.municipio' ng-options='municipio as municipio.nombre for municipio in buscador.filters.municipios | municipiosFilter:buscador.form.entidad' ng-change="buscador.reloadSearch(); buscador.loadLocalidades()" flex="70">
+            <option value="">Todos</option>
+          </select>
+        </p>
+
+        <p class="no-border" flex="20" flex-sm="100">
+          <label for="">Localidad:</label>
+					<select ng-model='buscador.form.localidad' ng-options='localidad as localidad.nombre for localidad in buscador.localidades' ng-change="buscador.reloadSearch();" ng-disabled="!buscador.localidades.length">
+            <option value="">Todas</option>
+          </select>
+        </p>
+      </div>
+
+    </form>
+  </div>
+
+  <div layout="row" layout-align="center center" ng-show="buscador.loading" flex="100">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  </div>
+
+  <div layout="row" layout-align="center center" ng-show="!buscador.loading">
+    <div class="results" layout="row" layout-align="center center" layout-align-sm="start start" layout-wrap flex="70">
+      <p class="count" flex="60">{{buscador.schools.serverCount}} Resultados</p>
+      <div class="schools" flex="60">
+        <p>Escuelas</p>
+      </div>
+      <a href="/" ng-class="['school', $index%2==1?'green':'']" ng-repeat="school in buscador.schools" flex="60">
+        <p class="name">{{school.nombre}}
+          <br>
+          <span class="meta">{{school.nivel}} | {{school.control}}</span>
+        </p>
+        <p class="location">{{school.localidad}}, {{school.entidad}}
+          <br>
+          <!--
+          <span class="address">Col Hidalgo calle lobo #34</span>
+          -->
+        </p>
+        <p class="shift">{{school.turno.nombre}}</p>
+      </a>
+      <br>
+      <div layout="row" layout-align="center" flex="60">
+        <div class="paginate" flex="70">
+          <a href=""  ng-class="['number', page==buscador.schools.page?'selected':'']" ng-click="buscador.goToPage(page)" ng-repeat="page in buscador.pages">{{page}}</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
