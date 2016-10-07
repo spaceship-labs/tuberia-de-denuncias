@@ -69,7 +69,7 @@
       <div class="schools" flex="60">
         <p>Escuelas</p>
       </div>
-      <a href="/" ng-class="['school', $index%2==1?'green':'']" ng-repeat="school in buscador.schools" flex="60">
+      <a href="#/conoce/{{school.cct}}" ng-class="['school', $index%2==1?'green':'']" ng-repeat="school in buscador.schools" flex="60">
         <p class="name">{{school.nombre}}
           <br>
           <span class="meta">{{school.nivel}} | {{school.control}}</span>

@@ -39,7 +39,7 @@
           controller: 'CasoCtrl',
           controllerAs: 'caso'
         })
-        .when('/conoce', {
+        .when('/conoce/:cct?', {
           templateUrl: 'views/conoce.html',
           controller: 'ConoceCtrl',
           controllerAs: 'conoce'

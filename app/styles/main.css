@@ -1463,3 +1463,11 @@ md-dialog.dialog-no-disponible md-dialog-content{
   background-color: #BFBFBF;
   color: white;
 }
+
+.search-button{
+  background-color: white;
+  color: #0FA778;
+  padding: 5px 67px;
+  margin: -19px 0 5px;
+  display: block;
+}

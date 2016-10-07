@@ -7,7 +7,7 @@
  * # ConoceCtrl
  * Controller of the tuberiaPrototypeApp
  */
-function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denunciaService, entityIdsAvailable){
+function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schoolsService, denunciaService, entityIdsAvailable){
   var ctrl = this;
   ctrl.searchText = '';
   ctrl.categories = [];
@@ -33,6 +33,18 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
   ctrl.validateFields = validateFields;
   ctrl.init = init;
 
+  console.log("rrr", $routeParams.cct);
+  ctrl.preSelectedSchool = $routeParams.cct;
+
+  if (ctrl.preSelectedSchool) {
+    ctrl.toggleForm = true;
+    schoolsService.getSchools("", {cct: ctrl.preSelectedSchool, solr: true}).then(function(res) {
+      if (res && res.length) {
+        console.log('res', res);
+      }
+    });
+  }
+
   function getCategories(){
     ctrl.tiposDenuncia.getCategories()
       .then(function(data){
@@ -57,6 +69,7 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
 
   function setSelectedSchool(){
     if(ctrl.selectedSchool){
+      console.log('s', ctrl.selectedSchool);
       schoolsService.setUserSchool(ctrl.selectedSchool);
     }
   }
@@ -203,6 +216,6 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, schoolsService, denun
   //showDialog();
 }
 
-ConoceCtrl.$inject = ['$scope', '$location','$filter', '$mdDialog', 'schoolsService', 'denunciaService', 'entityIdsAvailable'];
+ConoceCtrl.$inject = ['$scope', '$location','$filter', '$mdDialog', '$routeParams', 'schoolsService', 'denunciaService', 'entityIdsAvailable'];
 angular.module('tuberiaPrototypeApp')
   .controller('ConoceCtrl', ConoceCtrl);
