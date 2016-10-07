@@ -28,6 +28,7 @@
       this.getDelegacionFedSep = getDelegacionFedSep;
       this.getInstitutoInfraestructura = getInstitutoInfraestructura;
       this.getScore = getScore;
+      this.getLocalidades = getLocalidades;
       this.setScore = setScore;
       this.informationFixed = informationFixed;
 
@@ -44,20 +45,27 @@
 
       console.log('url', api);
 
-      function getSchools(name){
+      function getSchools(name, params){
+        params = params || {
+          term: name,
+          solr: true
+        };
+
         return $http({
           method: 'GET',
           url: api + 'api/escuelas',
-          params: {
-            term: name,
-            solr: true,//falla en sandbox...
-          }
+          params: params
         })
         .then(getSchoolsComplete)
         .catch(getSchoolsFailed);
 
         function getSchoolsComplete(res){
           if (res.data && res.data.escuelas) {
+            if (res.data.pagination) {
+              res.data.escuelas.serverCount = res.data.pagination.count;
+              res.data.escuelas.totalPages = res.data.pagination.document_pages;
+              res.data.escuelas.page = res.data.pagination.current_page;
+            }
             return res.data.escuelas;
           }
           return [];
@@ -220,6 +228,12 @@
 
       }
 
+      function getLocalidades(entidadId, municipioId) {
+        return $http({method:'POST',url: api + 'api/localidades', data:{
+          entidad: entidadId,
+          municipio: municipioId
+        }});
+      }
     });
 
 })();

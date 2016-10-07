@@ -964,7 +964,7 @@ md-input-container .md-input{
 .footer .links-info a:after{
   content:'';
   width: 2px;
-  background:#17C48E;  
+  background:#17C48E;
   height: 16px;
   position: absolute;
   right: 0;
@@ -1340,3 +1340,126 @@ md-dialog.dialog-no-disponible md-dialog-content{
 .logos .mte{width: 253px;height:63px;}
 
 .logos{padding-top: 15px;}
+
+/*searching*/
+#search .title{
+  background-color: #45B779;
+  color: white;
+}
+#search .searching label{
+  color: #BEC3D2;
+  font-weight: bold;
+  padding: 2px;
+}
+#search .searching select{
+  background: #fff;
+  color: #636363;
+  border: 0;
+  padding: 6px 8px;
+}
+
+#search .searching p{
+  padding: 10px;
+  font-size: 18px;
+  border-bottom: 1px solid #D6D6D7;
+  border-right: 1px solid #D6D6D7;
+  margin: 0;
+}
+
+#search .searching p.no-border{
+  border-right: none;
+}
+
+#search input{
+  border: 1px solid #D6D6D7;
+  width: 70%;
+  padding: 4px 10px;
+}
+
+#search select{
+  max-width: 180px;
+}
+
+.results{
+  margin-top: 25px;
+}
+
+.results .count{
+  color: #7B7B7B;
+  font-size: 22px;
+  text-align: center;
+}
+
+.results .schools{
+  background-color: #009AD3;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+}
+
+.results .school{
+  background-color: #E2E2E2;
+  margin: 5px;
+  padding: 5px 50px;
+}
+
+.results .schools p{
+  padding: 22px 0;
+}
+
+.results .school.green{
+  background-color: #45B779;
+}
+
+.results .school.green p{
+  color: white;
+}
+
+.results .school.green span{
+  color: white;
+  font-weight: 400;
+}
+
+.results p{
+  margin: 5px;
+}
+.results .name{
+  color: #4F4F4F;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.results .meta{
+  font-size: 15px;
+  color: #505050;
+}
+
+.results .location{
+  color: #4F4F4F;
+  font-weight: bold;
+}
+
+.results .location .address{
+  color: #727272;
+}
+
+.results .shift{
+  color: #727272;
+}
+
+.results .paginate{
+  margin: 47px 10px 20px;
+}
+
+.results .paginate .number{
+  border: 2px solid #BFBFBF;
+  color: #BFBFBF;
+  padding: 15px 22px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.results .paginate .number.selected{
+  background-color: #BFBFBF;
+  color: white;
+}

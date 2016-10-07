@@ -84,6 +84,11 @@
           controller: 'HaznosloSaberCtrl',
           controllerAs: 'haznosloSaber'
         })
+        .when('/buscador', {
+          templateUrl: 'views/buscador.html',
+          controller: 'BuscadorCtrl',
+          controllerAs: 'buscador'
+        })
         .otherwise({
           redirectTo: '/'
         });
