@@ -27,6 +27,8 @@
         <p flex="45" flex-sm="100">
           <label>Escuela</label>
           <input ng-model="buscador.form.term_like.id" ng-change="buscador.reloadSearch()" type="text" placeholder="Jean Piaget">
+          <i class="search-icon fa fa-search fa-flip-horizontal" aria-hidden="true"></i>
+
         </p>
 
         <p>
@@ -90,12 +92,15 @@
           <br>
           <span class="meta">{{school.nivel}} | {{school.control}}</span>
         </p>
+        <i class="location-icon fa fa-map-marker" aria-hidden="true"></i>
         <p class="location">{{school.localidad}}, {{school.entidad}}
           <br>
           <!--
           <span class="address">Col Hidalgo calle lobo #34</span>
           -->
         </p>
+        <br>
+        <i class="shift-icon fa fa-clock-o" aria-hidden="true"></i>
         <p class="shift">{{school.turno.nombre}}</p>
       </a>
       <br>

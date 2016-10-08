@@ -1420,6 +1420,8 @@ md-dialog.dialog-no-disponible md-dialog-content{
   font-weight: 400;
 }
 
+#search .results .school.green .location-icon, #search .results .school.green .shift-icon{color: white;}
+
 .results p{
   margin: 5px;
 }
@@ -1477,9 +1479,37 @@ md-dialog.dialog-no-disponible md-dialog-content{
   margin: -6px 0 50px 0;
 }
 
-#search .title label{color: white;}
+#search .title label{
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+#search .title label:before{
+  content:"\f002";
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  transform: scale(-1, 1);
+  margin: 5px 9px;
+}
+
 #search .title md-autocomplete input{
   width: 100%;
   border: none;
   border-bottom: 1px solid white;
 }
+
+#search .search-icon{
+  background: #00AFF0;
+  padding: 9px 9px 7px;
+  margin-left: -4px;
+  display: inline-block;
+  color: white;
+}
+
+#search .location-icon, #search .shift-icon{color: #B4B4B4;}
+#search .location, #search .shift{display: inline-block;}
