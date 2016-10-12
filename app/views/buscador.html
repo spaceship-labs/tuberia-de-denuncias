@@ -1,5 +1,6 @@
 <div id="search" flex="100" layout-fill layout-wrap>
 
+  <!--
   <div class="title" layout="column" layout-align="center center">
     <h2>Buscador avanzado</h2>
     <md-autocomplete
@@ -20,13 +21,14 @@
       </md-not-found>
     </md-autocomplete>
   </div>
+  -->
 
   <div class="container-info" layout="row" flex="100" layout-fill layout-align="center center">
     <form class="searching" action="" layout="row" layout-align="center center" layout-align-sm="start start" layout-wrap flex-sm="80" layout-wrap>
       <div layout="row" layout-sm="column" flex="80">
         <p flex="45" flex-sm="100">
           <label>Escuela</label>
-          <input ng-model="buscador.form.term_like.id" ng-change="buscador.reloadSearch()" type="text" placeholder="Jean Piaget">
+          <input ng-model="buscador.form.term_like.id" ng-change="buscador.changeText();" type="text" placeholder="Jean Piaget">
           <i class="search-icon fa fa-search fa-flip-horizontal" aria-hidden="true"></i>
 
         </p>
@@ -54,7 +56,7 @@
         </p>
         <p flex="25" flex-sm="100">
           <label for="">Estado:</label>
-					<select ng-model='buscador.form.entidad' ng-options='entidad as entidad.nombre for entidad in buscador.filters.entidades' ng-change="buscador.reloadSearch(); buscador.loadLocalidades()" flex="70">
+					<select class="capitalize" ng-model='buscador.form.entidad' ng-options='entidad as entidad.nombre.toLowerCase() for entidad in buscador.filters.entidades' ng-change="buscador.reloadSearch(); buscador.loadLocalidades()" flex="70">
             <option value="">Todos</option>
           </select>
         </p>
@@ -95,9 +97,7 @@
         <i class="location-icon fa fa-map-marker" aria-hidden="true"></i>
         <p class="location">{{school.localidad}}, {{school.entidad}}
           <br>
-          <!--
-          <span class="address">Col Hidalgo calle lobo #34</span>
-          -->
+          <span class="address capitalize">{{school.domicilio.toLowerCase()}}</span>
         </p>
         <br>
         <i class="shift-icon fa fa-clock-o" aria-hidden="true"></i>

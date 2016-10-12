@@ -8,7 +8,7 @@
  * Controller of the tuberiaPrototypeApp
  */
 angular.module('tuberiaPrototypeApp')
-  .controller('BuscadorCtrl', function ($scope, $location, schoolsService, staticData) {
+  .controller('BuscadorCtrl', function ($scope, $location, $timeout, schoolsService, staticData) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -28,8 +28,26 @@ angular.module('tuberiaPrototypeApp')
       return [];
     };
 
+    var changeTextControl;
+    ctrl.changeText = function() {
+      if (!ctrl.form.term_like || !ctrl.form.term_like.id) {
+        ctrl.loading = false;
+        return;
+      }
+      if (changeTextControl) {
+        $timeout.cancel(changeTextControl);
+      }
+
+      ctrl.loading = true;
+      changeTextControl = $timeout(ctrl.reloadSearch, 2300);
+    };
+
     ctrl.reloadSearch = function(page) {
-      console.log('form', ctrl.form);
+      if (changeTextControl) {
+        $timeout.cancel(changeTextControl);
+        changeTextControl = null;
+      }
+
       ctrl.loading = true;
       var params = {
         p: page || 1,
@@ -43,7 +61,6 @@ angular.module('tuberiaPrototypeApp')
       });
 
       schoolsService.getSchools("", params).then(function(res) {
-        console.log('r', res, params);
         ctrl.loading = false;
         ctrl.schools = res;
       });

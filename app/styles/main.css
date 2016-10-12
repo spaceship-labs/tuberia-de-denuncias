@@ -1470,7 +1470,7 @@ md-dialog.dialog-no-disponible md-dialog-content{
   background-color: white;
   color: #0FA778;
   padding: 5px 67px;
-  margin: -19px 0 5px;
+  margin: 0 0 5px;
   display: block;
 }
 
@@ -1513,3 +1513,8 @@ md-dialog.dialog-no-disponible md-dialog-content{
 
 #search .location-icon, #search .shift-icon{color: #B4B4B4;}
 #search .location, #search .shift{display: inline-block;}
+#search .location-icon{vertical-align: text-top;}
+
+.capitalize, select.capitalize option{
+  text-transform: capitalize;
+}
