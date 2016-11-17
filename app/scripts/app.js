@@ -96,9 +96,9 @@
     .config(function(contentfulProvider) {
       contentfulProvider.setOptions({
         space: 'msnkbvgxrvah',
-        //accessToken: 'c3e13974fb72003886ab1f9151a883721f523e16f8143d95e92313ff1dd2c66e', //production
-        accessToken : '2ccc4f0f4454bbfdd2845dc3027f1b2da0afbf11d00d9c0de03609d70d657d14', //sandbox (includes unpublished content)
-        host: 'preview.contentful.com', //user for sandbox hosts
+        accessToken: 'c3e13974fb72003886ab1f9151a883721f523e16f8143d95e92313ff1dd2c66e', //production
+        //accessToken : '2ccc4f0f4454bbfdd2845dc3027f1b2da0afbf11d00d9c0de03609d70d657d14', //sandbox (includes unpublished content)
+        //host: 'preview.contentful.com', //user for sandbox hosts
       });
     }).value('entityIdsAvailable', ['9', '15', '19', '14', '21'])
       .value('URLAPIMODEPROD', ( baseData === '/ventanilla-escolar/'));
