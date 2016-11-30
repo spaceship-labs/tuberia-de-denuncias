@@ -100,6 +100,13 @@
         //accessToken : '2ccc4f0f4454bbfdd2845dc3027f1b2da0afbf11d00d9c0de03609d70d657d14', //sandbox (includes unpublished content)
         //host: 'preview.contentful.com', //user for sandbox hosts
       });
+    }).run(function($rootScope, $location) {
+      $rootScope.$on('$routeChangeSuccess', function(){
+        var path = $location.path();
+        if (path != '/') {
+          ga('send', 'pageview', path);
+        }
+      });
     }).value('entityIdsAvailable', ['9', '15', '19', '14', '21'])
       .value('URLAPIMODEPROD', ( baseData === '/ventanilla-escolar/'));
     /*

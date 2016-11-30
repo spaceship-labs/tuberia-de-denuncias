@@ -56,7 +56,6 @@
     };
 
     $scope.toSectionWithToken = function(section, otherwise) {
-      console.log($location.path());
       var path = $location.path();
 
       if (path.indexOf('/caso/') === 0 && $routeParams.token) {
