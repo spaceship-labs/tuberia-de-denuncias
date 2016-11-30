@@ -35,11 +35,13 @@ describe('Service: tiposDenuncia', function() {
 
     it('should load tipos-denuncia', function() {
       this.tiposJSON = fixture.load('tipos-denuncia.json');
-      //$httpBackend.expectGET('https://cdn.contentful.com:443/spaces/msnkbvgxrvah/entries?access_token=c3e13974fb72003886ab1f9151a883721f523e16f8143d95e92313ff1dd2c66e&content_type=1CQ8zB04qAuISUQwSEWUmA')
-      //  .respond(this.tiposJSON);
+      $httpBackend.expectGET('https://cdn.contentful.com:443/spaces/msnkbvgxrvah/entries?access_token=c3e13974fb72003886ab1f9151a883721f523e16f8143d95e92313ff1dd2c66e&content_type=1CQ8zB04qAuISUQwSEWUmA')
+      .respond(this.tiposJSON);
 
+      /*
       $httpBackend.expectGET('https://preview.contentful.com:443/spaces/msnkbvgxrvah/entries?access_token=2ccc4f0f4454bbfdd2845dc3027f1b2da0afbf11d00d9c0de03609d70d657d14&content_type=1CQ8zB04qAuISUQwSEWUmA')
         .respond(this.tiposJSON);
+      */
 
       tiposDenuncia.getList();
       $httpBackend.flush();
@@ -50,11 +52,13 @@ describe('Service: tiposDenuncia', function() {
       var typeId = '3JFuLY15te0mam6KeUu6kC';
 
       this.tipoJSON = fixture.load('tipo-denuncia-infraestructura.json');
-      //$httpBackend.expectGET('https://cdn.contentful.com:443/spaces/msnkbvgxrvah/entries?access_token=c3e13974fb72003886ab1f9151a883721f523e16f8143d95e92313ff1dd2c66e&sys.id='+typeId)
-      //  .respond(this.tipoJSON);
+      $httpBackend.expectGET('https://cdn.contentful.com:443/spaces/msnkbvgxrvah/entries?access_token=c3e13974fb72003886ab1f9151a883721f523e16f8143d95e92313ff1dd2c66e&sys.id='+typeId)
+        .respond(this.tipoJSON);
 
+      /*
       $httpBackend.expectGET('https://preview.contentful.com:443/spaces/msnkbvgxrvah/entries?access_token=2ccc4f0f4454bbfdd2845dc3027f1b2da0afbf11d00d9c0de03609d70d657d14&sys.id='+typeId)
         .respond(this.tipoJSON);
+        */
 
       tiposDenuncia.getDenunciaType(typeId, {
         cct: '11EPR0657X',
