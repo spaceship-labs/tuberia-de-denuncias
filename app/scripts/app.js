@@ -103,7 +103,7 @@
     }).run(function($rootScope, $location) {
       $rootScope.$on('$routeChangeSuccess', function(){
         var path = $location.path();
-        if (path != '/') {
+        if (path !== '/') {
           ga('send', 'pageview', path);
         }
       });
