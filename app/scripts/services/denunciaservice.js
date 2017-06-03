@@ -13,7 +13,7 @@
     .service('denunciaService', function ($http, URLAPIMODEPROD) {
 
       //var baseUrl = 'http://comparatuescuela/api/';
-      var baseUrl = 'https://mte.spaceshiplabs.com/api/';
+      var baseUrl = 'http://mte.spaceshiplabs.com/api/';
 
       if (URLAPIMODEPROD) {
         baseUrl = 'http://www.mejoratuescuela.com/api/';

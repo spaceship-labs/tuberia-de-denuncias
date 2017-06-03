@@ -37,7 +37,7 @@
       this.getUserSchool = getUserSchool;
 
       //var api = 'http://comparatuescuela/';
-      var api = 'https://mte.spaceshiplabs.com/';
+      var api = 'http://mte.spaceshiplabs.com/';
 
       if (URLAPIMODEPROD) {
         api = 'http://www.mejoratuescuela.com/';

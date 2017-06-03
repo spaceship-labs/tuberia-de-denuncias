@@ -52,7 +52,8 @@ angular.module('tuberiaPrototypeApp')
       var params = {
         p: page || 1,
         sort: "Semáforo educativo",
-        type_test: "planea"
+        type_test: "planea",
+        schoolStatus: -1
       };
 
       Object.keys(ctrl.form).forEach(function(key){

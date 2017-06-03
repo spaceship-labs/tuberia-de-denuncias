@@ -117,6 +117,7 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
   }
 
   function createDenuncia(){
+    /*
     if (entityIdsAvailable && entityIdsAvailable.length) {
       var entityId = ctrl.selectedSchool && ctrl.selectedSchool.entidad || '';
       if (entityIdsAvailable.indexOf(entityId.toString()) === -1) {
@@ -125,6 +126,7 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
       }
       console.log("success", entityId);
     }
+    */
 
 
     ctrl.createDenunciaError = false;
