@@ -43,7 +43,7 @@
         api = 'http://www.mejoratuescuela.com/';
       }
 
-      console.log('url', api);
+      console.log('url.', api);
 
       function getSchools(name, params){
         params = params || {

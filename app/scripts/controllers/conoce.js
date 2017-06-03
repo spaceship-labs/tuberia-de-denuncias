@@ -7,7 +7,7 @@
  * # ConoceCtrl
  * Controller of the tuberiaPrototypeApp
  */
-function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schoolsService, denunciaService, entityIdsAvailable){
+function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schoolsService, denunciaService){
   var ctrl = this;
   ctrl.searchText = '';
   ctrl.categories = [];
@@ -159,6 +159,7 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
 
   ctrl.init();
 
+  /*
   function showDialog() {
     var parentEl = angular.element(document.body);
       $mdDialog.show({
@@ -202,6 +203,7 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
         };
     }
   }
+  */
 
   $scope.anchorTo = function(name) {
     var anchor = document.querySelector('.'+name);
@@ -214,6 +216,6 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
   //showDialog();
 }
 
-ConoceCtrl.$inject = ['$scope', '$location','$filter', '$mdDialog', '$routeParams', 'schoolsService', 'denunciaService', 'entityIdsAvailable'];
+ConoceCtrl.$inject = ['$scope', '$location','$filter', '$mdDialog', '$routeParams', 'schoolsService', 'denunciaService'];
 angular.module('tuberiaPrototypeApp')
   .controller('ConoceCtrl', ConoceCtrl);
