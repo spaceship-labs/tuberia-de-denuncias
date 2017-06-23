@@ -7,7 +7,7 @@
  * # ConoceCtrl
  * Controller of the tuberiaPrototypeApp
  */
-function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schoolsService, denunciaService){
+function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schoolsService, denunciaService, entityIdsAvailable){
   var ctrl = this;
   ctrl.searchText = '';
   ctrl.categories = [];
@@ -117,8 +117,8 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
   }
 
   function createDenuncia(){
-    /*
-    if (entityIdsAvailable && entityIdsAvailable.length) {
+    var slugIsBullying = ctrl.selectedCategory && ctrl.selectedCategory.fields && ctrl.selectedCategory.fields.slug == 'acoso-escolar';
+    if (slugIsBullying && entityIdsAvailable && entityIdsAvailable.length) {
       var entityId = ctrl.selectedSchool && ctrl.selectedSchool.entidad || '';
       if (entityIdsAvailable.indexOf(entityId.toString()) === -1) {
         showDialog();
@@ -126,8 +126,6 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
       }
       console.log("success", entityId);
     }
-    */
-
 
     ctrl.createDenunciaError = false;
     if(ctrl.selectedSchool && ctrl.validateFields(['email','name','occupation'],ctrl.user) ){
@@ -159,7 +157,6 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
 
   ctrl.init();
 
-  /*
   function showDialog() {
     var parentEl = angular.element(document.body);
       $mdDialog.show({
@@ -203,7 +200,6 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
         };
     }
   }
-  */
 
   $scope.anchorTo = function(name) {
     var anchor = document.querySelector('.'+name);
@@ -216,6 +212,6 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
   //showDialog();
 }
 
-ConoceCtrl.$inject = ['$scope', '$location','$filter', '$mdDialog', '$routeParams', 'schoolsService', 'denunciaService'];
+ConoceCtrl.$inject = ['$scope', '$location','$filter', '$mdDialog', '$routeParams', 'schoolsService', 'denunciaService', 'entityIdsAvailable'];
 angular.module('tuberiaPrototypeApp')
   .controller('ConoceCtrl', ConoceCtrl);
