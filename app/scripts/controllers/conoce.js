@@ -117,7 +117,7 @@ function ConoceCtrl($scope ,$location, $filter, $mdDialog, $routeParams, schools
   }
 
   function createDenuncia(){
-    var slugIsBullying = ctrl.selectedCategory && ctrl.selectedCategory.fields && ctrl.selectedCategory.fields.slug == 'acoso-escolar';
+    var slugIsBullying = ctrl.selectedCategory && ctrl.selectedCategory.fields && ctrl.selectedCategory.fields.slug === 'acoso-escolar';
     if (slugIsBullying && entityIdsAvailable && entityIdsAvailable.length) {
       var entityId = ctrl.selectedSchool && ctrl.selectedSchool.entidad || '';
       if (entityIdsAvailable.indexOf(entityId.toString()) === -1) {
