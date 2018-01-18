@@ -8,9 +8,9 @@
       <br>
       <strong>Los tres pasos de la herramienta son:</strong></p>
 
-      <div 
-        layout="row" 
-        layout-wrap 
+      <div
+        layout="row"
+        layout-wrap
         class="features"
       >
         <div flex="33" flex-sm="100" class="feature">
@@ -106,13 +106,13 @@
     <div class="user-action" flex="50">
       <p><strong>Comienza tu reporte</strong></p>
       <div class="action-btn-wrap">
-        <a href="#/conoce" class="action-btn">Comenzar</a>
+        <a href="#/conoce" class="action-btn" ga="'send', 'event', 'home', 'click', 'comenzar reporte'">Comenzar</a>
       </div>
     </div>
     <div class="user-action user-action-alt" flex="50">
       <p><strong>¿Ya iniciaste tu reporte?</strong></p>
       <div class="action-btn-wrap">
-        <a ng-click="home.toggleMailSignIn = true" href="" class="action-btn">Continuar con él</a>
+        <a ga="'send', 'event', 'home', 'click', 'continuar con el reporte'" ng-click="home.toggleMailSignIn = true" href="" class="action-btn">Continuar con él</a>
       </div>
     </div>
   </div>
